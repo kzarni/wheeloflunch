@@ -1,0 +1,4061 @@
+{
+	"info": {
+		"_postman_id": "683ac17d-9b68-4c1f-92b6-ee3178735ec1",
+		"name": "Dev One App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26261286",
+		"_collection_link": "https://blue-desert-725354.postman.co/workspace/OneApp-WorkSpace~5cd9b6a9-c647-48c0-8f09-1ff1f4d6c594/collection/11069202-683ac17d-9b68-4c1f-92b6-ee3178735ec1?action=share&source=collection_link&creator=26261286"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "changePin",
+					"item": [
+						{
+							"name": "check",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJQS3k2WUpBTzUwRDI1ckJwRjNMOW4zLTNqdkZNSmpjMkh5YlN4YTI1aXlvIn0.eyJleHAiOjE2OTgxNDU0NjIsImlhdCI6MTY5ODE0MTg2MiwianRpIjoiODE3MWIzYTQtN2VhYi00MmU3LWE5ZTAtMTE2NzUxYzk1M2E3IiwiaXNzIjoiaHR0cDovL2F1dGguZG9sbGFyc21hcnQuY28vcmVhbG1zL2RzZ3BheSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI2Mjc0ZTVmMy1hM2QxLTQwN2UtOGEzZi02NThlMTY2M2I2NDYiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJtb2JpbGUtYXV0aCIsInNlc3Npb25fc3RhdGUiOiI4NjQ4OGQ2OS1lYWEzLTQzYmQtYmU0OC00OTg0NGFlZjZjYzIiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbIiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1kc2ciLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiODY0ODhkNjktZWFhMy00M2JkLWJlNDgtNDk4NDRhZWY2Y2MyIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ6YXJuaWt5YXdAZHNncGF5LmNvbSIsImVtYWlsIjoiemFybmlreWF3QGRzZ3BheS5jb20ifQ.vG4xPQkQc3gjkkkRDSRPaqWKBADbZ-VPdmray0CwGSHpL0NoqTFn2jgIAaKGMbv_t0eRcDaf5665DV_GnTdIqBqbN-2ELn5bV4pLSqfTv4PBc4jDNEztpf8NXZyuzYmJs5ppBoHs-hKpXsQUhnsBsg26okXvdH5SHSQAUs6V6qGoLD1Ol2sXCaS6JLkPMSVrL1s66d4rewy5nlWe1qth7py5KJuojQ3mztQHdnxYwB64pvgqTSoavcF7gzJ43x8VqVYCht2oJqWcoZCMayCcnx9YuYQIn3Gy_8JIoKOCn7nzC2LHr6QtCT6qcGbXcHKRY18IUY8EjzynK5kBoH9kDg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pin\":\"iitk7NxbIJOWwVnD77fk/gMo35OSoydnB/eLGZcbiNCLR6Hfco2EH1Xik5/QI7a7UXltrk03sjxcG91gY2j5cKWkdka8hDORADXJUJg1fdY1RqAx+dCN40smxWuZrsB3+g+Qrl0G9lCqZikDdultWEB8rcZ5jHItA5i6mS/lx6MOr5FtrQ0BMXFpvmvjusu/tNQDDL8ZSTae+idmbxKDerhhaT7uidCucItz/u5iCsEmR9ofJSdLWCSeZQaEXPaMsMMTduNOLMkXWfDvNrNdq6hTibDAJKnqFqJWPlkUhsJomfm/pIcDFs3NNSBa0CnoUSW6i+kHGPpc2OfGyA/XhdQ+KlRrX3CSVrsoHoExBQpzYlC5n/TtMdwuaDVhKJm5X9dREs3Yvl+EaQXU4RQa6G1weJNUmWBYJX8x4tLA1noOfCox4htF6RGj7u+rjRcrbMnumkMIceuct/f+Le2fS3GHpgTy6fJADRK9DhpJ0bMQLJMgWz47mlQupMijNZL4qSXuztFEZq4sO5QsMdWAHkZ4f6MhkksN53iXHNSdd8EttRSIQPa5DntN6/oirzQZq3RHEPGCD8RsQttNjWS0jm63oLVUH6rJaMjvczATK+el2dZ8us1Iqi2hOwAvsMuzTDpUJyDYchvHBAhsJbT2WamIswuAVzjC5cQasBnSA4w=\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5001/oneapp/auth/changePin/check",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"oneapp",
+										"auth",
+										"changePin",
+										"check"
+									]
+								},
+								"description": "## Change PIN Request\n\nThis endpoint allows users to change their PIN by submitting a new PIN value.\n\n### Request\n\n- **Method**: POST\n    \n- **URL**: `http://localhost:5001/oneapp/auth/changePin/check`\n    \n\n#### Request Body\n\nThe request body must be in JSON format and should contain the following parameter:\n\n- **pin** (string): The new PIN that the user wants to set. This should be a secure string that meets any specified security requirements.\n    \n\n### Response\n\nUpon successful processing of the request, the API will return a response indicating the result of the PIN change operation. The expected response will typically include a status code and a message confirming whether the PIN change was successful or if there was an error.\n\n### Notes\n\n- Ensure that the new PIN adheres to the security policies set by the application (e.g., length, complexity).\n    \n- Handle any errors returned by the API gracefully in your application."
+							},
+							"response": []
+						},
+						{
+							"name": "change",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJQS3k2WUpBTzUwRDI1ckJwRjNMOW4zLTNqdkZNSmpjMkh5YlN4YTI1aXlvIn0.eyJleHAiOjE2OTgxNDU0NjIsImlhdCI6MTY5ODE0MTg2MiwianRpIjoiODE3MWIzYTQtN2VhYi00MmU3LWE5ZTAtMTE2NzUxYzk1M2E3IiwiaXNzIjoiaHR0cDovL2F1dGguZG9sbGFyc21hcnQuY28vcmVhbG1zL2RzZ3BheSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI2Mjc0ZTVmMy1hM2QxLTQwN2UtOGEzZi02NThlMTY2M2I2NDYiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJtb2JpbGUtYXV0aCIsInNlc3Npb25fc3RhdGUiOiI4NjQ4OGQ2OS1lYWEzLTQzYmQtYmU0OC00OTg0NGFlZjZjYzIiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbIiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1kc2ciLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiODY0ODhkNjktZWFhMy00M2JkLWJlNDgtNDk4NDRhZWY2Y2MyIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ6YXJuaWt5YXdAZHNncGF5LmNvbSIsImVtYWlsIjoiemFybmlreWF3QGRzZ3BheS5jb20ifQ.vG4xPQkQc3gjkkkRDSRPaqWKBADbZ-VPdmray0CwGSHpL0NoqTFn2jgIAaKGMbv_t0eRcDaf5665DV_GnTdIqBqbN-2ELn5bV4pLSqfTv4PBc4jDNEztpf8NXZyuzYmJs5ppBoHs-hKpXsQUhnsBsg26okXvdH5SHSQAUs6V6qGoLD1Ol2sXCaS6JLkPMSVrL1s66d4rewy5nlWe1qth7py5KJuojQ3mztQHdnxYwB64pvgqTSoavcF7gzJ43x8VqVYCht2oJqWcoZCMayCcnx9YuYQIn3Gy_8JIoKOCn7nzC2LHr6QtCT6qcGbXcHKRY18IUY8EjzynK5kBoH9kDg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pin\": \"iitk7NxbIJOWwVnD77fk/gMo35OSoydnB/eLGZcbiNCLR6Hfco2EH1Xik5/QI7a7UXltrk03sjxcG91gY2j5cKWkdka8hDORADXJUJg1fdY1RqAx+dCN40smxWuZrsB3+g+Qrl0G9lCqZikDdultWEB8rcZ5jHItA5i6mS/lx6MOr5FtrQ0BMXFpvmvjusu/tNQDDL8ZSTae+idmbxKDerhhaT7uidCucItz/u5iCsEmR9ofJSdLWCSeZQaEXPaMsMMTduNOLMkXWfDvNrNdq6hTibDAJKnqFqJWPlkUhsJomfm/pIcDFs3NNSBa0CnoUSW6i+kHGPpc2OfGyA/XhdQ+KlRrX3CSVrsoHoExBQpzYlC5n/TtMdwuaDVhKJm5X9dREs3Yvl+EaQXU4RQa6G1weJNUmWBYJX8x4tLA1noOfCox4htF6RGj7u+rjRcrbMnumkMIceuct/f+Le2fS3GHpgTy6fJADRK9DhpJ0bMQLJMgWz47mlQupMijNZL4qSXuztFEZq4sO5QsMdWAHkZ4f6MhkksN53iXHNSdd8EttRSIQPa5DntN6/oirzQZq3RHEPGCD8RsQttNjWS0jm63oLVUH6rJaMjvczATK+el2dZ8us1Iqi2hOwAvsMuzTDpUJyDYchvHBAhsJbT2WamIswuAVzjC5cQasBnSA4w=\",\r\n    \"changePinId\": \"8da90c88-67ca-4058-af53-9212a26367d6\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5001/oneapp/auth/changePin/change",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"oneapp",
+										"auth",
+										"changePin",
+										"change"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "register",
+					"item": [
+						{
+							"name": "register manual",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"zarnikyaw.dev@gmail.com\",\r\n    \"password\": \"zarnikyaw@dsgpay\",\r\n    \"firstName\": \"Zarni\",\r\n    \"middleName\": \"\",\r\n    \"lastName\": \"Kyaw\",\r\n    \"phoneNumber\": \"+85212345678910\",\r\n    \"companyName\": \"Zarni Kyaw Co. Ltd.\",\r\n    \"tradingName\": \"Zarni Kyaw Co. Ltd.\",\r\n    \"countryOfResidence\": \"TH\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.app.dsgpay.com/auth/register/manual",
+									"protocol": "https",
+									"host": [
+										"api",
+										"app",
+										"dsgpay",
+										"com"
+									],
+									"path": [
+										"auth",
+										"register",
+										"manual"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"blabla@dsgpay.com\",\r\n    \"password\": \"LMATPiz3IdhD6kBV2UrywBT+Ig1+BPAjcWxWCHekv/Mjzzdv7IK+MzthL5FtiE59AaGkpgkVFCNP0LJ6qj+1FlmmN04DS9jPITd7b/YcPxrO1vv8nbMjFX9DpWHxRKZmjH8M2DhNHoxp2PpOim7ovvU0WlZfUXCEeSAoUfa85VHUYTvltJYS+ANC6jMKE8BItiDadaGpczW6FGkOpKm/fwUUBxgs7pMxIsGjWWWi02uq+S1S+dSrmibpFPJzLtsr40dFyNQc/A3VwlfDtHXdzKQEClt97zAf4oOFdCHNPFUrSH1dWYmssz0ljZ+KhziNh8587RNo5u0jqeY1PshG01ME9DcK7TzYruGy7/EOlXPxfIxxMTa2Pnd7fPi0fyqSPpDLJ29uq9ZOX7DxUul2mVulG4w5/ER0m/DzJbaRiWCIY+lC4EY4A7Q1Ml6zI4YbASdeX6cSWup00+HZ4P+7g/0qEXI1XtNl+QMyNfRGN+Wn1uSNv67c4pAVvA1joEjjo9SM2HTUfPXqghLEfPkUrXTWAtrSIuwIRg9QpTw24SOl7HRpb3TVlO+wJumsQzm415J7E/rBEQKeIWquxJbgKQqqKZCRE8OcdKEuB/HZ+8Oj5vcWrv9TKGsar3LN47DaA/VO2OPfbI3IPFWj5jMVSxrBpaGYEiKtYZW7aXhkDZc=\",\r\n    \"firstName\": \"blabla\",\r\n    \"middleName\": \"\",\r\n    \"lastName\": \"blabla\",\r\n    \"phoneNumber\": \"+66954519026\",\r\n    \"companyName\": \"Blabla Corp\",\r\n    \"tradingName\": \"Blabla Corp\",\r\n    \"type\": \"SME\",\r\n    \"countryOfResidence\": \"TH\",\r\n    \"auth_id\": \"3233037f-c457-4c7a-aa6f-d8f69be5090c\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5001/auth/register/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5001",
+									"path": [
+										"auth",
+										"register",
+										""
+									]
+								},
+								"description": "## Register User\n\nThis endpoint is used to register a new user in the system. It accepts user details and creates a new account based on the provided information.\n\n### Request\n\n**Method:** POST  \n**URL:** `http://localhost:5001/auth/register/`\n\n#### Request Body\n\nThe request body must be sent in JSON format and should include the following parameters:\n\n- **email** (string): The email address of the user. This will be used for account verification and login.\n    \n- **password** (string): The password for the user's account. It should be securely stored and meet the application's security requirements.\n    \n- **firstName** (string): The first name of the user.\n    \n- **middleName** (string): The middle name of the user (optional).\n    \n- **lastName** (string): The last name of the user.\n    \n- **phoneNumber** (string): The phone number of the user, including the country code.\n    \n- **companyName** (string): The name of the company the user is associated with.\n    \n- **tradingName** (string): The trading name of the company.\n    \n- **type** (string): The type of entity (e.g., SME).\n    \n- **countryOfResidence** (string): The country where the user resides.\n    \n- **auth_id** (string): A unique identifier for the user, used for authentication purposes.\n    \n\n### Response\n\nUpon successful registration, the server will respond with a confirmation message and may include additional user details or a token for authentication. The structure of the response will typically include:\n\n- **status** (string): Indicates the success or failure of the registration process.\n    \n- **message** (string): A message providing additional information about the registration result.\n    \n- **user** (object): An object containing user details such as user ID, email, and any other relevant information.\n    \n\n### Example Response\n\n``` json\n{\n  \"status\": \"success\",\n  \"message\": \"User registered successfully.\",\n  \"user\": {\n    \"id\": \"123456\",\n    \"email\": \"blabla@dsgpay.com\"\n  }\n}\n\n ```\n\nEnsure to validate all input parameters before sending the request to avoid errors during the registration process."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "kyc",
+					"item": [
+						{
+							"name": "verify",
+							"item": [
+								{
+									"name": "getVerify",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MjUwMDU0MjUsImlhdCI6MTcyNTAwNTM2NSwianRpIjoiYmMzOGRmODAtZDUyZC00OTYwLTgxMDQtNmU4OWUxYWNkOGQ3IiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMDVkYmJhNTYtMmQxYi00YWUyLWIzMTUtODdkYjZhMDk3Yjk1IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6IjkyNzU0ZjQ2LTIyMGEtNDRhMC05NjI2LThmMmI5ZmQ0MmJhYSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjkyNzU0ZjQ2LTIyMGEtNDRhMC05NjI2LThmMmI5ZmQ0MmJhYSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3LmRldkBnbWFpbC5jb20iLCJlbWFpbCI6Inphcm5pa3lhdy5kZXZAZ21haWwuY29tIn0.JiEAq_3D4nDHy4mIWwMhoIpYsbhSibg8mK--NJ_Ek98U6SI2Hqm-94NGDNKmd5YK7dICufwZ2ZQZ2H3h-7mG3V7LeBwTu2pW1UL85r9eEtJ3AETnS4VPPFBfn4bmjl1-hC23kzJjkAEFbgALw2c4kL8U-oaI6kmcD7ThtmymKIQ5KKnCqcW6-A1iINl5mp_uyE04nS-zT5T_aJ1Rvc0k3kWGDfPRx4QC28eb0riN2Tps2KY0fz--PrU75lQ_BJogH0zVC0jfMGA9e769MDcgxa1mzT_nqVS0sFOj-sZxAZu1CjH00ie9Fi7eSeljW71VBZxxQDa0h0moQGrWsBHLww",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:5001/auth/v2/kyc/verify",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5001",
+											"path": [
+												"auth",
+												"v2",
+												"kyc",
+												"verify"
+											]
+										},
+										"description": "## Endpoint Description\n\nThis endpoint is used to verify the Know Your Customer (KYC) information of a user. It is part of the authentication process to ensure that the user's identity is confirmed and compliant with regulatory standards.\n\n### Request Format\n\n- **Method**: GET\n    \n- **URL**: `http://localhost:5001/auth/v2/kyc/verify`\n    \n\n### Request Parameters\n\nThis endpoint does not require a request body. It is a simple GET request which may include query parameters in the URL for verification purposes. Ensure that any necessary parameters are included in the URL as required by the specific implementation.\n\n### Response Structure\n\nThe response from this endpoint will typically include:\n\n- **status**: Indicates the success or failure of the verification process.\n    \n- **message**: A descriptive message providing additional information about the verification result.\n    \n- **data**: An object containing detailed information about the KYC verification, if applicable.\n    \n\nThe structure of the response will help the client understand whether the KYC verification was successful and provide relevant details or errors if it was not.\n\n### Example Response\n\n``` json\n{\n  \"status\": \"success\",\n  \"message\": \"KYC verification completed successfully.\",\n  \"data\": {\n    // Detailed KYC verification information\n  }\n}\n\n ```\n\nEnsure to handle the response appropriately based on the status returned by the API."
+									},
+									"response": []
+								},
+								{
+									"name": "setVerify",
+									"protocolProfileBehavior": {
+										"disabledSystemHeaders": {}
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MjIyMzc2NTAsImlhdCI6MTcyMjIzNzU5MCwianRpIjoiZWJjZTNmZjQtMDI0Yy00NWJhLTk0YWUtYTU4ZTdiMjgzZmVmIiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6Ijc2N2U3NTc0LTQxODUtNGM0Yy1iNTMwLWNkZWZmNGM0OWIyYiIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6Ijc2N2U3NTc0LTQxODUtNGM0Yy1iNTMwLWNkZWZmNGM0OWIyYiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.I-ah0zUcSzLAhSjrEhvXDFvRm-EFkqQlQ-EQ-BrODFEuXMEnj8-5SzdXIHTkwKlqeJheWRq76MJB2eF64m0tcFZOByho6B-GnnItzd6qiyKquGKFsgoGY5MOsATo4tHqEp4e54pbbkqY_Wtz7zkMXg8_FD9cOQi4Pw8WAAnl-kRbZXULjxbHnoKRxtmFYRC5ua1FHT6ib7wUEOoMCr4f_5QxlXHg7Fn8Bndfb7TvF6QrDwxBpFMjbqC4LdPwDshs6b_pwYpA_cePLYqlV25ip2WVwvTHp0_xx1pBL_mBCZyl2B8h9AcxP715puwbSjVbtupIR4luTEfg4VUVdIUKRg",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5001/auth/v2/kyc/verify",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5001",
+											"path": [
+												"auth",
+												"v2",
+												"kyc",
+												"verify"
+											]
+										},
+										"description": "## PATCH /auth/v2/kyc/verify\n\nThis endpoint is used to verify the Know Your Customer (KYC) details of a user. It allows the client to send updated KYC information to the server for validation and processing.\n\n### Request Body\n\nThe request body should be sent in `application/x-www-form-urlencoded` format and must include the following parameters:\n\n- **parameter1** (text): Description of parameter1.\n    \n- **parameter2** (text): Description of parameter2.\n    \n- **parameter3** (text): Description of parameter3.\n    \n\nEnsure that all required parameters are included in the request to successfully verify the KYC details.\n\n### Response Structure\n\nUpon a successful request, the server will respond with a JSON object containing the following fields:\n\n- **status**: Indicates the success or failure of the verification process.\n    \n- **message**: A descriptive message regarding the verification outcome.\n    \n- **data**: Additional data related to the verification, if applicable.\n    \n\nThe response will help the client understand the result of the KYC verification process and any further actions that may be required."
+									},
+									"response": []
+								},
+								{
+									"name": "getVerifySource",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MzA0NTU0ODEsImlhdCI6MTczMDQ1NTQyMSwianRpIjoiNDg4N2JhMTktZjE1My00YTdmLTgyMGMtZTQ1ZTE0M2I1ZThjIiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMzJiM2MyMzItNDg0Zi00YTEzLWI4ZmUtMjlhNjc2MWVhYWEyIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6IjU4ZTBjNDFhLTZhOGQtNDJmOS05MWUyLWI1YWZhMGJhNjZlNCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjU4ZTBjNDFhLTZhOGQtNDJmOS05MWUyLWI1YWZhMGJhNjZlNCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemV0dXMwNzVAZ21haWwuY29tIiwiZW1haWwiOiJ6ZXR1czA3NUBnbWFpbC5jb20ifQ.EQ83PsT0Clg5aiwJJemvBWNpxMwCrwZaN-iLqjWCCXiG2FjZIHfv6fuUUb24Mes3J53tQUuA3JXDg6opfH_S4b3Py79BRdZ9yz6QsJ8gXwhJovvM8EzNY9JrlE8Lp0aWBE-FKylUZ-QnhM8MD61ktVMicZUIScrvw7W4VOptdxHexcWOm5pgYUECMtCMdO7YkKOdAPWN1l__L_o8nZaFIZnV7WldxG_RKrQqZptMXJz1IFwfAq90vX86opvi3BmSkRBYSyY8NqevkHkzVxktqfnNAKT1bDCOtyFLX4F0ff_7y_kKfmE6_xmc68m6JEb108aHQ5Hd9nMUq_NguOZRyg",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": []
+										},
+										"url": {
+											"raw": "http://localhost:5001/auth/v2/kyc/verify/business",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5001",
+											"path": [
+												"auth",
+												"v2",
+												"kyc",
+												"verify",
+												"business"
+											]
+										},
+										"description": "## Verify Business KYC\n\nThis endpoint is used to verify the Know Your Customer (KYC) information for a business. It is part of the authentication process to ensure that the business meets regulatory requirements.\n\n### Request\n\n- **Method**: GET\n    \n- **URL**: `http://localhost:5001/auth/v2/kyc/verify/business`\n    \n\n### Input Parameters\n\nThis endpoint does not require any input parameters in the request body.\n\n### Response Structure\n\nThe response will contain the verification status of the business KYC. The structure of the response may include fields such as:\n\n- `status`: Indicates the result of the verification (e.g., success, failure).\n    \n- `message`: Provides additional information regarding the verification process.\n    \n- `data`: Contains any relevant data related to the business verification, if applicable.\n    \n\nEnsure to handle the response appropriately based on the status returned."
+									},
+									"response": []
+								},
+								{
+									"name": "setVerifySource",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:5001/auth/v2/kyc/verify/individual",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5001",
+											"path": [
+												"auth",
+												"v2",
+												"kyc",
+												"verify",
+												"individual"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "getSourceDetails",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{staging_authToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"sessionId\": \"\",\r\n    \"documentType\": \"ind_id_passport\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5001/auth/v2/kyc/verify/source/business/form",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5001",
+											"path": [
+												"auth",
+												"v2",
+												"kyc",
+												"verify",
+												"source",
+												"business",
+												"form"
+											]
+										},
+										"description": "### Endpoint Description\n\nThis endpoint is used to verify the source of a business's KYC (Know Your Customer) documentation. It allows the user to submit a request to validate specific identification documents associated with a business.\n\n### Request Format\n\n- **Method**: GET\n    \n- **URL**: `http://localhost:5001/auth/v2/kyc/verify/source/business/form`\n    \n\n#### Request Body\n\nThe request body should be in JSON format and must contain the following parameters:\n\n- **sessionId** (string): A unique identifier for the session. This parameter is used to track the KYC verification process.\n    \n- **documentType** (string): The type of identification document being submitted for verification. In this case, the value should be `\"ind_id_passport\"`.\n    \n\n**Example Request Body:**\n\n``` json\n{\n  \"sessionId\": \"\",\n  \"documentType\": \"ind_id_passport\"\n}\n\n ```\n\n### Response Structure\n\nThe response from this endpoint will provide the result of the KYC verification process. The structure of the response will typically include:\n\n- **status** (string): Indicates the success or failure of the verification process.\n    \n- **message** (string): Provides additional information regarding the verification result.\n    \n- **data** (object): Contains any relevant data returned from the verification process, such as validation results or additional details.\n    \n\n### Example Response\n\n``` json\n{\n  \"status\": \"success\",\n  \"message\": \"Verification completed successfully.\",\n  \"data\": {\n    // additional verification details\n  }\n}\n\n ```\n\n### Summary\n\nThis endpoint facilitates the verification of business identification documents as part of the KYC process, ensuring compliance and security in business transactions."
+									},
+									"response": []
+								},
+								{
+									"name": "setSourceDetails",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{staging_authToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    //     \"companyName\": \"1\",\r\n    // \"tradingName\": \"2\",\r\n    // \"registerAddress\": \"3\",\r\n    // \"businessUrl\": \"4\",\r\n    // \"natureOfBusiness\": \"5\",\r\n    // \"typicalCustomerTypes\": \"6\",\r\n    // \"directorName\": \"7\",\r\n    // \"beneficiaryOwnerName\": \"8\",\r\n    // \"incorporationAddress\": \"99\",\r\n    // \"operatingLocation\": \"10\",\r\n    // \"licenseType\": \"11\",\r\n    // \"companyBankAccountNameCountry\": \"12\",\r\n    // \"annualBusinessTurnover\": \"13\"\r\n    // \"firstName\": \"Eric\",\r\n    // \"lastName\": \"Clapton\",\r\n    // \"dob\": \"16-JUL-2024\",\r\n    // \"address\": \"testtest\",\r\n    // \"city\": \"city\",\r\n    // \"state\": \"state\",\r\n    // \"postcode\": \"postcode\",\r\n    // \"countryOfResidence\": \"TH\",\r\n    // \"nationality\": \"TH\",\r\n    // \"age\": \"28\",\r\n    // \"roleInSme\": \"test\"\r\n    // \"incorporationCountry\": \"123\",\r\n    // \"phoneNumber\": \"123\",\r\n    // \"email\": \"yo@test.com\",\r\n    // \"registerAddress\": \"test\",\r\n    // \"incorporationLocation\": \"test\",\r\n    // \"businessOperation\": \"test\",\r\n    // \"number\": \"123456789\",\r\n    // \"expiryDate\": \"25-JUN-2024\"\r\n    \"purposeOfUsing\": \"testsss23432\",\r\n    // \"amountIncomePerMonth\": 999,\r\n    // \"highIncomeThreshold\": \"\",\r\n    // \"monthlyIncomeTransactionFreq\": 49,\r\n    // \"highIncomeFreqEst\": \"\",\r\n    \"topCountriesOfIncome\": \"Aland Islands,Albania,Anguilla,Armenia,Bermuda\",\r\n    // \"amountExpensePerMonth\": 2999,\r\n    // \"highExpenseThreshold\": \"\",\r\n    // \"monthlyExpenseTransactionFreq\": 249,\r\n    // \"highExpenseFreqEst\": \"\",\r\n    \"topCountriesOfExpense\": \"Aland Islands,Albania,Anguilla,Armenia,Bermuda\",\r\n    \"connectionPurposeWithDsgpay\": \"testssss\"\r\n    // \"sessionId\": \"fasfdafjdakl;fjdaskl\",\r\n    // \"source\": \"document\",\r\n    // \"title\": \"Proof of address (utility bill, bank statement)\",\r\n    // \"type\": \"ind_id_passport\"\r\n    // \"securityOptions\": \"pet_name\",\r\n    // \"securityAns\": \"doggy\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5001/auth/v2/kyc/verify/source/business/form_expected_trans",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5001",
+											"path": [
+												"auth",
+												"v2",
+												"kyc",
+												"verify",
+												"source",
+												"business",
+												"form_expected_trans"
+											]
+										},
+										"description": "## Endpoint Description\n\nThis endpoint is used to verify the source of business for Know Your Customer (KYC) compliance. It allows users to submit relevant information regarding their business activities, including the purpose of using the service, countries of income and expense, and the connection purpose with the payment service.\n\n### Request Format\n\n- **Method**: POST\n    \n- **URL**: `http://localhost:5001/auth/v2/kyc/verify/source/business/form_expected_trans`\n    \n\n#### Request Body\n\nThe request body must be in JSON format and include the following parameters:\n\n- `purposeOfUsing` (string): A description of the purpose for using the service.\n    \n- `topCountriesOfIncome` (string): A comma-separated list of countries where the business generates income.\n    \n- `topCountriesOfExpense` (string): A comma-separated list of countries where the business incurs expenses.\n    \n- `connectionPurposeWithDsgpay` (string): A description of the purpose for connecting with the payment service.\n    \n\n**Example Request Body**:\n\n``` json\n{\n  \"purposeOfUsing\": \"testsss23432\",\n  \"topCountriesOfIncome\": \"Aland Islands,Albania,Anguilla ...\",\n  \"topCountriesOfExpense\": \"Aland Islands,Albania,Anguilla ...\",\n  \"connectionPurposeWithDsgpay\": \"testssss\"\n}\n\n ```\n\n### Response Structure\n\nThe response from this endpoint will indicate the success or failure of the verification process. The structure of the response will typically include:\n\n- A status code indicating the result of the request (e.g., success, error).\n    \n- A message providing additional information about the verification outcome.\n    \n- Any relevant data that might be returned based on the verification process.\n    \n\nEnsure that the request body adheres to the specified format to avoid errors during processing."
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "documents",
+							"item": [
+								{
+									"name": "getTemp (Remove)",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MjIyMzkxOTUsImlhdCI6MTcyMjIzOTEzNSwianRpIjoiMjYwZjg4MzYtZDc1YS00YTYwLTkyY2EtMjc5ODQ5MjUxMjlmIiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6IjIwMTEzMTFiLWVkM2QtNGMzMS04M2JhLWQ4ZDc0MjM1ZDY4NiIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjIwMTEzMTFiLWVkM2QtNGMzMS04M2JhLWQ4ZDc0MjM1ZDY4NiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.YFqj5qm5kpXFQdreb-Q4uTmLkBmVXnLa4aUerM5621TbRltSxG6_nT3JwCwPjivgz8ZpXoGnYGdNmgnkzkNXC37oIaMfKBSJiEQRUGLWBYjQS8AoP98LkwDVBs_wjI6Y1lq2CkXsqoau40hFfK6CqGwSSf01xrSgtiTv2CgYYHdlfOHHEWaCkHuZh_hKeifZTyz5wlTABSLhP8HRyYAv7FyCygPKxmzqBTbKcY_Ld2eI8gEsfvXiImPPk1HGuo2rEq_NCw_MshH5hCiMvpcKQfqQ1O3A7Ouu2jHSxTz0IfCmOs6zH_cSA4CsNi9Uss8e1_Huad1V4ffAdf_9Vnk7MA",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"sessionId\": \"1234898465634879\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5001/auth/v2/kyc/documents/temp",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5001",
+											"path": [
+												"auth",
+												"v2",
+												"kyc",
+												"documents",
+												"temp"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "getPermanent (For dashboard)",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MjIzMjUzNjgsImlhdCI6MTcyMjMyNTMwOCwianRpIjoiN2VlZDMxNjUtNTRjNi00Zjk0LWI2MDMtMDVhNmY0NDQ0NGY3IiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6Ijg4NDYzMTcxLWRlNzItNDE0NC04ZGU5LTUyYWI2NjViNGFlYyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6Ijg4NDYzMTcxLWRlNzItNDE0NC04ZGU5LTUyYWI2NjViNGFlYyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.QOwGbLORCXvphAxRHE2gDFyYajzUuoOAW8HLe3GzWru4_LKespiSUJB4OS3csaV5xo1aG3fhJgsyIkEj9PdHSACGEiQk3luQFUFaqAQN0KBToRCb9TeJ7Pn5fwa7Vg8gcIhgjTN-5CSZvg9c-ACvqdm_iDgCxwjeYyj25tUB1XXrI3L54vEzWktDsUvgm7aiPwQgDZ7ElwpLjR1nEh5Mp-PQx1ei4ceF6boukrF2Kki5_1L9j8xtZRXCWdr-SJVeDuQLSGrG9ibm5vdpD5ueo-lEfwTXH9ePO2I3sp7-vxgQm2Ho_PWFzMWm-z1pqAaRGQ-x66wYDs78aZp8JK4g5g",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:5001/auth/v2/kyc/documents/c29cab08-9399-467d-a05f-7812b0cd86a1/66a84d7d838b28f7f9c29e0f/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5001",
+											"path": [
+												"auth",
+												"v2",
+												"kyc",
+												"documents",
+												"c29cab08-9399-467d-a05f-7812b0cd86a1",
+												"66a84d7d838b28f7f9c29e0f",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "confirmUpload (Use setSourceDetails for confirm)",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:5001/auth/v2/kyc/documents/confirm",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5001",
+											"path": [
+												"auth",
+												"v2",
+												"kyc",
+												"documents",
+												"confirm"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "upload",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3Mjg1NDk1NTQsImlhdCI6MTcyODU0OTQ5NCwianRpIjoiNjQ3MjRiMjMtZjMzYi00NDY4LTg2OGUtNzI0Zjg4Y2YyOWFmIiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6IjQyMTM1YjJkLWJlMjUtNGUwYy1iMzVmLTQ2MDk1NzA5NzM3ZiIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjQyMTM1YjJkLWJlMjUtNGUwYy1iMzVmLTQ2MDk1NzA5NzM3ZiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.AGZkNw93bZC3K4JtySHiBuuEKd56ud_3eWnLI45uvnCpJZA0EeQxIUmACMW3iziPSBb4pAIVqYsly7mSbMTmgCvwjXs_7fYVnGMA7783BDN9oEizoAy0Sa37V27w9E45pT4SO45O2eLwGyQrmEcnm9s1t_Gb3PBffXPQOW5Y9mUIGOTOuhMtUfvFvIX9wyRbDWcj8Q251MYHSauhtCCBESBHMMCu4HWtBUxp-2VPOehSI3xtMMSyt3M7EP5eHlfEYOhPdi5N965VvB1k6fNjD7RsBy5cfw6G7k3V0O7g5CEK6y5GSZKbe5Eq8DxNjOq2JgDTelpXOwK0ogGc00HP-Q",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "file",
+													"type": "file",
+													"src": "postman-cloud:///1ef496f6-18e5-44d0-bf5b-28b9a130b2b1"
+												},
+												{
+													"key": "sessionId",
+													"value": "1222222222",
+													"type": "text"
+												},
+												{
+													"key": "documentType",
+													"value": "ind_proof_of_address",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:5001/auth/v2/kyc/documents/upload",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5001",
+											"path": [
+												"auth",
+												"v2",
+												"kyc",
+												"documents",
+												"upload"
+											]
+										},
+										"description": "## Upload KYC Documents\n\nThis endpoint allows users to upload KYC (Know Your Customer) documents necessary for identity verification. The documents are uploaded as part of a form-data request, which includes a file and associated metadata.\n\n### Request Format\n\n**HTTP Method:** POST  \n**Endpoint:** `http://localhost:5001/auth/v2/kyc/documents/upload`\n\n#### Request Body\n\nThe request must be sent as form-data and should include the following parameters:\n\n- **file** (type: file): The actual document file that needs to be uploaded for KYC verification.\n    \n- **sessionId** (type: text): A unique identifier for the user session, which helps in associating the uploaded document with the correct user session.\n    \n- **documentType** (type: text): A string indicating the type of document being uploaded (e.g., passport, driver's license, etc.).\n    \n\n### Response Structure\n\nUpon a successful upload, the server will respond with a confirmation message and relevant details about the uploaded document. The response typically includes:\n\n- A status code indicating the success or failure of the upload.\n    \n- A message providing additional context about the upload status.\n    \n- Any relevant identifiers or metadata related to the uploaded document.\n    \n\nEnsure that all parameters are provided correctly to facilitate a smooth document upload process."
+									},
+									"response": []
+								},
+								{
+									"name": "delete",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"66c46e2f7113b9759198d8e9\",\r\n    \"key\": \"58693c6cd5dd12cfd4830385de4ec65dee454fe95f3967899c7daa4c1e858880_3fcbe7805c54b83617e31b2b09e98d95c63c29129fadee438b3dd38ff1cddd00.pdf\",\r\n    \"isPermanent\": true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5001/auth/v2/kyc/documents/delete",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5001",
+											"path": [
+												"auth",
+												"v2",
+												"kyc",
+												"documents",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "authenticate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"zarnikyaw@dsgpay.com\",\r\n    \"password\": \"LMATPiz3IdhD6kBV2UrywBT+Ig1+BPAjcWxWCHekv/Mjzzdv7IK+MzthL5FtiE59AaGkpgkVFCNP0LJ6qj+1FlmmN04DS9jPITd7b/YcPxrO1vv8nbMjFX9DpWHxRKZmjH8M2DhNHoxp2PpOim7ovvU0WlZfUXCEeSAoUfa85VHUYTvltJYS+ANC6jMKE8BItiDadaGpczW6FGkOpKm/fwUUBxgs7pMxIsGjWWWi02uq+S1S+dSrmibpFPJzLtsr40dFyNQc/A3VwlfDtHXdzKQEClt97zAf4oOFdCHNPFUrSH1dWYmssz0ljZ+KhziNh8587RNo5u0jqeY1PshG01ME9DcK7TzYruGy7/EOlXPxfIxxMTa2Pnd7fPi0fyqSPpDLJ29uq9ZOX7DxUul2mVulG4w5/ER0m/DzJbaRiWCIY+lC4EY4A7Q1Ml6zI4YbASdeX6cSWup00+HZ4P+7g/0qEXI1XtNl+QMyNfRGN+Wn1uSNv67c4pAVvA1joEjjo9SM2HTUfPXqghLEfPkUrXTWAtrSIuwIRg9QpTw24SOl7HRpb3TVlO+wJumsQzm415J7E/rBEQKeIWquxJbgKQqqKZCRE8OcdKEuB/HZ+8Oj5vcWrv9TKGsar3LN47DaA/VO2OPfbI3IPFWj5jMVSxrBpaGYEiKtYZW7aXhkDZc=\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.app.dsgpay.com/auth/authenticate",
+							"protocol": "https",
+							"host": [
+								"api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"auth",
+								"authenticate"
+							]
+						},
+						"description": "## Authenticate User\n\nThis endpoint is used to authenticate a user by validating their credentials. Upon successful authentication, it typically returns a token that can be used for subsequent requests that require user authentication.\n\n### Request\n\n- **Method**: POST\n    \n- **URL**: `https://api.app.dsgpay.com/auth/authenticate`\n    \n\n#### Request Body\n\nThe request body must be in JSON format and should contain the following parameters:\n\n- `email` (string): The email address of the user attempting to authenticate.\n    \n- `password` (string): The password associated with the user's account.\n    \n\n**Example Request Body**:\n\n``` json\n{\n  \"email\": \"user@example.com\",\n  \"password\": \"your_password_here\"\n}\n\n ```\n\n### Response\n\nThe response will typically include the following:\n\n- **status** (string): Indicates the success or failure of the authentication attempt.\n    \n- **message** (string): Provides additional information regarding the authentication status.\n    \n- **token** (string): A unique token that is issued upon successful authentication, which can be used for subsequent authenticated requests.\n    \n\n**Example Response Structure**:\n\n``` json\n{\n  \"status\": \"success\",\n  \"message\": \"Authentication successful.\",\n  \"token\": \"your_auth_token_here\"\n}\n\n ```\n\n### Notes\n\n- Ensure that the email and password are correctly formatted and valid to avoid authentication failures.\n    \n- The response structure may vary based on the implementation, so always refer to the latest API documentation for updates."
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let data = pm.response.json();\r",
+									"console.log(data.data)\r",
+									"pm.globals.set(\"staging_authToken\", data.data.access_token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"zarnikyaw@dsgpay.com\",\r\n    \"password\": \"LMATPiz3IdhD6kBV2UrywBT+Ig1+BPAjcWxWCHekv/Mjzzdv7IK+MzthL5FtiE59AaGkpgkVFCNP0LJ6qj+1FlmmN04DS9jPITd7b/YcPxrO1vv8nbMjFX9DpWHxRKZmjH8M2DhNHoxp2PpOim7ovvU0WlZfUXCEeSAoUfa85VHUYTvltJYS+ANC6jMKE8BItiDadaGpczW6FGkOpKm/fwUUBxgs7pMxIsGjWWWi02uq+S1S+dSrmibpFPJzLtsr40dFyNQc/A3VwlfDtHXdzKQEClt97zAf4oOFdCHNPFUrSH1dWYmssz0ljZ+KhziNh8587RNo5u0jqeY1PshG01ME9DcK7TzYruGy7/EOlXPxfIxxMTa2Pnd7fPi0fyqSPpDLJ29uq9ZOX7DxUul2mVulG4w5/ER0m/DzJbaRiWCIY+lC4EY4A7Q1Ml6zI4YbASdeX6cSWup00+HZ4P+7g/0qEXI1XtNl+QMyNfRGN+Wn1uSNv67c4pAVvA1joEjjo9SM2HTUfPXqghLEfPkUrXTWAtrSIuwIRg9QpTw24SOl7HRpb3TVlO+wJumsQzm415J7E/rBEQKeIWquxJbgKQqqKZCRE8OcdKEuB/HZ+8Oj5vcWrv9TKGsar3LN47DaA/VO2OPfbI3IPFWj5jMVSxrBpaGYEiKtYZW7aXhkDZc=\",\r\n    \"deviceInfo\": \"IOS iPhone 14\",\r\n    \"ip\": \"180.183.228.233\",\r\n    \"serialNumber\": \"98B6E5E2-545C-413E-8876-E12981BA2802\",\r\n    \"fcm_token\":\"cCPGgo_ksE7FqKQCTFnxz5:APA91bFFUs222fGfq9FgBPJEiqy7hgqirU-Tt9ucm4eHaKvlL2atPO24HHe2dCUGA83V-6Rgfwr9hxOPb0WfzSj_V5n1ndijlbsIsQcAf3ZzDAK2ZAWCuUDtaovvurMDyzZgs8kA6hZY\",\r\n    \"auth_id\": \"ac2669d0-34f6-4f24-9bd5-b38dd14257f7\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://stage-api.app.dsgpay.com/auth/login",
+							"protocol": "https",
+							"host": [
+								"stage-api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "## Login Endpoint\n\nThis endpoint allows users to authenticate and log into their account. By sending a POST request to `https://stage-api.app.dsgpay.com/auth/login`, users must provide their credentials and device information.\n\n### Request Body Parameters:\n\n- **email** (string): The user's email address used for authentication.\n    \n- **password** (string): The user's password for their account.\n    \n- **deviceInfo** (string): Information about the device being used for the login (e.g., device type and model).\n    \n- **ip** (string): The IP address from which the login request is made.\n    \n- **serialNumber** (string): The unique serial number of the device.\n    \n- **fcm_token** (string): The Firebase Cloud Messaging token for push notifications.\n    \n- **auth_id** (string): A unique identifier for the authentication session.\n    \n\n### Expected Outcomes:\n\nUpon successful authentication, the server will respond with a token or session identifier that can be used for subsequent requests, allowing the user to access protected resources.\n\nEnsure that the credentials provided are correct to receive a successful response.\n\nThis endpoint is used to authenticate a user and initiate a session by providing the necessary credentials and device information.\n\n### Request\n\n**Method:** POST  \n**URL:** `https://stage-api.app.dsgpay.com/auth/login`\n\n#### Request Body\n\nThe request body must be sent in JSON format and should include the following parameters:\n\n- **email** (string): The email address associated with the user account.\n    \n- **password** (string): The password for the user account.\n    \n- **deviceInfo** (string): Information about the device being used for the login (e.g., \"IOS iPhone 14\").\n    \n- **ip** (string): The IP address from which the login request is made.\n    \n- **serialNumber** (string): A unique identifier for the device.\n    \n- **fcm_token** (string): The Firebase Cloud Messaging token for push notifications.\n    \n- **auth_id** (string): A unique identifier for the authentication session.\n    \n\n### Response\n\nUpon successful authentication, the response will contain information regarding the user's session and any relevant tokens. The structure of the response may include:\n\n- **status** (string): Indicates the success or failure of the login attempt.\n    \n- **message** (string): A descriptive message regarding the login attempt.\n    \n- **data** (object): Contains session-related information and tokens necessary for maintaining the authenticated state.\n    \n\n### Example Response Structure\n\n``` json\n{\n  \"status\": \"success\",\n  \"message\": \"Login successful\",\n  \"data\": {\n    \"session_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\",\n    \"expires_in\": 3600\n  }\n}\n\n ```\n\nMake sure to provide valid credentials and device information to ensure successful authentication."
+					},
+					"response": []
+				},
+				{
+					"name": "login Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"zarnikyaw@dsgpay.com\",\r\n    \"password\": \"LMATPiz3IdhD6kBV2UrywBT+Ig1+BPAjcWxWCHekv/Mjzzdv7IK+MzthL5FtiE59AaGkpgkVFCNP0LJ6qj+1FlmmN04DS9jPITd7b/YcPxrO1vv8nbMjFX9DpWHxRKZmjH8M2DhNHoxp2PpOim7ovvU0WlZfUXCEeSAoUfa85VHUYTvltJYS+ANC6jMKE8BItiDadaGpczW6FGkOpKm/fwUUBxgs7pMxIsGjWWWi02uq+S1S+dSrmibpFPJzLtsr40dFyNQc/A3VwlfDtHXdzKQEClt97zAf4oOFdCHNPFUrSH1dWYmssz0ljZ+KhziNh8587RNo5u0jqeY1PshG01ME9DcK7TzYruGy7/EOlXPxfIxxMTa2Pnd7fPi0fyqSPpDLJ29uq9ZOX7DxUul2mVulG4w5/ER0m/DzJbaRiWCIY+lC4EY4A7Q1Ml6zI4YbASdeX6cSWup00+HZ4P+7g/0qEXI1XtNl+QMyNfRGN+Wn1uSNv67c4pAVvA1joEjjo9SM2HTUfPXqghLEfPkUrXTWAtrSIuwIRg9QpTw24SOl7HRpb3TVlO+wJumsQzm415J7E/rBEQKeIWquxJbgKQqqKZCRE8OcdKEuB/HZ+8Oj5vcWrv9TKGsar3LN47DaA/VO2OPfbI3IPFWj5jMVSxrBpaGYEiKtYZW7aXhkDZc=\",\r\n    \"deviceInfo\": \"IOS iPhone 14\",\r\n    \"ip\": \"180.183.228.233\",\r\n    \"serialNumber\": \"98B6E5E2-545C-413E-8876-E12981BA2802\",\r\n    \"fcm_token\":\"cCPGgo_ksE7FqKQCTFnxz5:APA91bFFUs222fGfq9FgBPJEiqy7hgqirU-Tt9ucm4eHaKvlL2atPO24HHe2dCUGA83V-6Rgfwr9hxOPb0WfzSj_V5n1ndijlbsIsQcAf3ZzDAK2ZAWCuUDtaovvurMDyzZgs8kA6hZY\",\r\n    \"auth_id\": \"ac2669d0-34f6-4f24-9bd5-b38dd14257f7\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MDM3NDc4MzAsImlhdCI6MTcwMzc0Nzc3MCwianRpIjoiNjk4OGM4NjgtMGQ5NS00NTU2LTk5OTgtNTNhN2FiZGJiNTM3IiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6Ijc0NmI4OTZhLTljYzQtNGFiNS1iY2Q1LTdmZDE2Y2E2NDgyMyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6Ijc0NmI4OTZhLTljYzQtNGFiNS1iY2Q1LTdmZDE2Y2E2NDgyMyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.OSazRgmpvX4FppEy0TWH_t_OgYyIhe4MgHv9ey0bkjY8PZVYnszBxXL2-7gjRns6-27odXzYelaJFYJ6T2D2JCVUQqRV0k6OOAPNpxki6SGku6UcXMG77nLvnBxPXXi-5m4NfecV8MFdWehVVYX67B1ntlf2Cv3So4OgZjvgmiGFyZ6DUYAtPsluI1bgHO9fnXfmV_4BDLD_FluhvqRln0s1DnOUP73bN9GKUXrV13rUuxGeLTTescBvdI0R3FBzQm5M6x7y-Tqdpz1y_tMQ3R-KtlhIyDsaKHB51Yu6Ho8r0N2ChYd3lrHPYua3586EFpAMf1qsY3SvkFp7f9MeyQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"auth",
+								"logout"
+							]
+						},
+						"description": "## Logout Endpoint\n\nThis endpoint is used to log out a user from the application. When a user sends a POST request to this endpoint, their session will be terminated, effectively logging them out.\n\n### Request Body\n\nThe request body should be sent in `application/x-www-form-urlencoded` format and must include the following parameters:\n\n- **userId** (text): The unique identifier of the user who is logging out.\n    \n- **sessionToken** (text): The token associated with the user's session that needs to be invalidated.\n    \n\n### Response Structure\n\nUpon a successful logout, the server will respond with a status indicating the result of the logout operation. The response will typically include:\n\n- **status**: A string indicating the success or failure of the logout operation.\n    \n- **message**: A descriptive message providing additional context about the logout action.\n    \n\nEnsure that the request is properly formatted and includes the necessary parameters to successfully log out the user.\n\nThis endpoint is used to log out a user from the application. It invalidates the user's session and ensures that the user is no longer authenticated.\n\n### HTTP Method\n\n`POST`\n\n### Endpoint\n\n`http://localhost:5001/auth/logout`\n\n### Request Parameters\n\nThe request does not include any parameters in the body.\n\n### Example Request\n\n``` http\nPOST /auth/logout HTTP/1.1\nHost: localhost:5001\nContent-Type: application/json\n{}\n\n ```\n\n### Response\n\nUpon successful logout, the server will respond with a confirmation message indicating that the user has been logged out.\n\n### Example Response\n\n``` json\n{\n    \"message\": \"Logout successful\"\n}\n\n ```\n\n### Notes\n\n- Ensure that the user is authenticated before making this request.\n    \n- The response may vary based on the implementation but should confirm the logout action."
+					},
+					"response": []
+				},
+				{
+					"name": "cancelledUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MjExMTU5NzYsImlhdCI6MTcyMTExNTkxNiwianRpIjoiOWUwZGJjYzktZjMzZC00ODk3LTgyZWUtNzY3Yjk3NTNmMTM3IiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMDVkYmJhNTYtMmQxYi00YWUyLWIzMTUtODdkYjZhMDk3Yjk1IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6IjJlMzhmNmY3LTFiZjEtNGU1Yi1hOTZjLTk1NzkyYzZiNDE3MyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjJlMzhmNmY3LTFiZjEtNGU1Yi1hOTZjLTk1NzkyYzZiNDE3MyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3LmRldkBnbWFpbC5jb20iLCJlbWFpbCI6Inphcm5pa3lhdy5kZXZAZ21haWwuY29tIn0.kVCRAgRg4mfgr1DkvbUGB_lyEGQ13En-lqvcJUDeNG_j3pPs4pjiRgYIItUnmUUavdazxrNfERBLEKWJCQL3lSfbb62hbfx6b6EjqwoeKWF4jzM5vMMFdcesvulLty_sDy3UTXSpwulsAXtwFFCQ9Q2B9ubWcAu0fNUSggDNdvI4LCwyPgedojsEo1Bnsszy0AO-R0ziv5vNSa8iJL710cr52Rb0mjvrF-pOsGbyYDGUbH7OqwEV8C0XnufX36KdptFzdqJIaEqqoXIqG3auzzomvu8i8kle6aTgtv4DoT48knqHHhFfnS7RoPgzqnDNsyl9TJFMFUtJQYGBZ33vzw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"zarnikyaw@dsgpay.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/auth/cancelledUser/email",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"auth",
+								"cancelledUser",
+								"email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refreshToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJhODUyZjczZC0yMTc2LTQyY2MtYjg4Yy00YWYxMGJjMjc1M2QifQ.eyJleHAiOjE3MDM4NDI0NTIsImlhdCI6MTcwMTI1MDQ1MiwianRpIjoiMDZkYWExZWEtOWJhYi00YTIxLWJmMzYtNjYwZmE1ZWE4YTIyIiwiaXNzIjoiaHR0cDovL2F1dGguZG9sbGFyc21hcnQuY28vcmVhbG1zL2RzZ3BheSIsImF1ZCI6Imh0dHA6Ly9hdXRoLmRvbGxhcnNtYXJ0LmNvL3JlYWxtcy9kc2dwYXkiLCJzdWIiOiJkMGY0YWNhNy01YTc0LTQ0NjUtOTJiNy1iNGNlZDk5YTU5OWMiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoibW9iaWxlLWF1dGgiLCJzZXNzaW9uX3N0YXRlIjoiYTQ3NWUyNWUtNTZiNS00MDQ4LWE3ZmUtYTA3NmIwMjI5MjQyIiwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiYTQ3NWUyNWUtNTZiNS00MDQ4LWE3ZmUtYTA3NmIwMjI5MjQyIn0.j9wL7dcxc50cuB3bsKyzddbsw4EaMsIheEZZuYx-Hg4fdsafdsafsda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/auth/refreshToken",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"auth",
+								"refreshToken"
+							]
+						},
+						"description": "## Refresh Token Endpoint\n\nThis endpoint is designed to refresh the user's authentication token using a valid refresh token. It allows clients to obtain a new access token without requiring the user to log in again, thereby enhancing user experience and maintaining session continuity.\n\n### Request Format\n\n- **Method**: POST\n    \n- **URL**: `http://localhost:5001/oneapp/auth/refreshToken`\n    \n- **Request Body**: The request must include a JSON object in the raw request body with the following structure:\n    \n\n``` json\n{\n  \"refresh_token\": \"string\"\n}\n\n ```\n\n- **Parameters**:\n    \n    - `refresh_token` (string): A valid refresh token issued during the initial authentication process. This token is used to generate a new access token.\n        \n\n### Response Structure\n\nUpon a successful request, the server will respond with a JSON object containing the new access token and additional metadata. The structure of the response is as follows:\n\n``` json\n{\n  \"access_token\": \"string\",\n  \"expires_in\": \"number\",\n  \"token_type\": \"string\"\n}\n\n ```\n\n- **Response Parameters**:\n    \n    - `access_token` (string): The new access token that can be used for subsequent authenticated requests.\n        \n    - `expires_in` (number): The duration in seconds for which the access token is valid.\n        \n    - `token_type` (string): The type of token issued, typically \"Bearer\".\n        \n\n### Summary\n\nThis endpoint is crucial for maintaining user sessions securely and efficiently by allowing the renewal of access tokens using refresh tokens."
+					},
+					"response": []
+				},
+				{
+					"name": "resetPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \"auth_id\":\"020ffbaf-b137-4d5c-8a3c-dfb30bbf2719\",\r\n    \"email\": \"teerawut@dsgpay.com\",\r\n    \"password\": \"LMATPiz3IdhD6kBV2UrywBT+Ig1+BPAjcWxWCHekv/Mjzzdv7IK+MzthL5FtiE59AaGkpgkVFCNP0LJ6qj+1FlmmN04DS9jPITd7b/YcPxrO1vv8nbMjFX9DpWHxRKZmjH8M2DhNHoxp2PpOim7ovvU0WlZfUXCEeSAoUfa85VHUYTvltJYS+ANC6jMKE8BItiDadaGpczW6FGkOpKm/fwUUBxgs7pMxIsGjWWWi02uq+S1S+dSrmibpFPJzLtsr40dFyNQc/A3VwlfDtHXdzKQEClt97zAf4oOFdCHNPFUrSH1dWYmssz0ljZ+KhziNh8587RNo5u0jqeY1PshG01ME9DcK7TzYruGy7/EOlXPxfIxxMTa2Pnd7fPi0fyqSPpDLJ29uq9ZOX7DxUul2mVulG4w5/ER0m/DzJbaRiWCIY+lC4EY4A7Q1Ml6zI4YbASdeX6cSWup00+HZ4P+7g/0qEXI1XtNl+QMyNfRGN+Wn1uSNv67c4pAVvA1joEjjo9SM2HTUfPXqghLEfPkUrXTWAtrSIuwIRg9QpTw24SOl7HRpb3TVlO+wJumsQzm415J7E/rBEQKeIWquxJbgKQqqKZCRE8OcdKEuB/HZ+8Oj5vcWrv9TKGsar3LN47DaA/VO2OPfbI3IPFWj5jMVSxrBpaGYEiKtYZW7aXhkDZc=\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apigateway.dollarsmart.co/auth/resetPassword",
+							"protocol": "https",
+							"host": [
+								"apigateway",
+								"dollarsmart",
+								"co"
+							],
+							"path": [
+								"auth",
+								"resetPassword"
+							]
+						},
+						"description": "## Reset Password API\n\nThis endpoint is used to reset the password for a user in the DSGPay system. It allows users to submit their authentication ID, email address, and a new password.\n\n### Request\n\n- **Method**: POST\n    \n- **Endpoint**: `https://apigateway.dollarsmart.co/auth/dsgpay/resetPassword`\n    \n\n### Request Body\n\nThe request body must be in JSON format and contain the following parameters:\n\n- **auth_id** (string): The unique identifier for the user requesting the password reset.\n    \n- **email** (string): The email address associated with the user's account.\n    \n- **password** (string): The new password that the user wishes to set.\n    \n\n### Example Request Body\n\n``` json\n{\n  \"auth_id\": \"020ffbaf-b137-4d5c-8a3c-dfb30b...\",\n  \"email\": \"teerawut@dsgpay.com\",\n  \"password\": \"LMATPiz3IdhD6kBV2UrywBT+Ig1+BP...\"\n}\n\n ```\n\n### Expected Response\n\nUpon a successful request, the API will return a response indicating the status of the password reset operation. The response will typically include a success message or an error message if the operation fails.\n\nEnsure to handle both successful and error responses appropriately in your application."
+					},
+					"response": []
+				},
+				{
+					"name": "changePassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"yotest4@hotmail.com\",\r\n    \"currentPassword\": \"iitk7NxbIJOWwVnD77fk/gMo35OSoydnB/eLGZcbiNCLR6Hfco2EH1Xik5/QI7a7UXltrk03sjxcG91gY2j5cKWkdka8hDORADXJUJg1fdY1RqAx+dCN40smxWuZrsB3+g+Qrl0G9lCqZikDdultWEB8rcZ5jHItA5i6mS/lx6MOr5FtrQ0BMXFpvmvjusu/tNQDDL8ZSTae+idmbxKDerhhaT7uidCucItz/u5iCsEmR9ofJSdLWCSeZQaEXPaMsMMTduNOLMkXWfDvNrNdq6hTibDAJKnqFqJWPlkUhsJomfm/pIcDFs3NNSBa0CnoUSW6i+kHGPpc2OfGyA/XhdQ+KlRrX3CSVrsoHoExBQpzYlC5n/TtMdwuaDVhKJm5X9dREs3Yvl+EaQXU4RQa6G1weJNUmWBYJX8x4tLA1noOfCox4htF6RGj7u+rjRcrbMnumkMIceuct/f+Le2fS3GHpgTy6fJADRK9DhpJ0bMQLJMgWz47mlQupMijNZL4qSXuztFEZq4sO5QsMdWAHkZ4f6MhkksN53iXHNSdd8EttRSIQPa5DntN6/oirzQZq3RHEPGCD8RsQttNjWS0jm63oLVUH6rJaMjvczATK+el2dZ8us1Iqi2hOwAvsMuzTDpUJyDYchvHBAhsJbT2WamIswuAVzjC5cQasBnSA4w=\",\r\n    \"newPassword\": \"iitk7NxbIJOWwVnD77fk/gMo35OSoydnB/eLGZcbiNCLR6Hfco2EH1Xik5/QI7a7UXltrk03sjxcG91gY2j5cKWkdka8hDORADXJUJg1fdY1RqAx+dCN40smxWuZrsB3+g+Qrl0G9lCqZikDdultWEB8rcZ5jHItA5i6mS/lx6MOr5FtrQ0BMXFpvmvjusu/tNQDDL8ZSTae+idmbxKDerhhaT7uidCucItz/u5iCsEmR9ofJSdLWCSeZQaEXPaMsMMTduNOLMkXWfDvNrNdq6hTibDAJKnqFqJWPlkUhsJomfm/pIcDFs3NNSBa0CnoUSW6i+kHGPpc2OfGyA/XhdQ+KlRrX3CSVrsoHoExBQpzYlC5n/TtMdwuaDVhKJm5X9dREs3Yvl+EaQXU4RQa6G1weJNUmWBYJX8x4tLA1noOfCox4htF6RGj7u+rjRcrbMnumkMIceuct/f+Le2fS3GHpgTy6fJADRK9DhpJ0bMQLJMgWz47mlQupMijNZL4qSXuztFEZq4sO5QsMdWAHkZ4f6MhkksN53iXHNSdd8EttRSIQPa5DntN6/oirzQZq3RHEPGCD8RsQttNjWS0jm63oLVUH6rJaMjvczATK+el2dZ8us1Iqi2hOwAvsMuzTDpUJyDYchvHBAhsJbT2WamIswuAVzjC5cQasBnSA4w=\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/oneapp/auth/changePassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"oneapp",
+								"auth",
+								"changePassword"
+							]
+						},
+						"description": "## Change Password API\n\nThis endpoint allows users to change their password. It is a secure operation that requires the user's current password and the new password they wish to set.\n\n### Request\n\n- **Method**: `POST`\n    \n- **Endpoint**: `http://localhost:5001/oneapp/auth/changePassword`\n    \n\n### Request Body\n\nThe request must include a JSON payload with the following parameters:\n\n- **email** (string): The email address associated with the user account.\n    \n- **currentPassword** (string): The user's current password that needs to be verified.\n    \n- **newPassword** (string): The new password that the user wants to set.\n    \n\n### Example Request Body\n\n``` json\n{\n  \"email\": \"user@example.com\",\n  \"currentPassword\": \"current_password_here\",\n  \"newPassword\": \"new_password_here\"\n}\n\n ```\n\n### Expected Response\n\nOn successful password change, the API will return a response indicating the success of the operation. The exact structure of the response will depend on the implementation but typically includes a success message or status code.\n\nEnsure that the new password meets any security requirements set by the API, such as minimum length or complexity."
+					},
+					"response": []
+				},
+				{
+					"name": "createPin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJQS3k2WUpBTzUwRDI1ckJwRjNMOW4zLTNqdkZNSmpjMkh5YlN4YTI1aXlvIn0.eyJleHAiOjE3MDEwNzk1NTIsImlhdCI6MTcwMTA3NTk1MiwianRpIjoiNmFmMDA4NmQtN2JhOC00MGU1LTk2OTYtMGJmZjMzNjkyZjQ1IiwiaXNzIjoiaHR0cDovL2F1dGguZG9sbGFyc21hcnQuY28vcmVhbG1zL2RzZ3BheSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJiMGVjOGM2MS1kZGE1LTQ1OTktOWE2YS0zMjM1ZTNhM2MyMGEiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJtb2JpbGUtYXV0aCIsInNlc3Npb25fc3RhdGUiOiJiNjhjZjdhNy0wZTEyLTQwNmMtOTlkZi04OTVkMzNhOTNkMmUiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbIiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1kc2ciLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiYjY4Y2Y3YTctMGUxMi00MDZjLTk5ZGYtODk1ZDMzYTkzZDJlIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ6YXJuaWt5YXcuZGV2QGdtYWlsLmNvbSIsImVtYWlsIjoiemFybmlreWF3LmRldkBnbWFpbC5jb20ifQ.osYYluAm6sQsTavEiZx0EBFaDXBc_MAmcQMbIU0KEr-NsbRfHgnXiAbxTfOhTct2uYI5Y-qFFH5iMVoNiIRt5-baRIZc5e1zORnuOYkOJ7Ld8DxzCS1ergvoVDWGC6wm4hZI9fGER1r9BPQ4BuxPfO5Cb1xoR62970Wninukz5MwojiXeUkTON_s6dz_d1WwNMlnCyT1VoFen4-EFtI6mBgvdhcJNgJvmeMzT90de6iB6qsApiWm_vIu43dYwDvaeNbzym8EPqf1FaCN8kEGv7dtza_OpVxU3QQx2dE8WJ8G4gS9VXXAo-XcTzxP42GO2BqYOWmF-Ld-Eu_RqMAQ-g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pin\":\"To3hU2iq2wScbrc6PzBPrZ5N+dgUzk2PS47Pt45s/v87j3GCkOMCvHPlVbQaQTh1UgsE5VDPMaUYXoQu69BUl04TpcolIdUpAVv09D5H/cPaMfN18Fbpgmvymp+sOfy3AU/RYEgiz0+o9+28CKB/Nrlsn+Tg0CkQ/i6dOLTjtRapgtDyuu4DnWnESN3SyS54UwDoDKfHCo+S+RXMBFh9Nbn5OY3M5LNB6MzhQgzSNNEVVzkvimCDPJobFG8zepRal9zFDQ4SXA8Hzr2mnMGviZNls3JgpK6GCmjawfwsBhlwsKsWtyRflFhgIMjsrOFMkWTGKEaJMkdjeUJ/vsOcK5cos/MHViiXcxVwqNX1666yoT5dA3qc3/vZvltU44JW9iiiGg0LRR8ZG5WF6omXTuusrfXRzD5NeP+6lj3gDX3iK7Oh7m5o9SOB60pp5AEAWBZ0Q+c8i0yuMb8KgA2h55lwmqi+J0XjMKzXY/2rsm8ZMdXdWSt8+9RGw1R5GhvrPpi/PrjH6KL9DxZdsJDBKry2iG7PSd9d0xpJQLF/DDPrrR0E+eqwKt1KOAk43PnRiqpDhmgrWTwavWvctoLwb25rHO9eYf9p/VpFiSdoEkHYp1x0ZpuW/+qRlp7eGxRbfz0c4mzdXaHEoWQg//9xsZZNDXEejT/XkhbrhP3cLYM\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/auth/createPin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"auth",
+								"createPin"
+							]
+						},
+						"description": "## Create PIN Endpoint\n\nThis endpoint is used to create a new PIN for authentication purposes.\n\n### HTTP Method\n\n`POST`\n\n### Endpoint\n\n`http://localhost:5001/auth/createPin`\n\n### Request Parameters\n\nThe request body should be sent in JSON format and must include the following parameter:\n\n- **pin** (string): The PIN that the user wishes to create. This should be a secure string that meets any specified security requirements.\n    \n\n### Expected Response Format\n\nUpon successful creation of the PIN, the server will respond with a confirmation message and may include additional details about the operation. The response will typically be in JSON format.\n\n### Example Request Body\n\n``` json\n{\n  \"pin\": \"YourSecurePinHere\"\n}\n\n ```\n\nMake sure to replace `\"YourSecurePinHere\"` with the actual PIN value you wish to create."
+					},
+					"response": []
+				},
+				{
+					"name": "verifyPin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJQS3k2WUpBTzUwRDI1ckJwRjNMOW4zLTNqdkZNSmpjMkh5YlN4YTI1aXlvIn0.eyJleHAiOjE2OTgxMzg3NjgsImlhdCI6MTY5ODEzNTE2OCwianRpIjoiODAzOTdmMzItODEwZi00MmZiLThjZDYtNjVkYzk4MDQwZTFjIiwiaXNzIjoiaHR0cDovL2F1dGguZG9sbGFyc21hcnQuY28vcmVhbG1zL2RzZ3BheSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI2Mjc0ZTVmMy1hM2QxLTQwN2UtOGEzZi02NThlMTY2M2I2NDYiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJtb2JpbGUtYXV0aCIsInNlc3Npb25fc3RhdGUiOiJkYmJkNTJkNC1iZjhjLTRmMmItYTQ0Yy1mZTQxYWI1OWY0ZTAiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbIiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1kc2ciLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiZGJiZDUyZDQtYmY4Yy00ZjJiLWE0NGMtZmU0MWFiNTlmNGUwIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ6YXJuaWt5YXdAZHNncGF5LmNvbSIsImVtYWlsIjoiemFybmlreWF3QGRzZ3BheS5jb20ifQ.edlaWOJMaJq2r32lJ32hlJhJguk8jkrXPniFkTdSTPG6EkIGn-amHrVK91dx1gKT8n_KhEuDRKWukQHNxKw1JytvwbsBmJTyZTRN-a-U0fHzSwbJFwbrH16NTZW4zucOHymlATHMpDb-m-8-s3uudCkfWFC6eoIziBY6nYyerHYVp6jV-dqs1TJp6ngNuvXTQBOtt9i6RZOkIYY3e6ywuBukfAbK5VwGA45EkO6n2H-XL9q-tx7Tfs_yukQz2uqYvqmYdal53yA3cAEVdmOAsiql7aM9TMqmYNB2o1xbtaaPFEsdESCx9VOs_iFdEyE7G_mMvlHGvb4VlUhMWRn0WA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pin\":\"To3hU2iq2wScbrc6PzBPrZ5N+dgUzk2PS47Pt45s/v87j3GCkOMCvHPlVbQaQTh1UgsE5VDPMaUYXoQu69BUl04TpcolIdUpAVv09D5H/cPaMfN18Fbpgmvymp+sOfy3AU/RYEgiz0+o9+28CKB/Nrlsn+Tg0CkQ/i6dOLTjtRapgtDyuu4DnWnESN3SyS54UwDoDKfHCo+S+RXMBFh9Nbn5OY3M5LNB6MzhQgzSNNEVVzkvimCDPJobFG8zepRal9zFDQ4SXA8Hzr2mnMGviZNls3JgpK6GCmjawfwsBhlwsKsWtyRflFhgIMjsrOFMkWTGKEaJMkdjeUJ/vsOcK5cos/MHViiXcxVwqNX1666yoT5dA3qc3/vZvltU44JW9iiiGg0LRR8ZG5WF6omXTuusrfXRzD5NeP+6lj3gDX3iK7Oh7m5o9SOB60pp5AEAWBZ0Q+c8i0yuMb8KgA2h55lwmqi+J0XjMKzXY/2rsm8ZMdXdWSt8+9RGw1R5GhvrPpi/PrjH6KL9DxZdsJDBKry2iG7PSd9d0xpJQLF/DDPrrR0E+eqwKt1KOAk43PnRiqpDhmgrWTwavWvctoLwb25rHO9eYf9p/VpFiSdoEkHYp1x0ZpuW/+qRlp7eGxRbfz0c4mzdXaHEoWQg//9xsZZNDXEejT/XkhbrhP3cLYM\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/auth/verifyPin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"auth",
+								"verifyPin"
+							]
+						},
+						"description": "### Endpoint: Verify PIN\n\nThis endpoint is used to verify a user's PIN during the authentication process. It accepts a POST request containing the user's PIN and returns a response indicating the success or failure of the verification.\n\n#### Request\n\n- **Method**: POST\n    \n- **URL**: `http://localhost:5001/auth/verifyPin`\n    \n\n##### Request Body\n\nThe request body must be in JSON format and should include the following parameter:\n\n- **pin** (string): The PIN that the user wishes to verify. This is a required field.\n    \n\nExample of the request body:\n\n``` json\n{\n  \"pin\": \"To3hU2iq2wScbrc6PzBPrZ5N+dgUzk ...\"\n}\n\n ```\n\n#### Response\n\nThe response will contain information regarding the verification status. The structure of the response may include:\n\n- **status** (string): Indicates whether the verification was successful or failed.\n    \n- **message** (string): Provides additional information about the verification result.\n    \n\nExample of a successful response:\n\n``` json\n{\n  \"status\": \"success\",\n  \"message\": \"PIN verification successful.\"\n}\n\n ```\n\nExample of a failed response:\n\n``` json\n{\n  \"status\": \"error\",\n  \"message\": \"Invalid PIN.\"\n}\n\n ```\n\nEnsure that the PIN provided in the request body is correct to receive a successful verification response."
+					},
+					"response": []
+				},
+				{
+					"name": "userData",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MDE4NzUxOTIsImlhdCI6MTcwMTg3NDg5MiwianRpIjoiNWRkNDUxZjAtZGQzMi00OTAzLWJlMjctMjQwNjViOGFhOWNmIiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMGE2N2E5ZjQtNGVkZi00YmU0LWExZmMtZDhjNTVhN2NmNTVjIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6IjkwNzdmMWZlLWVkNTktNGE0MS1iZTc3LTRkZWIwYzYyNmVmMSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjkwNzdmMWZlLWVkNTktNGE0MS1iZTc3LTRkZWIwYzYyNmVmMSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3LmRldkBnbWFpbC5jb20iLCJlbWFpbCI6Inphcm5pa3lhdy5kZXZAZ21haWwuY29tIn0.fzwVw-9SY_tq0Va4pty-HsrRPre5DoGpMfANNCCyjbrioFff-WJn9gyrj37FtttlLEkspXvQp53zQNX8S2yaCmt565pUcnZmtcmUvo6XdgilfkEZUCTnRFh0s-VK8t6cCUg45rT2L7yJSUwL9q_15OwUbHCTrfusHUuTRD-8gzv-mPdGkDh3__wW95XgCPig4J9VpYozecsrFp9FZVrPLg20zYylw0BgFFDwnVMuuhQipHRgJcA6NMQSYkDNeJLOIGYqGXb1Lu1PI9XBJ9owloorD0Gm37s5SfX5gvonw4T7dd9TxO3k_i6eJClO4liMcsgE6wFiEWhw4VPvgWXltg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://stage-api.app.dsgpay.com/auth/user",
+							"protocol": "https",
+							"host": [
+								"stage-api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"auth",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "versionAPI",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://stage-api.app.dsgpay.com/auth/versionAPI",
+							"protocol": "https",
+							"host": [
+								"stage-api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"auth",
+								"versionAPI"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Email",
+			"item": [
+				{
+					"name": "getCode",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"verification_code\",\r\n    \"emailData\":{\r\n        \"email\": \"blabla@dsgpay.com\",\r\n        \"action\": \"email_confirm\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://stage-api.app.dsgpay.com/email/getcode",
+							"protocol": "https",
+							"host": [
+								"stage-api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"email",
+								"getcode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "authcode",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"blabla@dsgpay.com\",\r\n    \"sessionId\": \"b01879c3-689a-49d5-85a3-394d5da5dc2b\",\r\n    \"userProvidedCode\": \"833103\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://stage-api.app.dsgpay.com/email/authCode",
+							"protocol": "https",
+							"host": [
+								"stage-api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"email",
+								"authCode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "send",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MDU0NzMxMTgsImlhdCI6MTcwNTQ3MzA1OCwianRpIjoiM2JlMzY3MjgtYjIwNi00Zjg3LThiMTAtNzkyNmQzYmNmMmY5IiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6IjRmNzBjMzM2LWEyMzQtNDVmYy04NDE4LWQwMGRmMTYwZDIwOSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjRmNzBjMzM2LWEyMzQtNDVmYy04NDE4LWQwMGRmMTYwZDIwOSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.l3pZzQeFnzMisHKlhQhzENPOJq22OOuRoKkOYb7ntBiUbTR7YWerttYuI-A5P4fvwQoS6Z8H0LABbQG3xszF19rQpsHbUkJjlIJIu7nbg5p3IlEyElptwrumwODEiCQ1gowF2Z1da9dj6tQ8CMLskdKsAGj66VC2sk0zJjIrfB0tt2PInkZ0OQOj4alS36IsSKz7DCUX6Q3x4FhueQorxit0em6_CYNsuT3d0wS_1J_4BL9vGex3JtKli64mcBXLiZDo9snms6iv0X4bsC2dcdX6P0sZM98t8sPKXD-xHXwr8dxu3zLryd7ySCbZ9FXvMZqOjXhxMRDSY2GNfA4MlQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"customer_activity\",\r\n    \"emailData\": {\r\n        \"action\": \"beneficiary_added\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5006/email",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5006",
+							"path": [
+								"email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "contactUs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MTE1MTE3NDAsImlhdCI6MTcxMTUxMTY4MCwianRpIjoiMjAzZDRjNjQtZDYxNS00M2UzLWIxNDEtMDc1ZDQwMzVmMTUwIiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6ImQ5YTlkMmYwLTE5NTktNDQzNi1hZWFiLTQzMDhhZTc5MzQ1ZCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6ImQ5YTlkMmYwLTE5NTktNDQzNi1hZWFiLTQzMDhhZTc5MzQ1ZCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.LoQZjb6VvzIozzP6ZwbLKuS74GUcwghjXZsuw3petQuLsLJRPOi7-eh0sMjhOraKh6Q_LedJkK0JNz0YJMS97sRFd3npoD4uSeBE1R996dwLSTca1K_gA3uRRazUhQNDkVb93eFOZY4bSoXvSBUVuRROIHIChJ--6ttRHAN7itutHEwc7sGsHR22TxMlLKT3GjBZB2PgMMim9yGip9RfozogeA3Taan7aAyz8Kkgsdkl4oLDr64B7DtwTY7ibtrBU1v0Cm_M6JX3mwlFMeMNrXX4YJatxlwa7nsqV73DQ_OrXsuM9BKXsnBrxgunJ7GoSlDQXmJ-1truD4TAnQGyJg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"customer_contact\",\r\n    \"emailData\":{\r\n        \"action\": \"request_delete_account\",\r\n        \"textInput\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\"\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5006/email",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5006",
+							"path": [
+								"email"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Collections",
+			"item": [
+				{
+					"name": "getTotalAmount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"collectAmount\": 500,\r\n    \"gatewayId\": \"yqqhRArAFwuucfzkF\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5002/collections/getTotalAmount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"collections",
+								"getTotalAmount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCountryList",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MDg0MjI1NTMsImlhdCI6MTcwODQyMjQ5MywianRpIjoiZmQ5YzMzMmQtZjNkMC00NDI4LTk4ZTAtZjUyM2E2ZTMxY2JkIiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiODg0MzczZGQtNTU3MS00YTgzLWJjMzUtZDkzMDU0MmZlYTlkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6Ijk2OGU0MGEyLTE4MjItNGJiZS05OGU4LWZlN2M1MWQwNTUyNSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6Ijk2OGU0MGEyLTE4MjItNGJiZS05OGU4LWZlN2M1MWQwNTUyNSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoidGVlcmF3dXRAZHNncGF5LmNvbSIsImVtYWlsIjoidGVlcmF3dXRAZHNncGF5LmNvbSJ9.aftMdN--AUcOslqa8dtPWV_VrelJLJep0xcMY3ioHjoUGjhlYkepfmI3EdtqWY78JxNpQemTK4lDywLIs0SvbSXRKZ2pW8USpXR_P_AOUsd60GaUuyXlOFJMBELcF6rthQ8ZMw4_TJC1txYPZ_CwWMDZkvIZQEWODaqq9HMp6Q8toZSs02aLjNDFnHLU2rAovYw6J5tsjndlReFBI_WVgrLsRst9hW52m_ktzKcoKMT7CLzQc5qFK2ksX-KjfYmVZkyrjd8DyHBAGnWY6AB744n0lR7m1CZhYnO21-KhGOlGn_ue9o5dS8382gCQyZ26k66X2-MYK4zj9MDJRq-YFA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ccy\": \"HKD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5002/collections/getCountryList",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"collections",
+								"getCountryList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPaymentAddress",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"countryCode\": \"HK\",\r\n    \"ccy\": \"HKD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5002/collections/getPaymentAddress",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"collections",
+								"getPaymentAddress"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSvaDetails",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MzIxNzM5NDAsImlhdCI6MTczMjE3Mzg4MCwianRpIjoiZTRmOGUyODQtZTk0Yy00NTA2LWI5M2UtYTFlODM1OGQzYmRhIiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6ImEzNmYxNWUyLTdjZjYtNDUzYi1hMjRmLTQ5MGQyNzY4ODE4ZCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6ImEzNmYxNWUyLTdjZjYtNDUzYi1hMjRmLTQ5MGQyNzY4ODE4ZCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.c6XYrFwHEKEGbDB2kubXqh9HGzhPF6UZAH-Pod6hZ7W84A-1KcZpb4KwOzGlzzCYNTmsnT9FT52kyjpZpmUxdEuBEewfPsXBsXksJLdqTCuUgmWn5g5Yq-M9vuXFG4Dcbt9Gk3VlK1LMpeAwg4FrQuOovGrI3ly5x3lKGlR1WM9JvMmvSNru8wAWobo-ig8wbwjGBHazGASyODfClgGIFw-UwcLKSiR4jhsJWsc_V6FzEy2jkHWH8NYDbK6lxH3t7YEcTHFr38iT7gCQnnZfIhl8IsbA3imO9ctkO5mdIMQvEWQK7FgYxkpYM02jl_o8OhCefEFevvAf3o5Vc2Ii8g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ccy\":\"HKD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5002/collections/getSva",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"collections",
+								"getSva"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orderReview",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MTA3MzIzNDYsImlhdCI6MTcxMDczMjI4NiwianRpIjoiYjlmZmZjNjItNDEzMi00MzMzLTg4MTItNmM0NTJjNGFhOGVhIiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6IjFhYjZlODc2LWMzYTgtNDUyYi1iZTE1LWI0NzA4NjZlOTM0NyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjFhYjZlODc2LWMzYTgtNDUyYi1iZTE1LWI0NzA4NjZlOTM0NyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.lhEBMX_YAixc8EKqAmp5AWVm778563NNgqv_WWGP78wi7KryMoH8QoR0I9nxJkOo_xTVGXEFSLkCEnElmusB8nzyp2TxNybpYs9MMjRXcvL9iQcJfBnvSHyyzdNS00w3YrO4n_4as2gJpOU43vzKWLM78LE7MQRl4d-IK9i9KtqrMabOAdWbUgcwP-apVpZOp46kY-VynU08lwuRdy7H5AT_ukSn282g4I9jI_vj60P_bo5-w2VZ34VCuHg6yf1n4XfKYMnv-3VfZRwnc13bl5ECK_aH_-dtRrnBC4HBhCsClxukBGE3NPqKw2Q1j-7NWri2aoq9PrfqhENbeXW7aw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"collectAmount\": 500.00,\r\n    \"totalAmount\": 492.5,\r\n    \"gatewayId\": \"ttHpwuN67hu5tEaxu\",\r\n    \"referenceNote\":\"test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5005/collections/orderReview",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5005",
+							"path": [
+								"collections",
+								"orderReview"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orderConfirm",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MjA0MjYzOTYsImlhdCI6MTcyMDQyNjMzNiwianRpIjoiNzlkOTI4MTMtY2ZmMC00ZjVlLWIxYjgtYjQ1NzYzZjYzYzYxIiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6IjI1Yjk0OTIxLWI4ZjAtNDQzZS04MjMxLWEyZWIxN2Q1Yjk5MCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjI1Yjk0OTIxLWI4ZjAtNDQzZS04MjMxLWEyZWIxN2Q1Yjk5MCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.HdW9MeAofYLzpQlO2orxe9w27Uy5ukneu-TsZPX1-LgGyywaJZE8PWY0y3hgAeaLzBTL_6a2vSHsyYELpYr6moUH7z4YQ_TT-EeE6nwhKNPLp5BI25zxRJik41l-WdLYfgkBU8Sf3kQGp9R5-WAScSWiXUC7Prh267eaG_Yy-UwzIssSLy0t_J7uSO_V3RzD7D1ipxlTk623aJlTL2Se2aJ1nBjOn6Dtuv_bI1FtuJFF6x6so1uTF6ZwUJuj12srQKwgXXy4dW6oLt_1eW_q36D7j3XNzGuydW3iCi5HbEAcBUUs6BF2Vu8PGZWfpi1Q8xMFNz9-bEE2Bf-HLWWq5w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderId\": \"65f7b473f2ce720fc0c3bb98\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5002/collections/orderConfirm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"collections",
+								"orderConfirm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orderVerifyPin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJQS3k2WUpBTzUwRDI1ckJwRjNMOW4zLTNqdkZNSmpjMkh5YlN4YTI1aXlvIn0.eyJleHAiOjE2OTI4NTI5NjEsImlhdCI6MTY5Mjg1MjY2MSwianRpIjoiOTViMzE4MzEtNTA5OC00ZDVlLTg0N2YtNGExNjhmNjZmMDQwIiwiaXNzIjoiaHR0cHM6Ly9hdXRoLmRvbGxhcnNtYXJ0LmNvL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMWRkNjZjYTMtMWQ1YS00MzkzLTg0YTItYzA3NGYwM2E2MDdkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibW9iaWxlLWF1dGgiLCJzZXNzaW9uX3N0YXRlIjoiZDcyMDcwYWMtNWI0ZC00M2UxLWE2ZDQtMTFhODRiZDU5ZjQ2IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNnIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6ImQ3MjA3MGFjLTViNGQtNDNlMS1hNmQ0LTExYTg0YmQ1OWY0NiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoieW93YWlfaWVpZUBob3RtYWlsLmNvbSIsImVtYWlsIjoieW93YWlfaWVpZUBob3RtYWlsLmNvbSJ9.r3wM5JwpmgQ0_tFRcPdg35B4Oq44x_jl2uYCpNZuoUJchGjJdtyE9kmqBlA3XYw5m7p7BsyjU2y4NQdzJoJic71hiLBuzxb1HIIBSMR7YvJxElHSVyoyVhl3Y2ounxnGL-VCkMtQHxOOp7OoAAPKgfaTTQleLYqm-9ie9bAWjGWVteJGRgGdvooJ4LAgLvtYYsF0FX2aIBQmQid08I6dRjVkwBJDPu53YSbHvf4l-dhGtDaPHIJBGoji1_SNKIM490DbKGVogETAB4D5AEQL8hEcpEGhMEr0KNLyLKUvdIKptMsJXfTIkipqCQ95lrezTl1QKBoj5kz_DKIAb1pGOg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderId\": \"64e6e1d1479c1f37ecb72469\",\r\n    \"pin\":\"iitk7NxbIJOWwVnD77fk/gMo35OSoydnB/eLGZcbiNCLR6Hfco2EH1Xik5/QI7a7UXltrk03sjxcG91gY2j5cKWkdka8hDORADXJUJg1fdY1RqAx+dCN40smxWuZrsB3+g+Qrl0G9lCqZikDdultWEB8rcZ5jHItA5i6mS/lx6MOr5FtrQ0BMXFpvmvjusu/tNQDDL8ZSTae+idmbxKDerhhaT7uidCucItz/u5iCsEmR9ofJSdLWCSeZQaEXPaMsMMTduNOLMkXWfDvNrNdq6hTibDAJKnqFqJWPlkUhsJomfm/pIcDFs3NNSBa0CnoUSW6i+kHGPpc2OfGyA/XhdQ+KlRrX3CSVrsoHoExBQpzYlC5n/TtMdwuaDVhKJm5X9dREs3Yvl+EaQXU4RQa6G1weJNUmWBYJX8x4tLA1noOfCox4htF6RGj7u+rjRcrbMnumkMIceuct/f+Le2fS3GHpgTy6fJADRK9DhpJ0bMQLJMgWz47mlQupMijNZL4qSXuztFEZq4sO5QsMdWAHkZ4f6MhkksN53iXHNSdd8EttRSIQPa5DntN6/oirzQZq3RHEPGCD8RsQttNjWS0jm63oLVUH6rJaMjvczATK+el2dZ8us1Iqi2hOwAvsMuzTDpUJyDYchvHBAhsJbT2WamIswuAVzjC5cQasBnSA4w=\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5002/oneapp/collections/orderVerifyPin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"oneapp",
+								"collections",
+								"orderVerifyPin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orderInstruction",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MjA0MjYzOTYsImlhdCI6MTcyMDQyNjMzNiwianRpIjoiNzlkOTI4MTMtY2ZmMC00ZjVlLWIxYjgtYjQ1NzYzZjYzYzYxIiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6IjI1Yjk0OTIxLWI4ZjAtNDQzZS04MjMxLWEyZWIxN2Q1Yjk5MCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjI1Yjk0OTIxLWI4ZjAtNDQzZS04MjMxLWEyZWIxN2Q1Yjk5MCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.HdW9MeAofYLzpQlO2orxe9w27Uy5ukneu-TsZPX1-LgGyywaJZE8PWY0y3hgAeaLzBTL_6a2vSHsyYELpYr6moUH7z4YQ_TT-EeE6nwhKNPLp5BI25zxRJik41l-WdLYfgkBU8Sf3kQGp9R5-WAScSWiXUC7Prh267eaG_Yy-UwzIssSLy0t_J7uSO_V3RzD7D1ipxlTk623aJlTL2Se2aJ1nBjOn6Dtuv_bI1FtuJFF6x6so1uTF6ZwUJuj12srQKwgXXy4dW6oLt_1eW_q36D7j3XNzGuydW3iCi5HbEAcBUUs6BF2Vu8PGZWfpi1Q8xMFNz9-bEE2Bf-HLWWq5w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderId\": \"65f7b473f2ce720fc0c3bb98\"\r\n    // \"fcm_token\": \"cCPGgo_ksE7FqKQCTFnxz5:APA91bFFUs222fGfq9FgBPJEiqy7hgqirU-Tt9ucm4eHaKvlL2atPO24HHe2dCUGA83V-6Rgfwr9hxOPb0WfzSj_V5n1ndijlbsIsQcAf3ZzDAK2ZAWCuUDtaovvurMDyzZgs8kA6hZY\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5002/collections/orderInstruction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"collections",
+								"orderInstruction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOrderDetails",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJQS3k2WUpBTzUwRDI1ckJwRjNMOW4zLTNqdkZNSmpjMkh5YlN4YTI1aXlvIn0.eyJleHAiOjE2OTMyOTM2NjcsImlhdCI6MTY5MzI5MzM2NywianRpIjoiYWJiNWQ5NjYtNDk0MS00NWIxLTg1NDgtZmYxM2JjMjM0ZTBiIiwiaXNzIjoiaHR0cHM6Ly9hdXRoLmRvbGxhcnNtYXJ0LmNvL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNjI3NGU1ZjMtYTNkMS00MDdlLThhM2YtNjU4ZTE2NjNiNjQ2IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibW9iaWxlLWF1dGgiLCJzZXNzaW9uX3N0YXRlIjoiNzdiNDUwNDgtMjY1OC00NWMxLThjYWUtOWQ3YWE4MmJkZGYyIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNnIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6Ijc3YjQ1MDQ4LTI2NTgtNDVjMS04Y2FlLTlkN2FhODJiZGRmMiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.CIBScrPcDsUlH5AmDqVLeejyGywH79RFny-Ztmn_8UIyo8rnxQ9LJL3De2tg7ANKxIbmqRTaFzIdGYVZAJCJ_PPCKE1HmBXrDEUK-DLb2fW8kHNv4LjuP12tQeLGgMpRyDTM_P6-YpV-vZI7H9AmaCBVg4rgXibRI9s8ENWGWnsBH2d2QhugsSoLQOjztsii2zLAnTswg1CXMKrj1dSe1zF-S7IHhEfLcsI9U6TzPy9XySY0b-pLZkvzEgfsx61_hzgem2ypdU6LmKbCuZPy1pCXuZsbV-shMC7jpjzTT8KFDszhBX4ha5vYW-tEbcbQbW4WnUiNPamOQ-4l2CBFyQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5002/oneapp/collections/getOrderDetails/64ed73e8d559f6a163a01737",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"oneapp",
+								"collections",
+								"getOrderDetails",
+								"64ed73e8d559f6a163a01737"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orderShared",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MTU1NzY2NzgsImlhdCI6MTcxNTU3NjYxOCwianRpIjoiYjMwMzhmYTEtMmYxZS00MDcwLWJiNDMtZjAwNjg3NGI2ZWI4IiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6Ijk1ZWNmNzU2LTcwMzQtNDI1Mi04MmMxLTY3MWVmZGZjMzQwOCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6Ijk1ZWNmNzU2LTcwMzQtNDI1Mi04MmMxLTY3MWVmZGZjMzQwOCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.Zgdb7G0C5O7SZAgb8Y-hMRpRzH8svQwzPPcwsVMHoYagAn6oVuiX5DZhh-um3hLFNYFdrqRMrbcp7DsCiv2ctaWeyoWLETcTCjNOwYhbF9-CAcQi8cbtL1AVCCGWK7aImJa_p_U1-bZx15h7tmXgQ15Rg4od48tNMST3cZFFx52LCNLnZIMr-QlWQo4gcfnfm11huw1pzxgl4K54aGEkvqGWLFKfrEFJezCT0GWKq6la7FdUqOXJfrPjkBaO3akvjpmG3rdwqMOYyj2tcw-kdfMqAdON3p94pfn_eRB_6dsm5P6Rqbr9s3KIIruFcOsTVGD-RhZ3z8bTvq5qEL9fpA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5002/collections/orderShared/659e3d2a07171015e55a70f4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"collections",
+								"orderShared",
+								"659e3d2a07171015e55a70f4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orderFundSent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MDk3OTgxNTksImlhdCI6MTcwOTc5ODA5OSwianRpIjoiZmJjY2YxOGItODMwMy00ZjIxLTgwNzgtOGIxNTIzNWVjMmFkIiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiODg0MzczZGQtNTU3MS00YTgzLWJjMzUtZDkzMDU0MmZlYTlkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6ImNmMGI2NjliLWM0NWEtNDg3OS05NmYxLWI3NTExODI0ZTFiNiIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6ImNmMGI2NjliLWM0NWEtNDg3OS05NmYxLWI3NTExODI0ZTFiNiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoidGVlcmF3dXRAZHNncGF5LmNvbSIsImVtYWlsIjoidGVlcmF3dXRAZHNncGF5LmNvbSJ9.U3wHlvqzCKHBgmKZOnUtDPIHTDY3d04bAKJngDMIy2dCeXUveUQy19nBDlYn48h3UjH5mfQDy5NAEpDSZv5OlNOqFMDm4vESd7nMY7T1ntcA889av-TSzgsqKfjo88nZLtyRPmxAl1CWr3XuKyqdouj88AYDCvIdETwgyN_LGRnAYjQyu-ihRquPqEdXIPb1XHXjjfjDqfUWCyCL8whHuh-vq15orNkRXzcEIw3EdFLLYH50NOKj7lMct3ipo2sjZs80xlierB0H5NatQsXyctRDKN9yY--biRr0eY4hQJfFJCGXLZ1EJPiIpAXW6sqJZAWh2t7hzGttTnFmKNTriQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://stage-api.app.dsgpay.com/collections/orderFundSent/65e973261281943b341c2ada/884373dd-5571-4a83-bc35-d930542fea9d",
+							"protocol": "https",
+							"host": [
+								"stage-api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"collections",
+								"orderFundSent",
+								"65e973261281943b341c2ada",
+								"884373dd-5571-4a83-bc35-d930542fea9d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orderCancel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJQS3k2WUpBTzUwRDI1ckJwRjNMOW4zLTNqdkZNSmpjMkh5YlN4YTI1aXlvIn0.eyJleHAiOjE2OTMyOTI1NTcsImlhdCI6MTY5MzI5MjI1NywianRpIjoiNDIwZDI4NzQtNjUwMy00N2UyLWE5ZTUtMGM5Zjk1OWQwOTVhIiwiaXNzIjoiaHR0cHM6Ly9hdXRoLmRvbGxhcnNtYXJ0LmNvL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNjI3NGU1ZjMtYTNkMS00MDdlLThhM2YtNjU4ZTE2NjNiNjQ2IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibW9iaWxlLWF1dGgiLCJzZXNzaW9uX3N0YXRlIjoiMWUwNTkwYzMtODE0ZC00OTIyLWJiOGEtZDc2NTgxNTgwN2QxIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNnIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjFlMDU5MGMzLTgxNGQtNDkyMi1iYjhhLWQ3NjU4MTU4MDdkMSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.Sp1YQC7Nul9QJAciqWpt5VnaeP8Iq5K1yINXAn8r84OoS8bicjxLZhEAcht69BEApiSwoHxwCP12sqsQKaff4Jydp5qWuvXDdVcn_lEbAgsdNzplvX53e_lrhrMEVuuH1IzTiBro1tLHJHfN8s_LKMWQOMnuAjELPRaxZdvHwgmrVyB86npNP5yBAZwyV4yOm_nUFnCpiK0PVG9HAgxPb-2prGLJWeVi2afl2TyU3LZEFE6IgnYCLTMABrSpUqCh0hO7gURpHw8C0W4GeSWhLR9FO91K9u0BiFDkGelW-_7rBklOXbYjehFVx39z4nVd_DhMUvTcxBsyj3nqczLLGA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5002/oneapp/collections/orderCancel/64ec3ce2172234d74e5ab5a8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"oneapp",
+								"collections",
+								"orderCancel",
+								"64ec3ce2172234d74e5ab5a8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testAPI",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJQS3k2WUpBTzUwRDI1ckJwRjNMOW4zLTNqdkZNSmpjMkh5YlN4YTI1aXlvIn0.eyJleHAiOjE2OTMzNjc1NDIsImlhdCI6MTY5MzM2NzI0MiwianRpIjoiNmE2MTkzZGQtMmE2NS00NGQ4LTgzODUtMmQ4Yjk2NDBlNzkzIiwiaXNzIjoiaHR0cHM6Ly9hdXRoLmRvbGxhcnNtYXJ0LmNvL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNjI3NGU1ZjMtYTNkMS00MDdlLThhM2YtNjU4ZTE2NjNiNjQ2IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibW9iaWxlLWF1dGgiLCJzZXNzaW9uX3N0YXRlIjoiYTBhOTQ5NjItNzRjZC00ZDlmLTk5Y2ItNGQ5MmIyOWRlNzY1IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNnIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6ImEwYTk0OTYyLTc0Y2QtNGQ5Zi05OWNiLTRkOTJiMjlkZTc2NSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.TKjx9hpfbElkbZUT5fe1TyvqcARRpfhwKscT4VSnHdn2loU6Oa_x30lksHGdMLQK9VcU9hfZ8ZTaz8RQv5mRpwgjnciv_DEcksCoicxgIZ-uCohtaVkr5rRZ2scsgOGYH5qn6lJIKBs7ra44tWS33243R9FjoYwebSzsB0mDIVoyFx0Q6FG2qSEW-gE7TtvTfODbhVepfsqtgsjYcH76RqQctcpvj8gEIsg4AI6KitgjvD0iS-IyHFmfK1nE6aL0zieZAn3YG3cHfQw_O7yuIbJ6_OF9iteFeGi1BTGGXC47dz7XWzU4C8vlzw7DHslFiacaYXUF4wdRh5g38QU1AA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderId\": \"64edc3f5172234d74e5ab5cb\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5002/oneapp/collections/testAPI",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"oneapp",
+								"collections",
+								"testAPI"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCorpProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MTAzMTU5MzIsImlhdCI6MTcxMDMxNTg3MiwianRpIjoiNjczNDVjZDEtYWFkYS00ZmI3LTg5ODEtMjg1Zjg0ODU0MWFjIiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6ImRkMzY5ZGE4LWNjYzItNDYyMi1iMmQ5LTkzNTkxYTQxOWU4MCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6ImRkMzY5ZGE4LWNjYzItNDYyMi1iMmQ5LTkzNTkxYTQxOWU4MCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.eDZuE4qRIIaRcstU-gbJTrdvVRLwR0_TjeIzn0aAcUV3TZDlmHAtsaSq91kaBVpXtSH8ni6cfGU3FpNHUltshdbZosHwl1-q1SFzRE9emz-y_S7Hd0EXsJMxAHChcwPq68Int98o3_G47s8V0ETizeaAcSOc1XN0Fa23U40qsAk8xX-M4bgpF2S8Jmg9Wwp6-rfWuUrfBD9SrRDtb8xWAf2ywXzvr--iwInIqlHbrGL6ywQSmRWy6I6Q8ip-Vs-r017GM2LggaeMX0RTbJ4XaV3gDg3vSlAtcGgzcf6jPtdgFfnG9OL4DV1bVSWXTKfgXYaiD2zNSVvFqLIG1hBhBA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://stage-api.app.dsgpay.com/collections/corpProfiles/SMETEST/HKD",
+							"protocol": "https",
+							"host": [
+								"stage-api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"collections",
+								"corpProfiles",
+								"SMETEST",
+								"HKD"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSva",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5002/collections/getSva?ccy=AED",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"collections",
+								"getSva"
+							],
+							"query": [
+								{
+									"key": "ccy",
+									"value": "AED"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payout",
+			"item": [
+				{
+					"name": "beneficiary",
+					"item": [
+						{
+							"name": "document",
+							"item": [
+								{
+									"name": "upload",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{staging_authToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "file",
+													"type": "file",
+													"src": "/C:/Users/yotee/OneDrive/เดสก์ท็อป/images for test/test.jpg"
+												},
+												{
+													"key": "sessionId",
+													"value": "12345678910",
+													"type": "text"
+												},
+												{
+													"key": "documentType",
+													"value": "beneficiary_settlement",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:5005/payout/beneficiary/document/upload",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5005",
+											"path": [
+												"payout",
+												"beneficiary",
+												"document",
+												"upload"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "getDocument",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{staging_authToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"sessionId\": \"1734332614313\",\r\n    \"documentType\": \"beneficiary_settlement\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5005/payout/beneficiary/document",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5005",
+											"path": [
+												"payout",
+												"beneficiary",
+												"document"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "confirm",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{staging_authToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"sessionId\": \"1734332614313\",\r\n    \"title\": \"Beneficiary settlement\",\r\n    \"type\": \"beneficiary_settlement\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5005/payout/beneficiary/document/confirm",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5005",
+											"path": [
+												"payout",
+												"beneficiary",
+												"document",
+												"confirm"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{staging_authToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"675fd0cefb983f3f9774acc1\",\r\n    \"key\": \"288bfb77ae4cf302_1083fff538862f5e.pdf\",\r\n    \"isPermanent\": true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5005/payout/beneficiary/document/delete",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5005",
+											"path": [
+												"payout",
+												"beneficiary",
+												"document",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "get",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{staging_authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5005/payout/beneficiary?type=MY_SELF",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5005",
+									"path": [
+										"payout",
+										"beneficiary"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "MY_SELF"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get_beta",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{staging_authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://stage-api.app.dsgpay.com/payout/beneficiary_beta?payoutType=thirdparty",
+									"protocol": "https",
+									"host": [
+										"stage-api",
+										"app",
+										"dsgpay",
+										"com"
+									],
+									"path": [
+										"payout",
+										"beneficiary_beta"
+									],
+									"query": [
+										{
+											"key": "payoutType",
+											"value": "thirdparty"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MDk4NzI1ODYsImlhdCI6MTcwOTg3MjUyNiwianRpIjoiMzM3ZmQ5MmEtYmNjZC00MGZlLWE1MjYtMWQ2ZGE2Mjk5MmEzIiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiODg0MzczZGQtNTU3MS00YTgzLWJjMzUtZDkzMDU0MmZlYTlkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6IjdhZmVlYjFhLTc5YzEtNGY5OS05ODc4LTQzZmY0N2JhN2RkMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjdhZmVlYjFhLTc5YzEtNGY5OS05ODc4LTQzZmY0N2JhN2RkMCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoidGVlcmF3dXRAZHNncGF5LmNvbSIsImVtYWlsIjoidGVlcmF3dXRAZHNncGF5LmNvbSJ9.UyrGa9lf7PDABpf91aOP4bfMCbgEyPxhabTgoi2JDZpF2cfMvWc9C5SA02yIYOT4ejBnviBE9tmO_qqa_IcoeR5f-QxQa3eh4aHuS2aG4e0o-cipkfy2x_nXhIaP_3Zn20Ggeg52Cnoe6uE6h_dBjezpCsAHRaQVukduuXO6vCNZpGiZh-BriuycuHJTlTQAQzzWF5QoyWgXkP6h_26qQwqw1cxAtVgNVr5IYB3lrsQRDSSWsW3fCYwFlBfZyJoYHBjwdNFf-HGKDLJVhuQzAb28wYTstfxeICIroL8sIAxmc28V3HL5pe622eIJkFEX0-a5sOKYi230K2VFc1pfUQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"countryCode\":\"TH\",\r\n    \"currency\":\"THB\",\r\n    \"gatewayName\":\"Bank of Ayudhya Public Company Limited (BAY)\",\r\n    \"gatewaySwiftCode\":\"AYUDTHBK\",\r\n    \"accountName\":\"John Lennon\",\r\n    \"accountNumber\":\"1234567890\",\r\n    \"dob\":\"2023-09-07T14:30:00.000Z\",\r\n    \"address\": \"benAddress\",\r\n    \"country\":\"benCountry\",\r\n    \"city\":\"benCity\",\r\n    \"state\":\"benState\",\r\n    \"postcode\":\"benPostcode\",\r\n    \"saveAccount\": true,\r\n    \"type\": \"person\",\r\n    \"paymentMethod\": \"local_payment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5005/payout/beneficiary",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5005",
+									"path": [
+										"payout",
+										"beneficiary"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add_beta",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{staging_authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"countryCode\":\"TH\",\r\n    \"currency\":\"THB\",\r\n    \"gatewayName\":\"Bank of Ayudhya Public Company Limited (BAY)\",\r\n    \"gatewaySwiftCode\":\"AYUDTHBK\",\r\n    \"accountName\":\"John Lennon\",\r\n    \"accountNumber\":\"1234567890\",\r\n    \"dob\":\"2023-09-07T14:30:00.000Z\",\r\n    \"address\": \"benAddress\",\r\n    \"country\":\"benCountry\",\r\n    \"city\":\"benCity\",\r\n    \"state\":\"benState\",\r\n    \"postcode\":\"benPostcode\",\r\n    \"saveAccount\": true,\r\n    \"type\": \"person\",\r\n    \"payoutType\": \"thirdparty\",\r\n    \"paymentMethod\": \"local_payment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5005/payout/beneficiary_beta",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5005",
+									"path": [
+										"payout",
+										"beneficiary_beta"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MTY5NTM4OTAsImlhdCI6MTcxNjk1MzgzMCwianRpIjoiNjZkOGRmMjUtZDAzMi00NmU0LWE2OTUtYjJjZDY3ZDA0YWIyIiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6IjQ0OWM2ZTQ3LTRlY2MtNDM3My05YzE2LWRmZTkwNzQ3OWM2YSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjQ0OWM2ZTQ3LTRlY2MtNDM3My05YzE2LWRmZTkwNzQ3OWM2YSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.PogVPSPRFdM_XTrd_KylRXtDamAdDKtG0abVaC7whJ9M7Vr85tPaAv8rIa0IL603_jfeyrR0JgG64Q-zdIWrn0_LNrzso0grAFrCEOPGXm3Sygu9sKPX802L449BEfWtChG9s2pdeB-wJonTzEakQzTGu1tJCQMSIyZeb0ARD-Bg_KBJQvOKmzOimhbATqT-iEbLfBfFdWMmv4jwE-1mlaHqrbRwbJY_c9vPTX4x3Gn4o0WVuJzICUCuVrkhY4UWj3rPaaAyflH9X9EPjoWoVw742pFpyI2jEsM92Oi6gEEEKOB9JcxuEfq6ef-oRCKoCflxfj_FhpZRpOQGr5DdrA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pin\": \"I45oNgy+6XPE8+OSMRMy6lCSUH4hA0q7vMeSyEdTLvJ3itbTbeVQRqqYCcfYLtAHjif+Mp0l9I836tsL/EPMLw7OLQptr6ncJXk3Qo208BswprKc5Tge+JYE9leHQoIvbASIjFS14yauCWdmHNgB3cKWalWGmkh9t0wTt3eCAlzkEDkjHDkFhZXcREA6PexMqh8ru0QWxiaxBPzgniQLsfLdbPtGqu94FfJmNVuyNfCeiwEYMFF5fUMULERRw+TgyaFX/B8HWcPLjzMCudNoOOMMyiNg7VSz7XFtcLbRhonqzRUimQPrkGeRNKs/rUDExBYzEL7HirYO02WWQGGGqfSEpA9ucWyn7JZw/SrStABI/J6sf/St47NUkZGKkz5mumPrccWgKarvFSHZI6lgLtSVaBkO4b1cWG0AmwQqlwXgVYFdPhXj8Zzv/6r/gMBTqSem0fB0BBpB4rCuoFzUfSoYunGrj0wQxvIeAMA/+jZ2tiivoobqjegapSksGzNQ6JFmH15s3eu3wtCRofe+hGPbu5bPKKRr7FRPoLBrxUP5VOvZ+X5pIOWrbIQOfMM5DODIjpo3AurgwgDnwrsEbdzqO+LCI+LY9Pmt7We5uTZj9PDdPV+V8o4KiE9PVNdHCr2HsSTaogoWVPL/b3UM74apkEjKrIOQsyRlPoSwaO0=\",\r\n    \"beneficiaryId\": \"662a18fbbbe6423d436e1a0e\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5005/payout/beneficiary/delete",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5005",
+									"path": [
+										"payout",
+										"beneficiary",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "gateway",
+					"item": [
+						{
+							"name": "get",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{staging_authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5005/payout/gateways?countryCode=US",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5005",
+									"path": [
+										"payout",
+										"gateways"
+									],
+									"query": [
+										{
+											"key": "countryCode",
+											"value": "US"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "BSBCode",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"countryCode\": \"AU\",\r\n    \"gatewayBSBCode\": \"122792\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5005/oneapp/payout/gateways/BSBCode",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5005",
+									"path": [
+										"oneapp",
+										"payout",
+										"gateways",
+										"BSBCode"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "bankBranchCode",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"countryCode\": \"JP\",\r\n    \"gatewayBankCode\": \"3337\",\r\n    \"gatewayBranchCode\": \"001\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5005/payout/gateways/bankBranchCode",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5005",
+									"path": [
+										"payout",
+										"gateways",
+										"bankBranchCode"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "checkGateways",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3Mzg4MjU2NzEsImlhdCI6MTczODgyNTYxMSwianRpIjoiNDQ5MTcxY2ItOWE3Yi00N2MzLWE1YmUtMDdmMzcyZmNlZjhiIiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6ImEzOTBjNTliLTI3NzgtNGI4Yy1hOTA5LWYzNDA5ODg1YmUzNSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6ImEzOTBjNTliLTI3NzgtNGI4Yy1hOTA5LWYzNDA5ODg1YmUzNSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.MzK5f5Uu_TfgcNVUHmLFLCP_p68J6-45adf2e0P76jj4ugmLqPgeW7tRe3572kO35fsxL5FoB1jRyC2xFiOqTdtMQnwucJSaDXjhdua0IIqLmCAqjFe-fpgb5BGb6v_s5Z087BbJn_-oFIkC1QkwSscDqAs0Qm3neBLLf2-AMj1merbC-AK1kLutHSzk3cT72X1AqJHhhVaTqLPousI-gAmTPJBI7oYj9uPcGm0K77tMlzQB557_e7tSL8UfI3xnzp_OxrPDcvuXIkoZOjoAvEoNQrIz9NDX8iTuQCmjLMaHL7ZUb5AeTXzd98Zy_98thUKP9-WzhNdVMJRa76JN_A",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"countryCode\": \"US\",\r\n    // \"gatewaySwiftCode\": \"BOTKIDJXXX\"\r\n    // \"gatewayBSBCode\": \"062921\"\r\n    // \"gatewayBankCode\": \"0001\",\r\n    // \"gatewayBranchCode\": \"986\"\r\n    // \"IFSCCode\": \"fdsafdsa\",\r\n    \"branchRoutingNo\": \"010010077\"\r\n    // \"IBANNumber\": \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5005/payout/gateways/checkGateways",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5005",
+									"path": [
+										"payout",
+										"gateways",
+										"checkGateways"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "payoutMethod",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5005/payout/payoutMethod",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5005",
+							"path": [
+								"payout",
+								"payoutMethod"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "countries",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://stage-api.app.dsgpay.com/payout/countries?currency=USD",
+							"protocol": "https",
+							"host": [
+								"stage-api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"payout",
+								"countries"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "USD"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "currencies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://stage-api.app.dsgpay.com/payout/currencies?currency=USD&countryCode=AE&paymentMethod=local_payment",
+							"protocol": "https",
+							"host": [
+								"stage-api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"payout",
+								"currencies"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "USD"
+								},
+								{
+									"key": "countryCode",
+									"value": "AE"
+								},
+								{
+									"key": "paymentMethod",
+									"value": "local_payment"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSwiftFeeType",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5005/payout/swiftFeeType?sendingCurrency=USD&receiveCurrency=GBP&beneficiaryId=66978295f24300b4af8f4358",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5005",
+							"path": [
+								"payout",
+								"swiftFeeType"
+							],
+							"query": [
+								{
+									"key": "sendingCurrency",
+									"value": "USD"
+								},
+								{
+									"key": "receiveCurrency",
+									"value": "GBP"
+								},
+								{
+									"key": "beneficiaryId",
+									"value": "66978295f24300b4af8f4358"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "feeQuote",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderType\":\"PAYOUT\",\r\n    \"paymentMethod\": \"local_payment\",\r\n    \"countryCode\": \"HK\",\r\n    \"prefixCurrency\":\"KRW\",\r\n    \"suffixCurrency\":\"HKD\"\r\n    // \"feeType\": \"SWIFT_SHA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5005/payout/feeQuote",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5005",
+							"path": [
+								"payout",
+								"feeQuote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "totalAmount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"paymentMethod\": \"local_payment\",\r\n    \"countryCode\": \"AE\",\r\n    // \"feeType\": \"SWIFT_MTT_OUR\",\r\n    \"amount\": 5,\r\n    //258026.25\r\n    \"prefixCurrency\":\"USD\",\r\n    \"suffixCurrency\":\"AED\",\r\n    \"sentAll\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5005/payout/totalAmount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5005",
+							"path": [
+								"payout",
+								"totalAmount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "checkHighRiskCountry",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"countryCode\": \"AE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5005/payout/checkHighRiskCountry",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5005",
+							"path": [
+								"payout",
+								"checkHighRiskCountry"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "checkMandatoryFields",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"beneficiaryId\": \"686396ef7bc9d82a76eef243\",\r\n    \"countryCode\": \"US\",\r\n    \"prefixCurrency\": \"USD\",\r\n    \"suffixCurrency\": \"USD\"\r\n    // \"feeType\": \"SWIFT_SHA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5005/payout/checkMandatoryFields",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5005",
+							"path": [
+								"payout",
+								"checkMandatoryFields"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveMandatoryFields",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"beneficiaryId\": \"67a469ab424b414c3fa279ee\",\r\n    // \"senderIdType\":\"Passport\",\r\n    // \"senderIdNumber\":\"123456789\",\r\n    // \"senderAddress\":\"yo test\",\r\n    // \"senderCity\":\"yo test\",\r\n    // \"senderState\":\"yo test\",\r\n    // \"senderPostcode\": \"12345\",\r\n    // \"senderPurposeOfRemittanceCode\": \"PAYMENT_OF_GOODS\",\r\n    \"senderPurposeOfRemittance\": \"testPurposeRemittance\"\r\n    // \"senderGoodsOrigin\": \"aaa\",\r\n    // \"senderGoodsLanding\": \"bbb\"\r\n    // \"beneficiaryMSISDN\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5005/payout/saveMandatoryFields",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5005",
+							"path": [
+								"payout",
+								"saveMandatoryFields"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orderInstructionReview",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"beneficiaryId\": \"67a469ab424b414c3fa279ee\",\r\n    \"amount\": 2,\r\n    \"prefixCurrency\": \"USD\",\r\n    \"suffixCurrency\": \"JPY\",\r\n    \"missingFields\": {\r\n        \"senderPurposeOfRemittanceCode\": \"PAYMENT_OF_GOODS\",\r\n        \"senderGoodsOrigin\": \"aaa\",\r\n        \"senderGoodsLanding\": \"bbb\",\r\n        \"senderPurposeOfRemittance\": \"gg\"\r\n        // \"beneficiaryMSISDN\": \"123456789\",\r\n        // \"beneficiaryIdNumber\": \"123456789\",\r\n        // \"beneficiaryBranchCode\": \"testCNYBranchCode\",\r\n        // \"beneficiaryNationalityCountryCode\": \"CN\",\r\n        // \"beneficiaryDateOfBirth\": \"123456789\",\r\n        // \"beneficiaryBranchName\": \"testCNYBranchName\"\r\n    },\r\n    \"sentAll\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5005/payout/orderInstructionReview",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5005",
+							"path": [
+								"payout",
+								"orderInstructionReview"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orderConfirm",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderId\": \"67973f2926f73e68d00d4d3d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5005/payout/orderConfirm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5005",
+							"path": [
+								"payout",
+								"orderConfirm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orderInstruction",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pin\": \"KeN3G366iT2/E5nHmr/ZkaZJMEw/G46OtUCGN8xeTSTRg7VdHlL6uUuFK45Kv5/+/KQV6MTpszq7Kn3k2uaDKtYWh3qno0c7dPjg+e6VN6dper3f8j5/waGyHrgQ5DntWGSu5Q2Mx6rvwItGnJewl7sZL3ZlyIEWzpsYcXVBcU1UhnQm4nN2KoyI2K+31R4GUV+VWk4z766dcesZ6SFvokTLH5Q4vQtxD8h1LskgLYzDztMbfwYH5Aj5JTmg/swco1FjnoBMIrunaAiN9NcomVTDfr+juOdIpRce0b4gpRl+9eSaZ1lEAAM1tVgTFmqJbtFcsaZ+FrKX7bgtDvmzBC98qjEVoB7df/k1JRb7DXzNYxhq3rVdOJ/Rp/gerecNNN4mqIB7H04X5iRm/XUlCkfqNmyXUtK6Xumt5o4SHkvw4Xy3jswSmZjJpqEKbgD8ykuqrFBrZjr+tU1tBvNXCKNhYQVSZGKJ1mdXXDJe8qFQLkEwaylO6Nj4hThbF9MVxmskAZ43Z/Hca0N5Nc+tHJLXKkVzYxTZQKpsclitraw0I9cpj8ZYGFbumUG4pY7+PrjzqE6PMXa479vhEhlcvcE4Xpys2oaRdTiGg1wLL2VPUi1jXvAjUe8AXLzk28cnqE7d6tiIMRpsIVJlMatk+1wRuffEnF7S4SA50UP8xRc=\",\r\n    \"orderId\": \"681071253ad59bda6b837eb3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5005/payout/orderInstruction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5005",
+							"path": [
+								"payout",
+								"orderInstruction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orderInstruction2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MDk4OTQ3NjEsImlhdCI6MTcwOTg5NDcwMSwianRpIjoiNmRiZTlmM2YtZmYwMS00OTViLWJiYjgtMDRmZTRjZmIwOTAxIiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6ImIxYmEwNjUxLWE1ZTgtNDYwMS04YzJlLWM4NGNhZTU4MGEyMyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6ImIxYmEwNjUxLWE1ZTgtNDYwMS04YzJlLWM4NGNhZTU4MGEyMyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.SGJAEHYDTbJITroEtNtOfTYbfbE_-5L38uuNXxSCwmlR2IwHrHIYKoPZg-lpkTcTHCta0o0o0ILld9AviVO4buY-s2iGzRuFEmdS8T1rTP3sKpz04VeYSHhJbOi8S8S-k2YiCAxG4dIdyQtNEcrMbjzTh_BSX_i9or6Kv9xSI3sriIEy2khfZ_zVjspBT_Egdoz0qmmlRgJz5YLztcLOef8ddovJtflYY9dth-X3mmeDEXTAI9mobwp2O_IBCdkkXqlq1Vrh9yDx0t2k_S-7zsXphPA6p0F57EEnpj6xsewCQOg5GMRfQwP7WG4dAARQzCxerP1mlTGGpkJuVRwCIw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderId\":\"65eae933a0357f7a5b334254\",\r\n    \"pin\":\"KeN3G366iT2/E5nHmr/ZkaZJMEw/G46OtUCGN8xeTSTRg7VdHlL6uUuFK45Kv5/+/KQV6MTpszq7Kn3k2uaDKtYWh3qno0c7dPjg+e6VN6dper3f8j5/waGyHrgQ5DntWGSu5Q2Mx6rvwItGnJewl7sZL3ZlyIEWzpsYcXVBcU1UhnQm4nN2KoyI2K+31R4GUV+VWk4z766dcesZ6SFvokTLH5Q4vQtxD8h1LskgLYzDztMbfwYH5Aj5JTmg/swco1FjnoBMIrunaAiN9NcomVTDfr+juOdIpRce0b4gpRl+9eSaZ1lEAAM1tVgTFmqJbtFcsaZ+FrKX7bgtDvmzBC98qjEVoB7df/k1JRb7DXzNYxhq3rVdOJ/Rp/gerecNNN4mqIB7H04X5iRm/XUlCkfqNmyXUtK6Xumt5o4SHkvw4Xy3jswSmZjJpqEKbgD8ykuqrFBrZjr+tU1tBvNXCKNhYQVSZGKJ1mdXXDJe8qFQLkEwaylO6Nj4hThbF9MVxmskAZ43Z/Hca0N5Nc+tHJLXKkVzYxTZQKpsclitraw0I9cpj8ZYGFbumUG4pY7+PrjzqE6PMXa479vhEhlcvcE4Xpys2oaRdTiGg1wLL2VPUi1jXvAjUe8AXLzk28cnqE7d6tiIMRpsIVJlMatk+1wRuffEnF7S4SA50UP8xRc=\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://stage-api.app.dsgpay.com/payout/orderInstruction",
+							"protocol": "https",
+							"host": [
+								"stage-api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"payout",
+								"orderInstruction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOrderDetails",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MDQ3NzAxNDIsImlhdCI6MTcwNDc3MDA4MiwianRpIjoiYWJjYTY3M2EtN2QyMC00ZWFkLWI5MDQtZGVkYzBiYmE0M2UzIiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6ImMwZGQzMzUzLTlkZTctNDQ1Yi04YzQzLWY1ZDgwNDhkMTAyZCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6ImMwZGQzMzUzLTlkZTctNDQ1Yi04YzQzLWY1ZDgwNDhkMTAyZCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.QbviUHN7XEENfG1x6VbdnDg9MTPygT2xT11ueDDhwoVGNQpyCNJoaqRVh5ph7I9soalVDdpxb9RZpBDBNdn1hl7iweGwekNEFIAbm-7aZtIqTMl2iyNRmpTvl-N0Wv0edgIMt2E_rvCJ9tkyTbTq6UOwc9KY4Gwqo6UkDs-ioMExXFKJLbNBrcGgnRsHPmlkXJZrIVnGxb_MAvgQCF7mbEFSiCDAp7uFbxLJ1a3a8pykS_ZrwJ33l3wKLuy_QvcSr7rGpnZ2A3Gkq9Tn029KrDGolURuhxb8bO-3wOWx13v1tZlEQ5MoxgTy3KLmX1OZDJLrPlFePxqls6jvYzuszA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5005/payout/getOrderDetails/659bbc6f3b0e07393e342daf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5005",
+							"path": [
+								"payout",
+								"getOrderDetails",
+								"659bbc6f3b0e07393e342daf"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Conversions",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://stage-api.app.dsgpay.com/conversions/list/USD",
+							"protocol": "https",
+							"host": [
+								"stage-api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"conversions",
+								"list",
+								"USD"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createFxRateQuote",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sourceCcy\": \"USD\", \r\n    \"destinationCcy\": \"EUR\", \r\n    \"corpId\": \"ITSTAGE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5008/conversions/quotation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5008",
+							"path": [
+								"conversions",
+								"quotation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getFxRateQuote",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://stage-api.app.dsgpay.com/conversions/quotation/:id",
+							"protocol": "https",
+							"host": [
+								"stage-api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"conversions",
+								"quotation",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "pzs54p96"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "calculateBySourceAmount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sourceAmount\": 1,\r\n  \"quotationId\": \"nv19p6cp\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5008/conversions/calculate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5008",
+							"path": [
+								"conversions",
+								"calculate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "calculateByDestinationAmount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"destinationAmount\": 1,\r\n  \"quotationId\": \"nv19p6cp\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5008/conversions/calculate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5008",
+							"path": [
+								"conversions",
+								"calculate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"corpId\": \"ITSTAGE\",\r\n  \"sourceCcy\": \"USD\",\r\n  \"destinationCcy\": \"EUR\",\r\n  \"sourceAmount\": 1,\r\n  \"destinationAmount\": 0.91,\r\n  \"quotationId\": \"7md577ni\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://stage-api.app.dsgpay.com/conversions",
+							"protocol": "https",
+							"host": [
+								"stage-api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"conversions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"conversionId\": \"tTLXN3WroEDv8fouC\",\r\n  \"type\": \"CANCEL\",\r\n  \"statusReason\": \"ggez\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://stage-api.app.dsgpay.com/conversions",
+							"protocol": "https",
+							"host": [
+								"stage-api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"conversions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5008/conversions/:conversionId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5008",
+							"path": [
+								"conversions",
+								":conversionId"
+							],
+							"variable": [
+								{
+									"key": "conversionId",
+									"value": "7SRS6tpoAZYH5wjmh"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "currencyAccount",
+					"item": [
+						{
+							"name": "get",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{staging_authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/dashboard/currencyAccount",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"dashboard",
+										"currencyAccount"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get_beta",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{staging_authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://stage-api.app.dsgpay.com/dashboard/currencyAccount_beta",
+									"protocol": "https",
+									"host": [
+										"stage-api",
+										"app",
+										"dsgpay",
+										"com"
+									],
+									"path": [
+										"dashboard",
+										"currencyAccount_beta"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJXMzdBSC02OG5oLXpNTnA2Yl8ybUgtdnFjN0JJVTVwdXBUZ3dPdl91SHMwIn0.eyJleHAiOjE3MTUyNDI4ODEsImlhdCI6MTcxMjY1MDg4MSwianRpIjoiNDJmMDMxMjgtYTE0MS00ZjA5LWFhMjYtMWExNzI3MmQ0ZTgwIiwiaXNzIjoiaHR0cHM6Ly9hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMTJiYzcwYWEtNThmOC00NjM1LTliZDItNDlhOWZlNTI1Mzg4IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6IjZhMzc1M2UzLWVkMmYtNDQyZC1iMWM3LWNiMTUyMTNjODE5MiIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6IjZhMzc1M2UzLWVkMmYtNDQyZC1iMWM3LWNiMTUyMTNjODE5MiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiZHNncGF5bW9iaWxlQGRzZ3BheS5jb20iLCJlbWFpbCI6ImRzZ3BheW1vYmlsZUBkc2dwYXkuY29tIn0.vSWkgpJLATid406J6LB4sz23j4C5utGDoP3UBd9hAFseHWqTjvmqM3mGZy1ORRaAWgWng3mOcfUhSLKCM1QRbPuxzwdFQNOrsD5z5VVv1x5KOjxc1D53DJsjJhU1XX_3ub77w0_M5zxXsRoGQl6EGovgwkTxbuYZwhZD0XNaZ6vjb4fBqyDNze0QClZnm1qICobMA6L52qFhcGGSh5InweaF9VZDz20hhEeCRNJyzOc5Z9UjfnTBQ4PbunVpThv-kND7_aQ0umduMhS67lzKSh-ZTkXwpTWhJixYa2kHcqeQ5wN5Ic8g7or7t4_LAU1ZLoNcoWCAJsUJGcJHyZGBTg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"currency\": \"HKD\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://stage-api.app.dsgpay.com/dashboard/currencyAccount/add",
+									"protocol": "https",
+									"host": [
+										"stage-api",
+										"app",
+										"dsgpay",
+										"com"
+									],
+									"path": [
+										"dashboard",
+										"currencyAccount",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getByCcy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{staging_authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/dashboard/currencyAccount/by-ccy?ccy=USD",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"dashboard",
+										"currencyAccount",
+										"by-ccy"
+									],
+									"query": [
+										{
+											"key": "ccy",
+											"value": "USD"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "currencies",
+					"item": [
+						{
+							"name": "get",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MTI2NDc0MDQsImlhdCI6MTcxMjY0NzM0NCwianRpIjoiZDc2MTA2NWYtOGY0Ny00NDkzLWJjM2QtYTk0ZjZhYzkzOTFkIiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6Ijk0MzVhNWZjLWU3NTQtNDcyNS04NWZmLTc0M2E1ZDY1MzMxNSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6Ijk0MzVhNWZjLWU3NTQtNDcyNS04NWZmLTc0M2E1ZDY1MzMxNSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.C6DuN02Zkb3G3XYXJIj6SCJ4bC8oojKvrMcLg-8hnMxXXZ3fTnlAmci6wILl7shFjpgzSM4Us0h3L80cTHwdXEbzb_sUUSGe_htBd_kTSR-9CHxyZn_oMjecjBgkv4y4wlL8Zii-b5RuCKru5bzxc_m4kj0Oc3lfal4g1z85i8VSNhCn-oxrsi2hI68VtTXiESNytho7q0VVX8mM8Tm9hr3UXcfpj7n9kSUtJ8RRXMQS_odbpMX6j7p4-_r86P6BJYXhZ9yaFl-DnLY3r-myX92ztPiRPWx71YTIYQmfPbPmU5N-jVgWg4zBuZs0NiwyCZjLV0gAgQ4fF0rntrNroA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/dashboard/currencies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"dashboard",
+										"currencies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ability",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{staging_authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ccy\": \"IDR\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://stage-api.app.dsgpay.com/dashboard/currencies/ability",
+									"protocol": "https",
+									"host": [
+										"stage-api",
+										"app",
+										"dsgpay",
+										"com"
+									],
+									"path": [
+										"dashboard",
+										"currencies",
+										"ability"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "statement",
+					"item": [
+						{
+							"name": "getStatement",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{staging_authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/dashboard/statement?corpId=IPS&ccy=USD&fromDate=2016-01-01&toDate=2025-05-31",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"dashboard",
+										"statement"
+									],
+									"query": [
+										{
+											"key": "corpId",
+											"value": "IPS"
+										},
+										{
+											"key": "ccy",
+											"value": "USD"
+										},
+										{
+											"key": "fromDate",
+											"value": "2016-01-01"
+										},
+										{
+											"key": "toDate",
+											"value": "2025-05-31"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "activityLog",
+					"item": [
+						{
+							"name": "getActivityLog",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{staging_authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:5000/dashboard/getActivityLog",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"dashboard",
+										"getActivityLog"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "fcm",
+					"item": [
+						{
+							"name": "getFCMToken",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MDE4NzUxOTIsImlhdCI6MTcwMTg3NDg5MiwianRpIjoiNWRkNDUxZjAtZGQzMi00OTAzLWJlMjctMjQwNjViOGFhOWNmIiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMGE2N2E5ZjQtNGVkZi00YmU0LWExZmMtZDhjNTVhN2NmNTVjIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6IjkwNzdmMWZlLWVkNTktNGE0MS1iZTc3LTRkZWIwYzYyNmVmMSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjkwNzdmMWZlLWVkNTktNGE0MS1iZTc3LTRkZWIwYzYyNmVmMSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3LmRldkBnbWFpbC5jb20iLCJlbWFpbCI6Inphcm5pa3lhdy5kZXZAZ21haWwuY29tIn0.fzwVw-9SY_tq0Va4pty-HsrRPre5DoGpMfANNCCyjbrioFff-WJn9gyrj37FtttlLEkspXvQp53zQNX8S2yaCmt565pUcnZmtcmUvo6XdgilfkEZUCTnRFh0s-VK8t6cCUg45rT2L7yJSUwL9q_15OwUbHCTrfusHUuTRD-8gzv-mPdGkDh3__wW95XgCPig4J9VpYozecsrFp9FZVrPLg20zYylw0BgFFDwnVMuuhQipHRgJcA6NMQSYkDNeJLOIGYqGXb1Lu1PI9XBJ9owloorD0Gm37s5SfX5gvonw4T7dd9TxO3k_i6eJClO4liMcsgE6wFiEWhw4VPvgWXltg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MDE4NzMzMDMsImlhdCI6MTcwMTg3MzAwMywianRpIjoiM2UyNDQ5ZWQtMzI0Yy00ZGRlLTgwNGYtMjk0NTZhNGFlY2M2IiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYmYzMTU4ZDYtOWRkZC00NmRhLWJlODYtNTIxZDc1Yjk4NDBiIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6IjQ2ZDUwZGI2LWUxMzItNGRlMi1iMTI0LWVmZjIwZjE1MDMwZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjQ2ZDUwZGI2LWUxMzItNGRlMi1iMTI0LWVmZjIwZjE1MDMwZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3LmRldkBnbWFpbC5jb20iLCJlbWFpbCI6Inphcm5pa3lhdy5kZXZAZ21haWwuY29tIn0.mdm8s154hOWWYdY8Goczea4tCCyuKaTbc1WKcNaHt1IRZ-1G1MqYnx-nV6PrPuNE7rQp_dMGwVP8s63EYraO17CMMaXesIz8dzRprQGRu9gUYdG1s4ICqK_x5zejsgQ3TSUt5w0NGZPZtLaxz4SCxNGU8W7akfu__PjfZfcab0b6FgZ0YpUxCKXXT6gaQguCTYq_xq-XEYiFE92VrPiXCZiIttGxh4eR07WSdvMy8EvtcHzosyXNWyWkbgig37ems9cq2YqgipYlsSffiGxuoUtJUJE6gbb9Z8qtkzn_FrrlldafM6x2bNQrZ03w6KuDB-P0xacOjO37sSZb9RpSHA",
+										"type": "text"
+									},
+									{
+										"key": "test",
+										"value": "true",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/dashboard/getFCMToken",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"dashboard",
+										"getFCMToken"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "insertFCMToken",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJQS3k2WUpBTzUwRDI1ckJwRjNMOW4zLTNqdkZNSmpjMkh5YlN4YTI1aXlvIn0.eyJleHAiOjE2OTIwNzIxNTYsImlhdCI6MTY5MjA3MTg1NiwianRpIjoiNmE4ZmY1NWMtZDhjYS00NGFkLWIwMDQtMmJmZTEwNjc5NmI4IiwiaXNzIjoiaHR0cHM6Ly9hdXRoLmRvbGxhcnNtYXJ0LmNvL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMWRkNjZjYTMtMWQ1YS00MzkzLTg0YTItYzA3NGYwM2E2MDdkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibW9iaWxlLWF1dGgiLCJzZXNzaW9uX3N0YXRlIjoiZGQ2YWY5YzktYWUxNy00NDhkLThmMjMtOGQ5YTFmYTIxNjM1IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNnIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6ImRkNmFmOWM5LWFlMTctNDQ4ZC04ZjIzLThkOWExZmEyMTYzNSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoieW93YWlfaWVpZUBob3RtYWlsLmNvbSIsImVtYWlsIjoieW93YWlfaWVpZUBob3RtYWlsLmNvbSJ9.eVsWBtKh8bmtMaSwYn2wCArdgqCy3nwozktUdIgVZ-TLJihxLV1vLyNtdkFbKGNSuV7TBh1DNlaAQt7Yj5N2SwaEMSnJUmmz5atmkgDETs1UnqvyMf-crJ3z00jaLwlL3BkbiZjvccabvS4ZUNqt2qUxpNpp9IGyVxZSea7_rJ1XQf6MmrYcH6zXlKhaW699MUgW_-NvzgTo-4TXBcUBJOMUHNF00qGgMjhJxatkT8Xl7uAKMDTuUqlaBapyMRxvwF6oxcAYy_CRYiATW9ZuXERqWMj6cIeUH1S-PUyF3VPbQ2oqqGiOHI1z8npO830qfw90cbxJ1dZPx54O0sOZfw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fcm_token\": \"12345678910\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/dashboard/insertFCMToken",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"dashboard",
+										"insertFCMToken"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "referral",
+					"item": [
+						{
+							"name": "submitReferral",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJXMzdBSC02OG5oLXpNTnA2Yl8ybUgtdnFjN0JJVTVwdXBUZ3dPdl91SHMwIn0.eyJleHAiOjE3MjkxMzg1ODYsImlhdCI6MTcyNjU0NjU4NiwianRpIjoiNjlhZjg2OTYtMGYwYS00ZThhLWE2MjYtMjVmYTcwMGJmMDI1IiwiaXNzIjoiaHR0cHM6Ly9hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYWJmNDc5ZDgtYWQwOS00YjY3LWFhMzItMzI0MDUzMjNjZmUzIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6ImY4YWY5OTg5LTE4MjItNGRjNC1hMWNjLTlmNjFjYTMwZjg0YSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsInNpZCI6ImY4YWY5OTg5LTE4MjItNGRjNC1hMWNjLTlmNjFjYTMwZjg0YSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3LmRldkBnbWFpbC5jb20iLCJlbWFpbCI6Inphcm5pa3lhdy5kZXZAZ21haWwuY29tIn0.XFF825cZoYmjmyL_x2uNwsm7oTMLC1xNLfyyOhltNGVBETpnOLf1_U1uX3XMlZl0_IhpecbaZMX7rQQ8mJAdPK6C1aeuloRsUkfvDzIBFZaG9mBfqokG-Px-F-kFd9Rt3e-MNazvIU3vt2IUL2dxwZmwPODBsepXF-1SqWBhlaxhIILWX1QI9FuXmUXYtcXynIRXB3xsedQ-Em6SQeL5YhZZYtRZN5LiPdxWlz1B5eib50ZO_9jUInScsyEdLQ-4ImbWYvvoq3zY7DwTV8MlabvRCawMvJkp3dsRY3FRKJZdeq1pHHy67mlfVRoTW4bvBgH80vJrILYYOzLmT1At5Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/dashboard/referral/generate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"dashboard",
+										"referral",
+										"generate"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "auditLog",
+					"item": [
+						{
+							"name": "get",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{staging_authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/dashboard/audit-log",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"dashboard",
+										"audit-log"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{staging_authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customerId\": \"1234\",\r\n    \"action\": \"UPDATE_PROFILE\",\r\n    \"performedBy\": \"teerawut@dsgpay.com\",\r\n    \"statusReason\": \"\",\r\n    \"update\": {\r\n        \"firstName\": \"test\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/dashboard/audit-log",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"dashboard",
+										"audit-log"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "generalData",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MTUxNTg5NDksImlhdCI6MTcxNTE1ODg4OSwianRpIjoiYTVlNjM0YzYtMzE1My00N2Q0LTk3YzktYjc4NDUxY2E2Njg2IiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6IjA4YzhlNmYyLTgwNDItNGZkZC05OWEzLWQ3ODA4ZjQxOGZhMyIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjA4YzhlNmYyLTgwNDItNGZkZC05OWEzLWQ3ODA4ZjQxOGZhMyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.Ftix4wOVMDNcxbo7AMiSS8BARsluqSvJAm3o4dvWIEV7huPm0VOC-DbDO5i1_2Fv8emVeyS8puJIpBUnf71V1nYS3n0pKd9gDlWMqCXLFWoczqouM8oh0ECDpvZhChVSDRT-nkNFMour0KynRJ16HX-YISIUKDhqpOMD67OgEmht5cJGbR2HLdwx7CU7a6Rg4o2DxDcOjkzrz8SHj2b4naG08Cgc9Lb1FNVMaCYcfQt-aeW5OVLh33SwvaAVXdhbUwQqYYkcvrn9T2WlF_3zrvJfAq_AGQG--eD_e2qv299QHcCjcm25tk9rE-X_YIOOSSRhlDcf_gLqc7SXQkb03g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/dashboard/generalData?corpId=ITSTAGE&ccy=USD",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"dashboard",
+								"generalData"
+							],
+							"query": [
+								{
+									"key": "corpId",
+									"value": "ITSTAGE"
+								},
+								{
+									"key": "ccy",
+									"value": "USD"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "History",
+			"item": [
+				{
+					"name": "histories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MjA0MzQ3NTksImlhdCI6MTcyMDQzNDY5OSwianRpIjoiYmU5MDU5ZTQtZDEwOC00YzE3LWEyNDEtNTdhY2I4YjQ4YWI0IiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6ImViMGI5YWVkLThjMWYtNGQ4Yy1iYzFjLWFhYmZhMTIzZDA0NSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6ImViMGI5YWVkLThjMWYtNGQ4Yy1iYzFjLWFhYmZhMTIzZDA0NSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.lR6rNLYnCOFhC9qWvhQJ5aeReqSM2GU_a66DOFBAWp44n3jgmFq7KD645-T277H6KCOwCyKV052ien_ZRazW6jmN6INGlo5ovspsUbZmhh5aE1v9_M04jtAoR-QYrnSDSRZP9whhJ0sAO_c1jTuwhzD2lNrtTTOVshrv0M9CFJ_rj1_ZdLs5gjutqzbx4B2fmGYUuKw7wYZMvou7xSn7lsBoNDkprtZCXP4pi2aDDnrmQJ-A0JwTM43URjT1n4Pl0r6JJG7y-hDw6gwn-4DjKOtKqQtaJWYal2Xknldw9-9AnVlibe8qS44G19dmQZmXOdf5IHZgcNu00jkG3ncnsQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://stage-api.app.dsgpay.com/history/histories?page=1&currency=ALL&date=2024-07-01&limit=10",
+							"protocol": "https",
+							"host": [
+								"stage-api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"history",
+								"histories"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "currency",
+									"value": "ALL"
+								},
+								{
+									"key": "date",
+									"value": "2024-07-01"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJQS3k2WUpBTzUwRDI1ckJwRjNMOW4zLTNqdkZNSmpjMkh5YlN4YTI1aXlvIn0.eyJleHAiOjE3MDE4MzU5MTQsImlhdCI6MTcwMTgzMjMxNCwianRpIjoiZGVjMmUxNDgtMTY2OC00ZDY1LTk1YjQtNzE5OTBkMmM3MjI0IiwiaXNzIjoiaHR0cDovL2F1dGguZG9sbGFyc21hcnQuY28vcmVhbG1zL2RzZ3BheSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI2MzQ1NzUyMy0yYjA4LTQ0ODItYjg5YS0yNGVjOTJjNjMyNWEiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJtb2JpbGUtYXV0aCIsInNlc3Npb25fc3RhdGUiOiIxOWFiZDE3OS04NTNmLTQwZWEtYjBlOS1hYTMxMWQzN2M1NjciLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbIiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1kc2ciLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiMTlhYmQxNzktODUzZi00MGVhLWIwZTktYWEzMTFkMzdjNTY3IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ6YXJuaWt5YXcuZGV2QGdtYWlsLmNvbSIsImVtYWlsIjoiemFybmlreWF3LmRldkBnbWFpbC5jb20ifQ.ux95yKpzU1197LtUmMJrhwj0l7ZCD8CAphRTx057wzgSsKoXJy0NNLa3BzbLJ3iyU1v9Es1nXOHGBSUmTXR7IITmVYfCkKk3lc7s-ojaB8P6ARTYYZLDgHFfvtPuxc_XXgZjPM0smKXIVA7fzcijK1qd74HsCSO8QgQiO8SommU1EE4a3otN-ePEsy0XulmVk0PsIrHBeSxhFDfeqRcS8clis7eZqT5C2qDRpLWsRN5gp7UxRh6FyImLX9jyMaT0gbaHES3m_KOAwsEOceUn8ZLyb-Gy52I35YVUUkLAfkmyLksdDL-VxstQSHwRf904ROi4X3RNiaKe8V0qsHm7KQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5006/details?transactionId=652675aa95fbae3568800f58",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5006",
+							"path": [
+								"details"
+							],
+							"query": [
+								{
+									"key": "transactionId",
+									"value": "652675aa95fbae3568800f58"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notification",
+			"item": [
+				{
+					"name": "notifications",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MjA0MzQ3NTksImlhdCI6MTcyMDQzNDY5OSwianRpIjoiYmU5MDU5ZTQtZDEwOC00YzE3LWEyNDEtNTdhY2I4YjQ4YWI0IiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6ImViMGI5YWVkLThjMWYtNGQ4Yy1iYzFjLWFhYmZhMTIzZDA0NSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6ImViMGI5YWVkLThjMWYtNGQ4Yy1iYzFjLWFhYmZhMTIzZDA0NSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.lR6rNLYnCOFhC9qWvhQJ5aeReqSM2GU_a66DOFBAWp44n3jgmFq7KD645-T277H6KCOwCyKV052ien_ZRazW6jmN6INGlo5ovspsUbZmhh5aE1v9_M04jtAoR-QYrnSDSRZP9whhJ0sAO_c1jTuwhzD2lNrtTTOVshrv0M9CFJ_rj1_ZdLs5gjutqzbx4B2fmGYUuKw7wYZMvou7xSn7lsBoNDkprtZCXP4pi2aDDnrmQJ-A0JwTM43URjT1n4Pl0r6JJG7y-hDw6gwn-4DjKOtKqQtaJWYal2Xknldw9-9AnVlibe8qS44G19dmQZmXOdf5IHZgcNu00jkG3ncnsQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5007/notification/notifications?page=1&type=ALL",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5007",
+							"path": [
+								"notification",
+								"notifications"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "type",
+									"value": "ALL"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJZMEZuS0JRZ1lXczJLSmYwY1k3MHcwRWhaYmNKUnlBLVotWmtSdTNYZDdnIn0.eyJleHAiOjE3MTEzNDk5NDYsImlhdCI6MTcxMTM0OTg4NiwianRpIjoiN2Q0NzgyYzMtMTE3Mi00NDI1LWJlYTktMzg4NjlkNGE2NWM3IiwiaXNzIjoiaHR0cHM6Ly9zdGFnZS1hdXRoLmFwcC5kc2dwYXkuY29tL3JlYWxtcy9kc2dwYXkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYzcwYjg1OWYtNDJlOC00NTFiLTkyYWMtYzNiODA0NDU4ZjU3IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZHNncGF5Iiwic2Vzc2lvbl9zdGF0ZSI6IjU4ZTVkM2QyLWFmNTgtNGVmMi04ZmJkLTVkMGVhNmQwZGQyNCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZHNncGF5Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjU4ZTVkM2QyLWFmNTgtNGVmMi04ZmJkLTVkMGVhNmQwZGQyNCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiemFybmlreWF3QGRzZ3BheS5jb20iLCJlbWFpbCI6Inphcm5pa3lhd0Bkc2dwYXkuY29tIn0.XxIXnHC3_w4DAfFBi4Zq6CW5OGzXwTPRazXx_uW09j5MKyAnV8tDHus3YnYTyn9ztJNcu2GNFVh25GiPYk6OA-vvciZK9SVHXiQhH_VrlreCVj10yBu0Qfe4mFs4LEy_5Fq7po_ZuFy7F4JBXoLZXpE7F-cOgKqAQwMeHlf2HWV6FX7uAjf8iIZbB17HDk5bw3Me-J20TZpdFvgBbknXuSTqaXWmuR321G9xPd7VM011-lkHckgjVQYi7WzZ4AeHcTYhZKRtgJfeKrkZHQcWmb5_8HcQtT_Bab0bQpjSvT-7ujLVj070oQ-Wt0avuPCe5IXLeM7bpg3pFl7q4WM1Lg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5007/notification/details?transactionId=6527a5360e65736ed55517ec&type=system",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5007",
+							"path": [
+								"notification",
+								"details"
+							],
+							"query": [
+								{
+									"key": "transactionId",
+									"value": "6527a5360e65736ed55517ec"
+								},
+								{
+									"key": "type",
+									"value": "system"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Legal",
+			"item": [
+				{
+					"name": "onboardingScreen",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.app.dsgpay.com/legal/onboardingScreen",
+							"protocol": "https",
+							"host": [
+								"api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"legal",
+								"onboardingScreen"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "privacy_policy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://stage-api.app.dsgpay.com/legal/type/privacy_policy",
+							"protocol": "https",
+							"host": [
+								"stage-api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"legal",
+								"type",
+								"privacy_policy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "checkLegalVersion",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://stage-api.app.dsgpay.com/legal/checkVersion",
+							"protocol": "https",
+							"host": [
+								"stage-api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"legal",
+								"checkVersion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateLegaltoUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{staging_authToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://stage-api.app.dsgpay.com/legal/updateUser",
+							"protocol": "https",
+							"host": [
+								"stage-api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"legal",
+								"updateUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "termsAndConditions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.app.dsgpay.com/legal/termsAndConditions",
+							"protocol": "http",
+							"host": [
+								"api",
+								"app",
+								"dsgpay",
+								"com"
+							],
+							"path": [
+								"legal",
+								"termsAndConditions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "privacyPolicy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5007/legal/privacyPolicy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5007",
+							"path": [
+								"legal",
+								"privacyPolicy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "networkSummary",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5007/legal/networkSummary",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5007",
+							"path": [
+								"legal",
+								"networkSummary"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
