@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSGPay - Project Documentation</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#002968;--primary-light:#0EC1D1;--accent:#FFC70E;--bg:#f4f6fb;--sidebar-w:280px;--card:#fff;--text:#1a1a2e;--muted:#6b7280;--border:#e5e7eb;--code-bg:#1e1e2e;--success:#10b981;--warning:#f59e0b;--danger:#ef4444;--info:#3b82f6}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:var(--primary);text-decoration:none}
+
+/* Sidebar */
+#sidebar{position:fixed;top:0;left:0;width:var(--sidebar-w);height:100vh;background:var(--primary);color:#fff;overflow-y:auto;z-index:100;transition:transform .3s}
+#sidebar .logo{padding:24px 20px;border-bottom:1px solid rgba(255,255,255,.1);text-align:center}
+#sidebar .logo h2{font-size:20px;color:var(--accent)}
+#sidebar .logo small{color:rgba(255,255,255,.6);font-size:11px}
+#sidebar nav{padding:12px 0}
+#sidebar nav .nav-section{padding:8px 20px 4px;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.4);margin-top:8px}
+#sidebar nav a{display:flex;align-items:center;padding:9px 20px;color:rgba(255,255,255,.75);font-size:13.5px;transition:all .2s;border-left:3px solid transparent}
+#sidebar nav a:hover,#sidebar nav a.active{background:rgba(255,255,255,.08);color:#fff;border-left-color:var(--accent)}
+#sidebar nav a .icon{margin-right:10px;font-size:14px;width:20px;text-align:center}
+
+/* Main */
+#main{margin-left:var(--sidebar-w);padding:0}
+#topbar .search{padding:8px 16px;border:1px solid var(--border);border-radius:8px;width:320px;font-size:14px;outline:none;transition:border .2s}
+#topbar .search:focus{border-color:var(--primary-light)}
+#menu-btn{display:none;background:none;border:none;font-size:22px;cursor:pointer;color:var(--primary)}
+.content{padding:32px;max-width:1200px;margin:0 auto}
+
+/* Sections */
+.section{display:none}
+.section.active{display:block}
+.section-title{font-size:28px;font-weight:700;color:var(--primary);margin-bottom:4px}
+.section-sub{color:var(--muted);margin-bottom:28px;font-size:15px}
+
+/* Cards */
+.card{background:var(--card);border-radius:12px;padding:24px;margin-bottom:20px;border:1px solid var(--border);transition:box-shadow .2s}
+.card:hover{box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.card h3{font-size:17px;color:var(--primary);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.card p{color:var(--muted);font-size:14px}
+
+/* Grid */
+.grid{display:grid;gap:20px}
+.grid-2{grid-template-columns:repeat(auto-fill,minmax(340px,1fr))}
+.grid-3{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.grid-4{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+
+/* Stats */
+.stat{text-align:center;padding:20px}
+.stat .num{font-size:36px;font-weight:800;color:var(--primary)}
+.stat .label{font-size:13px;color:var(--muted);margin-top:4px}
+
+/* Badge */
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600}
+.badge-primary{background:rgba(0,41,104,.1);color:var(--primary)}
+.badge-success{background:rgba(16,185,129,.1);color:var(--success)}
+.badge-warning{background:rgba(245,158,11,.1);color:var(--warning)}
+.badge-info{background:rgba(59,130,246,.1);color:var(--info)}
+.badge-danger{background:rgba(239,68,68,.1);color:var(--danger)}
+
+/* Code */
+pre{background:var(--code-bg);color:#e2e8f0;padding:20px;border-radius:10px;overflow-x:auto;font-size:13px;line-height:1.7;margin:12px 0}
+code{font-family:'SF Mono',Monaco,Consolas,monospace}
+.inline-code{background:rgba(0,41,104,.08);color:var(--primary);padding:2px 7px;border-radius:4px;font-size:13px}
+
+/* Table */
+.table-wrap{overflow-x:auto;margin:12px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{background:var(--primary);color:#fff;padding:10px 14px;text-align:left;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+td{padding:10px 14px;border-bottom:1px solid var(--border)}
+tr:hover td{background:rgba(0,41,104,.02)}
+
+/* Tree */
+.tree{font-family:monospace;font-size:13px;line-height:1.8;background:var(--code-bg);color:#a5b4fc;padding:20px;border-radius:10px;overflow-x:auto}
+.tree .folder{color:var(--accent)}
+.tree .file{color:#94a3b8}
+.tree .comment{color:#6b7280}
+
+/* Tabs */
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:20px}
+.tab-btn{padding:10px 20px;font-size:13.5px;font-weight:600;color:var(--muted);background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s}
+.tab-btn.active{color:var(--primary);border-bottom-color:var(--primary)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* Flow */
+.flow{display:flex;align-items:center;gap:0;flex-wrap:wrap;margin:16px 0}
+.flow-step{background:var(--primary);color:#fff;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:600;white-space:nowrap}
+.flow-arrow{color:var(--primary-light);font-size:20px;margin:0 6px}
+
+/* Accordion */
+.accordion-header{padding:14px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:14px;margin-bottom:4px;transition:all .2s}
+.accordion-header:hover{background:rgba(0,41,104,.03)}
+.accordion-header .arrow{transition:transform .3s;font-size:12px}
+.accordion-header.open .arrow{transform:rotate(90deg)}
+.accordion-body{display:none;padding:16px 20px;border:1px solid var(--border);border-top:0;border-radius:0 0 8px 8px;margin-top:-5px;margin-bottom:8px;background:#fff}
+
+/* Endpoint */
+.endpoint{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)}
+.method{padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;color:#fff;min-width:55px;text-align:center}
+.method.get{background:var(--success)}.method.post{background:var(--info)}.method.put{background:var(--warning)}.method.delete{background:var(--danger)}.method.patch{background:#8b5cf6}
+.endpoint .path{font-family:monospace;font-size:13px;color:var(--text)}
+.endpoint .desc{font-size:12px;color:var(--muted);margin-left:auto}
+
+/* Responsive */
+@media(max-width:768px){
+#sidebar{transform:translateX(-100%)}
+#sidebar.open{transform:translateX(0)}
+#main{margin-left:0}
+#menu-btn{display:block}
+.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+#topbar .search{width:180px}
+}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#c1c9d4;border-radius:3px}
+#sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2)}
+
+/* File Tree */
+.ft-card{padding:16px 20px}
+.ft{font-size:14px}
+.ft-toggle{padding:7px 10px;cursor:pointer;border-radius:6px;display:flex;align-items:center;gap:6px;transition:background .15s;user-select:none;font-weight:600;color:var(--text)}
+.ft-toggle:hover{background:rgba(0,41,104,.05)}
+.ft-toggle .ft-arrow{margin-left:auto;font-size:10px;color:var(--muted);transition:transform .2s}
+.ft-toggle.open .ft-arrow{transform:rotate(90deg)}
+.ft-children{display:none;padding-left:22px;border-left:1px solid var(--border);margin-left:12px}
+.ft-root>.ft-children{border-left:none;margin-left:0;padding-left:8px}
+.ft-leaf{padding:5px 10px;display:flex;align-items:baseline;gap:6px;border-radius:5px;transition:background .15s;font-size:13.5px}
+.ft-leaf:hover{background:rgba(0,41,104,.03)}
+.ft-icon{font-size:14px;flex-shrink:0}
+.ft-desc{color:var(--muted);font-size:12px;margin-left:auto;text-align:right;max-width:55%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ft-badge{background:rgba(0,41,104,.08);color:var(--primary);font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;margin-left:4px}
+.ft-badge-cat{background:rgba(14,193,209,.1);color:#0a9aa7;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;margin-left:4px}
+.ft-info{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--primary-light);font-weight:700;padding:10px 10px 2px;margin:0}
+.ft-pattern{background:var(--code-bg);color:#a5b4fc;font-family:monospace;font-size:12.5px;padding:12px 16px;border-radius:8px;margin:6px 10px 10px;line-height:1.8}
+.ft-pattern em{color:var(--accent);font-style:normal}
+.tree-ctrl{background:var(--primary);color:#fff;border:none;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:opacity .2s}
+.tree-ctrl:hover{opacity:.85}
+@media(max-width:768px){.ft-desc{max-width:40%}}
+
+/* Search Results */
+#search-results{position:absolute;top:100%;left:16px;right:16px;max-height:420px;overflow-y:auto;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 12px 40px rgba(0,0,0,.12);z-index:999;margin-top:4px}
+.sr-header{padding:10px 16px;font-size:12px;color:var(--muted);font-weight:600;border-bottom:1px solid var(--border);background:#f9fafb;border-radius:10px 10px 0 0}
+.sr-item{display:block;padding:10px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s}
+.sr-item:hover{background:rgba(0,41,104,.04)}
+.sr-section{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--primary-light);font-weight:700}
+.sr-heading{font-size:13px;font-weight:600;color:var(--text);margin:2px 0}
+.sr-snippet{font-size:12px;color:var(--muted);line-height:1.4;word-break:break-word}
+.sr-snippet mark{background:var(--accent);color:var(--primary);padding:0 2px;border-radius:2px;font-weight:600}
+.sr-more{font-size:12px;color:var(--primary-light);font-weight:600;text-align:center}
+.search-highlight{background:var(--accent);color:var(--primary);padding:1px 3px;border-radius:3px;font-weight:600}
+#topbar{position:sticky;top:0;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);z-index:50;position:relative}
+
+/* Animations */
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.section.active{animation:fadeIn .3s ease}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div id="sidebar">
+  <div class="logo">
+    <h2>DSGPay</h2>
+    <small>Direct, Secure &amp; Global<br>Cross-Border Payments</small>
+    <div style="margin-top:8px"><span class="badge badge-warning">v1.8.4</span></div>
+  </div>
+  <nav>
+    <div class="nav-section">Overview</div>
+    <a href="#overview" class="nav-link active"><span class="icon">&#9776;</span>Project Overview</a>
+    <a href="#architecture" class="nav-link"><span class="icon">&#9881;</span>Architecture</a>
+    <a href="#structure" class="nav-link"><span class="icon">&#128193;</span>File Structure</a>
+
+    <div class="nav-section">Core</div>
+    <a href="#routes" class="nav-link"><span class="icon">&#10132;</span>Routes &amp; Navigation</a>
+    <a href="#api" class="nav-link"><span class="icon">&#9729;</span>API &amp; Network</a>
+    <a href="#models" class="nav-link"><span class="icon">&#9638;</span>Data Models</a>
+
+    <div class="nav-section">Modules</div>
+    <a href="#auth" class="nav-link"><span class="icon">&#128274;</span>Authentication</a>
+    <a href="#dashboard" class="nav-link"><span class="icon">&#127968;</span>Dashboard</a>
+    <a href="#payout" class="nav-link"><span class="icon">&#128176;</span>Payout (Send)</a>
+    <a href="#collection" class="nav-link"><span class="icon">&#128179;</span>Collection (Receive)</a>
+    <a href="#exchange" class="nav-link"><span class="icon">&#128257;</span>Currency Exchange</a>
+    <a href="#kyc" class="nav-link"><span class="icon">&#128196;</span>KYC Verification</a>
+    <a href="#history" class="nav-link"><span class="icon">&#128339;</span>Transaction History</a>
+    <a href="#beneficiary" class="nav-link"><span class="icon">&#128101;</span>Beneficiary</a>
+    <a href="#notifications" class="nav-link"><span class="icon">&#128276;</span>Notifications</a>
+
+    <div class="nav-section">Infrastructure</div>
+    <a href="#security" class="nav-link"><span class="icon">&#128737;</span>Security</a>
+    <a href="#services" class="nav-link"><span class="icon">&#9889;</span>App Services</a>
+    <a href="#utils" class="nav-link"><span class="icon">&#128295;</span>Utilities</a>
+    <a href="#widgets" class="nav-link"><span class="icon">&#127912;</span>Widgets Library</a>
+    <a href="#deps" class="nav-link"><span class="icon">&#128230;</span>Dependencies</a>
+  </nav>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+  <div id="topbar">
+    <button id="menu-btn">&#9776;</button>
+    <input type="text" class="search" id="search" placeholder="Search documentation...">
+    <span style="font-size:13px;color:var(--muted)">Flutter 3.5.0 &middot; Dart 3.3.0</span>
+  </div>
+
+  <div class="content">
+
+<!-- ======================== OVERVIEW ======================== -->
+<div id="overview" class="section active">
+  <h1 class="section-title">Project Overview</h1>
+  <p class="section-sub">DSGPay - A cross-border fintech payment application built with Flutter &amp; GetX</p>
+
+  <div class="grid grid-4">
+    <div class="card stat"><div class="num">382</div><div class="label">Dart Files</div></div>
+    <div class="card stat"><div class="num">47</div><div class="label">Feature Modules</div></div>
+    <div class="card stat"><div class="num">90+</div><div class="label">Routes</div></div>
+    <div class="card stat"><div class="num">70+</div><div class="label">Data Models</div></div>
+  </div>
+
+  <div class="card">
+    <h3>About DSGPay</h3>
+    <p>DSGPay (Direct, Secure &amp; Global) is a comprehensive cross-border payment application enabling businesses and individuals to send, receive, and exchange money globally. Built with Flutter for cross-platform mobile deployment (iOS/Android).</p>
+    <br>
+    <div class="grid grid-2" style="gap:12px">
+      <div><strong>Package Name:</strong> <span class="inline-code">com.dsgpay.oneapp</span></div>
+      <div><strong>Version:</strong> <span class="inline-code">1.8.4+68</span></div>
+      <div><strong>Flutter SDK:</strong> <span class="inline-code">&gt;=3.5.0</span></div>
+      <div><strong>Dart SDK:</strong> <span class="inline-code">&gt;=2.19.3 &lt;3.0.0</span></div>
+      <div><strong>State Management:</strong> <span class="inline-code">GetX (get: ^4.6.5)</span></div>
+      <div><strong>HTTP Client:</strong> <span class="inline-code">Dio (dio: ^5.0.1)</span></div>
+      <div><strong>Production API:</strong> <span class="inline-code">https://api.bahtsmart.co.th</span></div>
+      <div><strong>Stage API:</strong> <span class="inline-code">https://stage-dma-api.dollarsmart.co</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Core Features</h3>
+    <div class="grid grid-3" style="gap:10px;margin-top:12px">
+      <div class="badge badge-primary" style="padding:8px 14px;font-size:13px">Send Money (Payout)</div>
+      <div class="badge badge-success" style="padding:8px 14px;font-size:13px">Receive Money (Collection)</div>
+      <div class="badge badge-info" style="padding:8px 14px;font-size:13px">Currency Exchange</div>
+      <div class="badge badge-warning" style="padding:8px 14px;font-size:13px">Multi-Currency Accounts</div>
+      <div class="badge badge-danger" style="padding:8px 14px;font-size:13px">KYC Verification</div>
+      <div class="badge badge-primary" style="padding:8px 14px;font-size:13px">Transaction History</div>
+      <div class="badge badge-success" style="padding:8px 14px;font-size:13px">Beneficiary Management</div>
+      <div class="badge badge-info" style="padding:8px 14px;font-size:13px">SWIFT &amp; Local Payments</div>
+      <div class="badge badge-warning" style="padding:8px 14px;font-size:13px">Thai PromptPay QR</div>
+      <div class="badge badge-danger" style="padding:8px 14px;font-size:13px">Biometric Auth</div>
+      <div class="badge badge-primary" style="padding:8px 14px;font-size:13px">Push Notifications</div>
+      <div class="badge badge-success" style="padding:8px 14px;font-size:13px">Referral Program</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Supported Languages</h3>
+    <table>
+      <tr><th>Language</th><th>Locale Code</th><th>Key</th></tr>
+      <tr><td>English</td><td><span class="inline-code">en_US</span></td><td>us</td></tr>
+      <tr><td>Traditional Chinese</td><td><span class="inline-code">hk_HK</span></td><td>hk</td></tr>
+      <tr><td>Thai</td><td><span class="inline-code">thai_TH</span></td><td>th</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ======================== ARCHITECTURE ======================== -->
+<div id="architecture" class="section">
+  <h1 class="section-title">Architecture</h1>
+  <p class="section-sub">GetX MVC pattern with provider-based API layer</p>
+
+  <div class="card">
+    <h3>Architecture Pattern</h3>
+    <p>The application follows a <strong>modular MVC architecture</strong> using the GetX framework:</p>
+    <div class="flow" style="margin:20px 0">
+      <div class="flow-step">View (Widget)</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">Controller (GetxController)</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">Provider (API)</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">Model (Data)</div>
+    </div>
+    <pre><code>View Layer       &rarr; Flutter Widgets (GetView/StatefulWidget)
+                     Observes state with Obx() reactive bindings
+
+Controller Layer &rarr; GetxController classes
+                     Business logic, form validation, state management
+                     Uses .obs reactive variables
+
+Provider Layer   &rarr; API providers (Dio HTTP calls)
+                     Each feature has its own provider class
+                     Centralized through ApiService
+
+Model Layer      &rarr; Dart data classes
+                     fromJson/toJson serialization
+                     Equatable for comparison</code></pre>
+  </div>
+
+  <div class="card">
+    <h3>Module Structure (each feature)</h3>
+    <pre><code>lib/modules/{feature}/
+  ├── controller/
+  │   └── {feature}_controller.dart    // Business logic &amp; state
+  ├── binding/
+  │   └── {feature}_binding.dart       // Dependency injection
+  ├── {feature}_screen.dart            // Main screen widget
+  └── widgets/                         // Feature-specific widgets</code></pre>
+  </div>
+
+  <div class="card">
+    <h3>Entry Point Flow</h3>
+    <div class="flow">
+      <div class="flow-step">main.dart</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">Firebase Init</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">Sentry Init</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">FreeRASP (Security)</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">GetMaterialApp</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">Splash Screen</div>
+    </div>
+    <br>
+    <p><strong>Key initializations in main.dart:</strong></p>
+    <ul style="margin:10px 0 0 20px;color:var(--muted);font-size:14px">
+      <li>Firebase (Analytics, Crashlytics, Messaging)</li>
+      <li>Sentry error tracking</li>
+      <li>FreeRASP / Talsec jailbreak detection</li>
+      <li>Biometric authentication via local_auth</li>
+      <li>SecureApplication for app locking</li>
+      <li>Platform version checking (Android 7.0+ / iOS 15.0+)</li>
+      <li>AppService &amp; GetX state initialization</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ======================== FILE STRUCTURE ======================== -->
+<div id="structure" class="section">
+  <h1 class="section-title">File Structure</h1>
+  <p class="section-sub">Complete directory layout of the project</p>
+
+  <div class="card">
+    <h3>lib/ &mdash; Main Source (382 files)</h3>
+    <div class="tree">
+<span class="folder">lib/</span>
+&#9500;&#9472;&#9472; <span class="file">main.dart</span>                        <span class="comment">// Entry point &mdash; Firebase, Sentry, FreeRASP, biometric init</span>
+&#9500;&#9472;&#9472; <span class="file">f.dart</span>                            <span class="comment">// Utility file</span>
+&#9474;
+&#9500;&#9472;&#9472; <span class="folder">routes/</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="file">app_pages.dart</span>                <span class="comment">// 90+ GetPage route definitions with bindings</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="file">app_routes.dart</span>               <span class="comment">// Route path constants (Routes class)</span>
+&#9474;   &#9492;&#9472;&#9472; <span class="folder">middleware/</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">login_middleware.dart</span>      <span class="comment">// Redirects unauthenticated users to login</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">dashboard_middleware.dart</span>  <span class="comment">// Guards dashboard, checks token validity</span>
+&#9474;       &#9492;&#9472;&#9472; <span class="file">device_middleware.dart</span>     <span class="comment">// Validates device registration &amp; security</span>
+&#9474;
+&#9500;&#9472;&#9472; <span class="folder">modules/</span>                          <span class="comment">// 47 feature modules</span>
+&#9474;   &#9474;
+&#9474;   &#9474;   <span class="comment">// Each module follows this pattern:</span>
+&#9474;   &#9474;   <span class="comment">//   {module}/controller/{module}_controller.dart  &rarr; business logic</span>
+&#9474;   &#9474;   <span class="comment">//   {module}/binding/{module}_binding.dart        &rarr; dependency injection</span>
+&#9474;   &#9474;   <span class="comment">//   {module}/{module}_screen.dart                 &rarr; main UI widget</span>
+&#9474;   &#9474;
+&#9474;   &#9474;   <span class="comment">// ---- Auth &amp; Onboarding ----</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">splash/</span>                       <span class="comment">// App launch &amp; Rive animation</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">onboarding/</span>                   <span class="comment">// Swipeable intro screens</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">login/</span>                        <span class="comment">// Email/password login + OTP verify</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">register/</span>                     <span class="comment">// 4-step registration (Individual/SME/Business)</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">forgot_password/</span>              <span class="comment">// Password reset flow</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">verify_device/</span>                <span class="comment">// Device verification</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">version_check/</span>                <span class="comment">// Force update check</span>
+&#9474;   &#9474;
+&#9474;   &#9474;   <span class="comment">// ---- Dashboard &amp; Navigation ----</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">dashboard/</span>                    <span class="comment">// Main hub with 5-tab bottom navigation</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">accounts/</span>                     <span class="comment">// All virtual accounts list + sort</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">currency_account/</span>             <span class="comment">// Account detail, balance, actions</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">more/</span>                         <span class="comment">// Settings, profile, support, legal menu</span>
+&#9474;   &#9474;
+&#9474;   &#9474;   <span class="comment">// ---- Financial Operations ----</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">payout/</span>                       <span class="comment">// Send money (SWIFT &amp; local), beneficiary, review, detail</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">collection/</span>                   <span class="comment">// Receive money, gateway selection, PromptPay QR</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">currency_exchange/</span>            <span class="comment">// FX conversion between accounts</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">beneficiary/</span>                  <span class="comment">// Saved beneficiary management</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">named_virtual_account/</span>        <span class="comment">// Fixed/named accounts</span>
+&#9474;   &#9474;
+&#9474;   &#9474;   <span class="comment">// ---- History &amp; Records ----</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">history/</span>                      <span class="comment">// Paginated transaction history with filters</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">statement/</span>                    <span class="comment">// Account statements &amp; PDF download</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">notification/</span>                 <span class="comment">// Push &amp; in-app notification list</span>
+&#9474;   &#9474;
+&#9474;   &#9474;   <span class="comment">// ---- Security &amp; Identity ----</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">pin_code/</span>                     <span class="comment">// Create, verify, change 6-digit PIN (RSA encrypted)</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">two_factor_auth/</span>              <span class="comment">// Email &amp; SMS 2FA setup</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">change_password/</span>              <span class="comment">// Password change with validation</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">password/</span>                     <span class="comment">// Password utilities</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">kyc/</span>                          <span class="comment">// KYC document upload &amp; ID verification</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">face_detection/</span>               <span class="comment">// ML face detection for KYC</span>
+&#9474;   &#9474;
+&#9474;   &#9474;   <span class="comment">// ---- User &amp; Profile ----</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">profile/</span>                      <span class="comment">// User profile &amp; KYC status view</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">manage_account/</span>               <span class="comment">// Account settings &amp; preferences</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">referral/</span>                     <span class="comment">// Referral program &amp; codes</span>
+&#9474;   &#9474;
+&#9474;   &#9474;   <span class="comment">// ---- Support &amp; Info ----</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">contact_us/</span>                   <span class="comment">// Support contact form</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">chatbot/</span>                      <span class="comment">// AI chat support</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">youtube_tutorial/</span>             <span class="comment">// Video tutorial player</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">legal/</span>                        <span class="comment">// Terms &amp; Conditions, Privacy Policy</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">no_permission/</span>                <span class="comment">// Permission denied screen</span>
+&#9474;   &#9474;
+&#9474;   &#9474;   <span class="comment">// ---- Other ----</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">geolocation/</span>                  <span class="comment">// Location verification</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">image/</span>                        <span class="comment">// Image viewer &amp; cropping</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">dynamic/</span>                      <span class="comment">// API-driven dynamic forms</span>
+&#9474;   &#9492;&#9472;&#9472; <span class="folder">pagination/</span>                   <span class="comment">// Reusable pagination widget</span>
+&#9474;
+&#9500;&#9472;&#9472; <span class="folder">model/</span>                            <span class="comment">// 70+ data models</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">user/</span>                         <span class="comment">// User, UserStatus, ContractEntity</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">payout/</span>                       <span class="comment">// PayoutBeneficiary, PayoutDetail (44 fields), PayoutFees</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">collection/</span>                   <span class="comment">// CollectionDetail (27 fields), CollectPaymentService</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">exchange/</span>                     <span class="comment">// ExchangeRateData (fxRate, quotation, expiry)</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">currency_account/</span>             <span class="comment">// VirtualAccount (balance, capabilities, status)</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">transactions/</span>                 <span class="comment">// TransactionData, TransactionFilter, TransactionPagination</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">notification/</span>                 <span class="comment">// NotificationData, NotificationBody</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">settle/</span>                       <span class="comment">// SettleDetail, SettleTimeLine, SettleSenderDetail</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">register/</span>                     <span class="comment">// RegisterUser (13 fields)</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">kyc/</span>                          <span class="comment">// VerifyYourselfModel, RegisterType, UploadedFileData</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">sales_reps/</span>                   <span class="comment">// SalesRepData, SalesRepPermissionData</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">chatbot/</span>                      <span class="comment">// Chat message models</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">dynamic/</span>                      <span class="comment">// DynamicFormModel (API-driven fields)</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">pin/</span>                          <span class="comment">// PIN verification models</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">password/</span>                     <span class="comment">// Password change models</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">onboarding/</span>                   <span class="comment">// Onboarding data models</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">customer_support/</span>             <span class="comment">// Support ticket models</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">named_virtual_account/</span>        <span class="comment">// Named account models</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="file">token.dart</span>                    <span class="comment">// Token (accessToken, refreshToken) &mdash; Equatable</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="file">pagination.dart</span>               <span class="comment">// Pagination (totalRecords, currentPage, totalPage)</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="file">account_type.dart</span>             <span class="comment">// AccountType (Individual, SME, Business)</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="file">available_currency.dart</span>        <span class="comment">// AvailableCurrency (canPayIn, canPayOut, canSVA)</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="file">default_server_response.dart</span>   <span class="comment">// Generic API response wrapper</span>
+&#9474;   &#9492;&#9472;&#9472; <span class="file">personal_verification.dart</span>    <span class="comment">// PersonalVerification (type, imgFile, idNo)</span>
+&#9474;
+&#9500;&#9472;&#9472; <span class="folder">network/</span>                          <span class="comment">// 29 files</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="file">api_services.dart</span>             <span class="comment">// Central Dio HTTP client &mdash; cert pinning, token refresh</span>
+&#9474;   &#9492;&#9472;&#9472; <span class="folder">provider/</span>                     <span class="comment">// 28 API provider files</span>
+&#9474;       &#9474;
+&#9474;       &#9474;   <span class="comment">// Auth &amp; Identity</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">login.dart</span>                <span class="comment">// POST /auth/login</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">logout.dart</span>               <span class="comment">// POST /auth/logout</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">register_sme_user.dart</span>    <span class="comment">// POST /auth/register</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">password.dart</span>             <span class="comment">// POST /auth/changePassword, /resetPassword</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">pin.dart</span>                  <span class="comment">// POST /auth/createPin, /verifyPin, /changePin</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">user.dart</span>                 <span class="comment">// GET user profile, update user data</span>
+&#9474;       &#9474;
+&#9474;       &#9474;   <span class="comment">// OTP &amp; Verification</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">get_otp_code.dart</span>         <span class="comment">// POST /email/getcode</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">confirm_otp_code.dart</span>     <span class="comment">// POST /email/authcode</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">verify_otp.dart</span>           <span class="comment">// 2FA OTP verification</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">verify_action.dart</span>        <span class="comment">// Action-specific verification</span>
+&#9474;       &#9474;
+&#9474;       &#9474;   <span class="comment">// Financial Operations</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">collection.dart</span>           <span class="comment">// Collections API &mdash; receive money, fees, order</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">payout.dart</span>               <span class="comment">// Payout API &mdash; send money, beneficiaries, fees</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">exchange_provider.dart</span>    <span class="comment">// Conversions API &mdash; FX rates, quotations</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">settlement_provider.dart</span>  <span class="comment">// Settlement orders &amp; details</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">transaction.dart</span>          <span class="comment">// GET /history/histories</span>
+&#9474;       &#9474;
+&#9474;       &#9474;   <span class="comment">// Accounts &amp; Banking</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">virtual_account.dart</span>      <span class="comment">// Currency account CRUD operations</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">open_currency_account.dart</span> <span class="comment">// POST /dashboard/currencyAccount/add</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">get_bank_list.dart</span>        <span class="comment">// Get available banks for payout country</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">name_account_provider.dart</span> <span class="comment">// Named/fixed account operations</span>
+&#9474;       &#9474;
+&#9474;       &#9474;   <span class="comment">// Support &amp; Misc</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">contact_us_provider.dart</span>  <span class="comment">// POST /email/contact</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">notificaton.dart</span>          <span class="comment">// GET /notification/notifications</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">statement_provider.dart</span>   <span class="comment">// Account statement download</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">image_download_provider.dart</span> <span class="comment">// File download with progress</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">sales_rep_provider.dart</span>   <span class="comment">// Sales representative management</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">firebase_token_update.dart</span> <span class="comment">// POST /dashboard/insertFCMToken</span>
+&#9474;       &#9500;&#9472;&#9472; <span class="file">version_check_provider.dart</span> <span class="comment">// GET /legal/checkVersion</span>
+&#9474;       &#9492;&#9472;&#9472; <span class="file">terms_condition_provider.dart</span> <span class="comment">// T&amp;C acceptance &amp; version check</span>
+&#9474;
+&#9492;&#9472;&#9472; <span class="folder">utils/</span>                            <span class="comment">// 55+ utility files</span>
+    &#9500;&#9472;&#9472; <span class="file">colors.dart</span>                   <span class="comment">// ColorPalette &mdash; primary #002968, accent #FFC70E</span>
+    &#9500;&#9472;&#9472; <span class="file">const.dart</span>                    <span class="comment">// App name, version, storage keys, patterns</span>
+    &#9500;&#9472;&#9472; <span class="file">dimens.dart</span>                   <span class="comment">// Padding, text sizes, border radius, gap helpers</span>
+    &#9500;&#9472;&#9472; <span class="file">style.dart</span>                    <span class="comment">// AppStyle &mdash; text styles, gradients, decorations</span>
+    &#9500;&#9472;&#9472; <span class="file">theme.dart</span>                    <span class="comment">// ThemeData configuration</span>
+    &#9500;&#9472;&#9472; <span class="file">extension.dart</span>                <span class="comment">// 50+ extensions &mdash; String, Date, Number, Account</span>
+    &#9500;&#9472;&#9472; <span class="file">icon_path.dart</span>                <span class="comment">// Asset paths, SVG raw strings (39KB)</span>
+    &#9500;&#9472;&#9472; <span class="file">lang.dart</span>                     <span class="comment">// LanguageString &mdash; 200+ keys, en/hk/th (48KB)</span>
+    &#9500;&#9472;&#9472; <span class="file">error_handler.dart</span>            <span class="comment">// ErrorHandler &mdash; dialog-based error display</span>
+    &#9500;&#9472;&#9472; <span class="file">save_receipt.dart</span>             <span class="comment">// Receipt screenshot &amp; PDF generation</span>
+    &#9500;&#9472;&#9472; <span class="file">image_cropper_helper.dart</span>     <span class="comment">// Image crop configuration</span>
+    &#9500;&#9472;&#9472; <span class="file">address_input_formatter.dart</span>  <span class="comment">// Address text formatting</span>
+    &#9500;&#9472;&#9472; <span class="file">library_access_methods.dart</span>   <span class="comment">// Camera &amp; gallery permission helpers</span>
+    &#9474;
+    &#9500;&#9472;&#9472; <span class="folder">helper/</span>                       <span class="comment">// 9 helper files</span>
+    &#9474;   &#9500;&#9472;&#9472; <span class="file">config.dart</span>               <span class="comment">// API URLs &mdash; production, stage, legal pages</span>
+    &#9474;   &#9500;&#9472;&#9472; <span class="file">encrypt_helper.dart</span>       <span class="comment">// CryptoHelper &mdash; RSA encryption, Base64</span>
+    &#9474;   &#9500;&#9472;&#9472; <span class="file">firebase_helper.dart</span>      <span class="comment">// Firebase configs (Debug/Release/iOS)</span>
+    &#9474;   &#9500;&#9472;&#9472; <span class="file">security_helper.dart</span>      <span class="comment">// Jailbreak, emulator, dev mode detection</span>
+    &#9474;   &#9500;&#9472;&#9472; <span class="file">location_helper.dart</span>      <span class="comment">// GPS location &amp; geocoding helpers</span>
+    &#9474;   &#9500;&#9472;&#9472; <span class="file">notification_helper.dart</span>  <span class="comment">// Push notification setup &amp; handling</span>
+    &#9474;   &#9500;&#9472;&#9472; <span class="file">dynamic_navigation_helper.dart</span> <span class="comment">// Dynamic route resolution</span>
+    &#9474;   &#9500;&#9472;&#9472; <span class="file">app_permission_helper.dart</span> <span class="comment">// Runtime permission requests</span>
+    &#9474;   &#9492;&#9472;&#9472; <span class="file">bank_account_validator_helper.dart</span> <span class="comment">// Bank account validation</span>
+    &#9474;
+    &#9500;&#9472;&#9472; <span class="folder">logger/</span>                       <span class="comment">// 2 files</span>
+    &#9474;   &#9500;&#9472;&#9472; <span class="file">custom_log.dart</span>           <span class="comment">// SuccessLog (green), ErrorLog (red), DebugPrint</span>
+    &#9474;   &#9492;&#9472;&#9472; <span class="file">cloud_event_log.dart</span>      <span class="comment">// Remote event logging for analytics</span>
+    &#9474;
+    &#9500;&#9472;&#9472; <span class="folder">service/</span>
+    &#9474;   &#9492;&#9472;&#9472; <span class="file">app_service.dart</span>          <span class="comment">// AppService (GetxService) &mdash; auth, storage, FCM</span>
+    &#9474;
+    &#9500;&#9472;&#9472; <span class="folder">camera/</span>
+    &#9474;   &#9492;&#9472;&#9472; <span class="file">camera.dart</span>               <span class="comment">// Camera capture for KYC &amp; documents</span>
+    &#9474;
+    &#9492;&#9472;&#9472; <span class="folder">widgets/</span>                      <span class="comment">// 40+ reusable UI components</span>
+        &#9500;&#9472;&#9472; <span class="folder">appbar/</span>
+        &#9474;   &#9492;&#9472;&#9472; <span class="file">appbar.dart</span>           <span class="comment">// AppBarDefault &mdash; PreferredSizeWidget</span>
+        &#9500;&#9472;&#9472; <span class="folder">button/</span>                   <span class="comment">// 7 button components</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">rounded_button.dart</span>   <span class="comment">// Primary action button with loading</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">gradient_elevated_button.dart</span> <span class="comment">// Gradient button</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">outline_button.dart</span>   <span class="comment">// Bordered outline button</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">constraint_button.dart</span> <span class="comment">// Width-constrained button</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">inkwell_button.dart</span>   <span class="comment">// Ripple-effect button</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">icon_button.dart</span>      <span class="comment">// Icon-only button</span>
+        &#9474;   &#9492;&#9472;&#9472; <span class="file">text_icon_button.dart</span> <span class="comment">// Text + icon combined</span>
+        &#9500;&#9472;&#9472; <span class="folder">background/</span>               <span class="comment">// 5 background components</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">background_login_container.dart</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">background_register.dart</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">background_receipt.dart</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">bg_pattern_painter.dart</span>
+        &#9474;   &#9492;&#9472;&#9472; <span class="file">camera_bg.dart</span>
+        &#9500;&#9472;&#9472; <span class="folder">text_field/</span>               <span class="comment">// 4 input components</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">rounded_input_field.dart</span> <span class="comment">// Standard text input</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">rounded_password_field.dart</span> <span class="comment">// Password + visibility toggle</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">text_field_container.dart</span>
+        &#9474;   &#9492;&#9472;&#9472; <span class="file">title_text_medium.dart</span>
+        &#9500;&#9472;&#9472; <span class="folder">dropdown/</span>                 <span class="comment">// 4 dropdown components</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">custom_dropdown_button.dart</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">country_dropdown_button.dart</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">dynamic_country_dropdown.dart</span>
+        &#9474;   &#9492;&#9472;&#9472; <span class="file">network_image_dropdown.dart</span>
+        &#9500;&#9472;&#9472; <span class="folder">dialog/</span>                   <span class="comment">// 3 dialog components</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">show_dialog.dart</span>      <span class="comment">// Alert dialog utility</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">report_problem_dialog.dart</span>
+        &#9474;   &#9492;&#9472;&#9472; <span class="file">fullscreen_dialog.dart</span>
+        &#9500;&#9472;&#9472; <span class="folder">navigation/</span>               <span class="comment">// 3 nav components</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">bottom_navigation_bar.dart</span> <span class="comment">// Dashboard gradient nav</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">custom_navigation_bar.dart</span>
+        &#9474;   &#9492;&#9472;&#9472; <span class="file">menu_items.dart</span>
+        &#9500;&#9472;&#9472; <span class="folder">text_custom/</span>              <span class="comment">// 7 text components</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">no_data.dart</span> &#9500;&#9472;&#9472; <span class="file">number_different_size.dart</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">number_text_currency.dart</span> &#9500;&#9472;&#9472; <span class="file">password_validation_text.dart</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">text_with_dot.dart</span> &#9500;&#9472;&#9472; <span class="file">title_pattern.dart</span>
+        &#9474;   &#9492;&#9472;&#9472; <span class="file">two_line_rich_text.dart</span>
+        &#9500;&#9472;&#9472; <span class="folder">custom_animation/</span>         <span class="comment">// 3 animation components</span>
+        &#9474;   &#9500;&#9472;&#9472; <span class="file">loading_animation.dart</span> &#9500;&#9472;&#9472; <span class="file">shimmer.dart</span> &#9492;&#9472;&#9472; <span class="file">shimmer_loading.dart</span>
+        &#9500;&#9472;&#9472; <span class="folder">card/</span>                     <span class="comment">// CardView, CardViewBackup</span>
+        &#9500;&#9472;&#9472; <span class="folder">clipper/</span>                  <span class="comment">// CustomClipper, HeaderClipper</span>
+        &#9500;&#9472;&#9472; <span class="folder">logo/</span>                     <span class="comment">// ConstraintLogo, LogoTopLeft</span>
+        &#9500;&#9472;&#9472; <span class="folder">sizebox/</span>                  <span class="comment">// SizeBoxMedium, SizeBoxSmall</span>
+        &#9500;&#9472;&#9472; <span class="folder">snackbar/</span>                 <span class="comment">// ShowToast notifications</span>
+        &#9500;&#9472;&#9472; <span class="folder">radio_button/</span>             <span class="comment">// RadioButtonSimple</span>
+        &#9500;&#9472;&#9472; <span class="folder">avatar/</span>                   <span class="comment">// User avatar components</span>
+        &#9500;&#9472;&#9472; <span class="folder">devider/</span>                  <span class="comment">// DeviderLogin</span>
+        &#9500;&#9472;&#9472; <span class="file">animated_indicator.dart</span>    <span class="comment">// Dot pagination indicator</span>
+        &#9500;&#9472;&#9472; <span class="file">circle_progress.dart</span>      <span class="comment">// Circular loading indicator</span>
+        &#9500;&#9472;&#9472; <span class="file">countdown_timer.dart</span>      <span class="comment">// OTP countdown timer</span>
+        &#9500;&#9472;&#9472; <span class="file">image_slider.dart</span>         <span class="comment">// Carousel image slider</span>
+        &#9500;&#9472;&#9472; <span class="file">svg_icon.dart</span>             <span class="comment">// SVG icon renderer</span>
+        &#9500;&#9472;&#9472; <span class="file">webview.dart</span>              <span class="comment">// In-app WebView browser</span>
+        &#9500;&#9472;&#9472; <span class="file">country_choose.dart</span>       <span class="comment">// Country selector widget</span>
+        &#9500;&#9472;&#9472; <span class="file">dob_choose_widget.dart</span>    <span class="comment">// Date of birth picker</span>
+        &#9500;&#9472;&#9472; <span class="file">header_layout.dart</span>        <span class="comment">// Transaction header layout</span>
+        &#9492;&#9472;&#9472; <span class="file">error_text.dart</span>           <span class="comment">// Error message display</span></div>
+  </div>
+
+  <div class="card">
+    <h3>assets/ &mdash; Media &amp; Config</h3>
+    <div class="tree">
+<span class="folder">assets/</span>
+&#9500;&#9472;&#9472; <span class="folder">images/</span>                           <span class="comment">// SVG &amp; PNG assets</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="folder">bg/</span>                           <span class="comment">// Background images (onboarding, login)</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="file">logo, icons, onboarding</span>       <span class="comment">// SVG &amp; PNG format</span>
+&#9474;   &#9492;&#9472;&#9472; <span class="file">PromptPay QR assets</span>           <span class="comment">// Thai payment QR branding</span>
+&#9500;&#9472;&#9472; <span class="folder">animations/</span>                       <span class="comment">// Rive animation files</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="file">dsgpayanimation.riv</span>           <span class="comment">// Splash screen animation</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="file">approval.riv</span>                  <span class="comment">// Approval success animation</span>
+&#9474;   &#9492;&#9472;&#9472; <span class="file">check.riv</span>                     <span class="comment">// Checkmark animation</span>
+&#9500;&#9472;&#9472; <span class="folder">fonts/</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="file">Helvetica.ttf</span>                 <span class="comment">// Primary font</span>
+&#9474;   &#9492;&#9472;&#9472; <span class="file">NotoSansKR.ttf</span>                <span class="comment">// Korean/CJK font support</span>
+&#9500;&#9472;&#9472; <span class="folder">mock_json/</span>
+&#9474;   &#9500;&#9472;&#9472; <span class="file">account_type.json</span>             <span class="comment">// Account type definitions</span>
+&#9474;   &#9492;&#9472;&#9472; <span class="file">countrylist.json</span>              <span class="comment">// Supported countries</span>
+&#9492;&#9472;&#9472; <span class="file">lets-encrypt-r3.pem</span>               <span class="comment">// SSL certificate for pinning</span></div>
+  </div>
+
+</div>
+
+<!-- ======================== ROUTES ======================== -->
+<div id="routes" class="section">
+  <h1 class="section-title">Routes &amp; Navigation</h1>
+  <p class="section-sub">90+ named routes with middleware guards &amp; GetX bindings</p>
+
+  <div class="card">
+    <h3>Route Configuration</h3>
+    <p>All routes are defined in <span class="inline-code">lib/routes/app_pages.dart</span> with corresponding path constants in <span class="inline-code">lib/routes/app_routes.dart</span>. Each route is bound to a GetPage with its own binding for dependency injection.</p>
+  </div>
+
+  <div class="card">
+    <h3>Navigation Middleware</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Middleware</th><th>File</th><th>Purpose</th></tr>
+      <tr><td>LoginMiddleware</td><td><span class="inline-code">login_middleware.dart</span></td><td>Redirects to login if not authenticated</td></tr>
+      <tr><td>DashboardMiddleware</td><td><span class="inline-code">dashboard_middleware.dart</span></td><td>Guards dashboard access, checks token validity</td></tr>
+      <tr><td>DeviceMiddleware</td><td><span class="inline-code">device_middleware.dart</span></td><td>Validates device registration &amp; security</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>Route Map</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Route</th><th>Screen</th><th>Module</th></tr>
+      <tr><td><span class="inline-code">/</span></td><td>SplashScreen</td><td>splash</td></tr>
+      <tr><td><span class="inline-code">/onboarding</span></td><td>OnBoarding</td><td>onboarding</td></tr>
+      <tr><td><span class="inline-code">/login</span></td><td>LoginScreen</td><td>login</td></tr>
+      <tr><td><span class="inline-code">/register</span></td><td>Register</td><td>register</td></tr>
+      <tr><td><span class="inline-code">/forgot-password</span></td><td>ForgotPassword</td><td>forgot_password</td></tr>
+      <tr><td><span class="inline-code">/verify-login</span></td><td>VerifyLoginScreen</td><td>login</td></tr>
+      <tr><td><span class="inline-code">/dashboard</span></td><td>Dashboard</td><td>dashboard</td></tr>
+      <tr><td><span class="inline-code">/pin-code</span></td><td>PinCodeScreen</td><td>pin_code</td></tr>
+      <tr><td><span class="inline-code">/currency-account-detail</span></td><td>CurrencyAccountDetail</td><td>currency_account</td></tr>
+      <tr><td><span class="inline-code">/create-virtual-account</span></td><td>CreateVA</td><td>currency_account</td></tr>
+      <tr><td><span class="inline-code">/create-payout</span></td><td>CreatePayout</td><td>payout</td></tr>
+      <tr><td><span class="inline-code">/payout-review</span></td><td>PayoutReview</td><td>payout</td></tr>
+      <tr><td><span class="inline-code">/payout-detail</span></td><td>PayoutDetail</td><td>payout</td></tr>
+      <tr><td><span class="inline-code">/create-collection</span></td><td>CreateCollection</td><td>collection</td></tr>
+      <tr><td><span class="inline-code">/collection-detail</span></td><td>CollectionDetail</td><td>collection</td></tr>
+      <tr><td><span class="inline-code">/choose-payment-type</span></td><td>ChoosePaymentType</td><td>collection</td></tr>
+      <tr><td><span class="inline-code">/currency-exchange</span></td><td>CurrencyExchange</td><td>currency_exchange</td></tr>
+      <tr><td><span class="inline-code">/beneficiary</span></td><td>BeneficiaryList</td><td>beneficiary</td></tr>
+      <tr><td><span class="inline-code">/add-beneficiary</span></td><td>AddBeneficiary</td><td>payout</td></tr>
+      <tr><td><span class="inline-code">/user-profile</span></td><td>UserProfile</td><td>profile</td></tr>
+      <tr><td><span class="inline-code">/kyc-verification</span></td><td>KycVerification</td><td>kyc</td></tr>
+      <tr><td><span class="inline-code">/two-factor-auth</span></td><td>TwoFactorAuth</td><td>two_factor_auth</td></tr>
+      <tr><td><span class="inline-code">/change-password</span></td><td>ChangePassword</td><td>change_password</td></tr>
+      <tr><td><span class="inline-code">/notification-detail</span></td><td>NotificationDetail</td><td>notification</td></tr>
+      <tr><td><span class="inline-code">/contact-us</span></td><td>ContactUs</td><td>contact_us</td></tr>
+      <tr><td><span class="inline-code">/chatbot</span></td><td>ChatBot</td><td>chatbot</td></tr>
+      <tr><td><span class="inline-code">/referral</span></td><td>Referral</td><td>referral</td></tr>
+      <tr><td><span class="inline-code">/manage-account</span></td><td>ManageAccount</td><td>manage_account</td></tr>
+      <tr><td><span class="inline-code">/named-virtual-account</span></td><td>NamedVirtualAccount</td><td>named_virtual_account</td></tr>
+      <tr><td><span class="inline-code">/settlement</span></td><td>Settlement</td><td>payout</td></tr>
+      <tr><td><span class="inline-code">/statement</span></td><td>Statement</td><td>statement</td></tr>
+      <tr><td><span class="inline-code">/youtube-tutorial</span></td><td>YoutubeTutorial</td><td>youtube_tutorial</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<!-- ======================== API ======================== -->
+<div id="api" class="section">
+  <h1 class="section-title">API &amp; Network Layer</h1>
+  <p class="section-sub">Dio-based HTTP client with certificate pinning, token management, and 28 providers</p>
+
+  <div class="card">
+    <h3>ApiService Class</h3>
+    <p>File: <span class="inline-code">lib/network/api_services.dart</span></p>
+    <br>
+    <p>Central HTTP client using Dio with certificate pinning, Bearer token auth, auto token refresh, and synchronized error dialogs.</p>
+    <pre><code>// Request Types
+enum RequestType { get, post, put, delete, download, upload, patch }
+
+// Error Types
+enum ErrorType { error, tokenError, accessTokenError }
+
+// Base URLs
+Production: https://api.bahtsmart.co.th
+Stage:      https://stage-dma-api.dollarsmart.co</code></pre>
+  </div>
+
+  <div class="card">
+    <h3>API Endpoints</h3>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="auth-ep">Auth</button>
+      <button class="tab-btn" data-tab="collections-ep">Collections</button>
+      <button class="tab-btn" data-tab="payout-ep">Payout</button>
+      <button class="tab-btn" data-tab="other-ep">Other</button>
+    </div>
+
+    <div id="auth-ep" class="tab-content active">
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/auth/login</span><span class="desc">Authenticate user</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/auth/register</span><span class="desc">Register new user</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/auth/changePassword</span><span class="desc">Change password</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/auth/changePin/change</span><span class="desc">Change PIN code</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/auth/createPin</span><span class="desc">Create new PIN</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/auth/verifyPin</span><span class="desc">Verify PIN</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/auth/resetPassword</span><span class="desc">Reset password</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/email/getcode</span><span class="desc">Request OTP code</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/email/authcode</span><span class="desc">Confirm OTP code</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/email/contact</span><span class="desc">Contact support</span></div>
+    </div>
+
+    <div id="collections-ep" class="tab-content">
+      <div class="endpoint"><span class="method get">GET</span><span class="path">/collections/getPaymentAddress/</span><span class="desc">Get payment gateways</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/collections/getTotalAmount</span><span class="desc">Calculate fees</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/collections/orderReview</span><span class="desc">Review order</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/collections/orderConfirm</span><span class="desc">Confirm order</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/collections/orderVerifyPin</span><span class="desc">PIN verification</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/collections/v2/promptpay</span><span class="desc">Generate PromptPay QR</span></div>
+      <div class="endpoint"><span class="method get">GET</span><span class="path">/collections/getCountryList</span><span class="desc">Get country list</span></div>
+      <div class="endpoint"><span class="method get">GET</span><span class="path">/collections/getOrderDetails/</span><span class="desc">Order status</span></div>
+    </div>
+
+    <div id="payout-ep" class="tab-content">
+      <div class="endpoint"><span class="method get">GET</span><span class="path">/payout/currencies</span><span class="desc">Available currencies</span></div>
+      <div class="endpoint"><span class="method get">GET</span><span class="path">/payout/gateways</span><span class="desc">Available gateways</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/payout/feeQuote</span><span class="desc">Get fee quote</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/payout/totalAmount</span><span class="desc">Calculate amount</span></div>
+      <div class="endpoint"><span class="method get">GET</span><span class="path">/payout/swiftFeeType</span><span class="desc">SWIFT fee types</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/payout/checkMandatoryFields</span><span class="desc">Get mandatory fields</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/payout/saveMandatoryFields</span><span class="desc">Save mandatory fields</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/payout/orderConfirm</span><span class="desc">Confirm payout</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/payout/orderInstruction</span><span class="desc">PIN confirmation</span></div>
+      <div class="endpoint"><span class="method get">GET</span><span class="path">/payout/beneficiary_beta</span><span class="desc">Get beneficiaries</span></div>
+    </div>
+
+    <div id="other-ep" class="tab-content">
+      <div class="endpoint"><span class="method get">GET</span><span class="path">/dashboard/currencies</span><span class="desc">Get user currencies</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/dashboard/currencyAccount/add</span><span class="desc">Open new currency</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/dashboard/insertFCMToken</span><span class="desc">Register FCM token</span></div>
+      <div class="endpoint"><span class="method get">GET</span><span class="path">/history/histories</span><span class="desc">Transaction history</span></div>
+      <div class="endpoint"><span class="method get">GET</span><span class="path">/notification/notifications</span><span class="desc">Get notifications</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/conversions/calculate</span><span class="desc">Calculate exchange</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/conversions/quotation</span><span class="desc">Get FX quotation</span></div>
+      <div class="endpoint"><span class="method get">GET</span><span class="path">/conversions/list/</span><span class="desc">Exchange currencies</span></div>
+      <div class="endpoint"><span class="method get">GET</span><span class="path">/legal/checkVersion</span><span class="desc">Check T&amp;C version</span></div>
+      <div class="endpoint"><span class="method post">POST</span><span class="path">/legal/updateUser</span><span class="desc">Accept terms</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>API Providers (28 files)</h3>
+    <div class="grid grid-3">
+      <div><span class="inline-code">login.dart</span></div>
+      <div><span class="inline-code">logout.dart</span></div>
+      <div><span class="inline-code">register_sme_user.dart</span></div>
+      <div><span class="inline-code">collection.dart</span></div>
+      <div><span class="inline-code">payout.dart</span></div>
+      <div><span class="inline-code">transaction.dart</span></div>
+      <div><span class="inline-code">exchange_provider.dart</span></div>
+      <div><span class="inline-code">user.dart</span></div>
+      <div><span class="inline-code">pin.dart</span></div>
+      <div><span class="inline-code">settlement_provider.dart</span></div>
+      <div><span class="inline-code">password.dart</span></div>
+      <div><span class="inline-code">get_bank_list.dart</span></div>
+      <div><span class="inline-code">virtual_account.dart</span></div>
+      <div><span class="inline-code">open_currency_account.dart</span></div>
+      <div><span class="inline-code">image_download_provider.dart</span></div>
+      <div><span class="inline-code">notificaton.dart</span></div>
+      <div><span class="inline-code">statement_provider.dart</span></div>
+      <div><span class="inline-code">contact_us_provider.dart</span></div>
+      <div><span class="inline-code">sales_rep_provider.dart</span></div>
+      <div><span class="inline-code">get_otp_code.dart</span></div>
+      <div><span class="inline-code">confirm_otp_code.dart</span></div>
+      <div><span class="inline-code">verify_otp.dart</span></div>
+      <div><span class="inline-code">verify_action.dart</span></div>
+      <div><span class="inline-code">firebase_token_update.dart</span></div>
+      <div><span class="inline-code">version_check_provider.dart</span></div>
+      <div><span class="inline-code">terms_condition_provider.dart</span></div>
+      <div><span class="inline-code">name_account_provider.dart</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Token Management Flow</h3>
+    <div class="flow">
+      <div class="flow-step">API Call</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">401 Error</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">refreshToken()</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">Retry Request</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">If Fail &rarr; Logout</div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== MODELS ======================== -->
+<div id="models" class="section">
+  <h1 class="section-title">Data Models</h1>
+  <p class="section-sub">70+ model classes with fromJson/toJson serialization</p>
+
+  <div class="card">
+    <h3>User Model</h3>
+    <p>File: <span class="inline-code">lib/model/user/user_data.dart</span></p>
+    <pre><code>UserStatus { pending, approved, accLive, awaitingVerify,
+             customerUpdate, reject, suspended }
+
+User {
+  id, email, firstName, middleName, lastName, phoneNumber,
+  companyName, tradingName, status, forceChangePassword,
+  registeredPin, kycPassVerify, referralCode, referrerId,
+  registerAccType, checkListStatus, salesRepList,
+  contractingEntity (BS), requestNewSale
+}</code></pre>
+  </div>
+
+  <div class="card">
+    <h3>Key Models Summary</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Model</th><th>Location</th><th>Key Fields</th></tr>
+      <tr><td>User</td><td>model/user/</td><td>id, email, name, status, kycPassVerify, salesRepList</td></tr>
+      <tr><td>Token</td><td>model/token.dart</td><td>refreshToken, accessToken</td></tr>
+      <tr><td>VirtualAccount</td><td>model/currency_account/</td><td>id, currency, amount, status, receive, send, exchange</td></tr>
+      <tr><td>PayoutBeneficiary</td><td>model/payout/</td><td>id, currency, bankName, swiftCode, accountName, accountNumber</td></tr>
+      <tr><td>PayoutDetail</td><td>model/payout/</td><td>transactionId, sendingAmount, fee, fxRate, receivingAmount (44 fields)</td></tr>
+      <tr><td>CollectionDetail</td><td>model/collection/</td><td>transactionId, receivedAmount, fee, paymentAddress, qrString (27 fields)</td></tr>
+      <tr><td>CollectPaymentService</td><td>model/collection/</td><td>gatewayPartner, fees, paymentAddress, transactionSize</td></tr>
+      <tr><td>ExchangeRateData</td><td>model/exchange/</td><td>sourceCcy, destinationCcy, fxRate, sourceAmount, expiresAt</td></tr>
+      <tr><td>NotificationData</td><td>model/notification/</td><td>userId, activityType, notificationBody, createdAt</td></tr>
+      <tr><td>TransactionData</td><td>model/transactions/</td><td>id, createdAt, currency, amount, message</td></tr>
+      <tr><td>Pagination</td><td>model/pagination.dart</td><td>totalRecords, currentPage, totalPage, nextPage, prevPage</td></tr>
+      <tr><td>AccountType</td><td>model/account_type.dart</td><td>id, type, title, body, requirement</td></tr>
+      <tr><td>AvailableCurrency</td><td>model/available_currency.dart</td><td>currency, isSupport, canPayIn, canPayOut, canSVA</td></tr>
+      <tr><td>RegisterUser</td><td>model/register/</td><td>email, password, firstName, lastName, customerType, countryOfResidence</td></tr>
+      <tr><td>SalesRepData</td><td>model/sales_reps/</td><td>salesRepId, salesRepName, permissions (account, payout, fxConversion)</td></tr>
+      <tr><td>SettleDetail</td><td>model/settle/</td><td>transactionId, currencyIsoCode, receivedAmount, fee, settleTimeline</td></tr>
+      <tr><td>DynamicFormModel</td><td>model/dynamic/</td><td>type, title, value - API-driven form fields</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<!-- ======================== AUTH ======================== -->
+<div id="auth" class="section">
+  <h1 class="section-title">Authentication Module</h1>
+  <p class="section-sub">Login, Registration, OTP, PIN, 2FA, and Forgot Password</p>
+
+  <div class="card">
+    <h3>Login Flow</h3>
+    <div class="flow">
+      <div class="flow-step">1. Email + Password</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">2. Server sends OTP</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">3. Enter 6-digit OTP</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">4. 2FA (Email/SMS)</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">5. PIN Code</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">6. Dashboard</div>
+    </div>
+    <br>
+    <p><strong>LoginController</strong> &mdash; <span class="inline-code">lib/modules/login/controller/login_controller.dart</span></p>
+    <pre><code>Key Methods:
+  verifyAccount()  &rarr; Authenticate email/password (password encrypted)
+  verifyLoginEmail() &rarr; Request OTP code
+  submitOTP()      &rarr; Confirm OTP code
+  login()          &rarr; Complete login with device telemetry
+  updateFCM()      &rarr; Register push notification token
+
+State Variables:
+  isLoading, passwordVisible, isResend, inputOTPComplete
+  emailController, passwordController, pinController
+  ip, serialNumber, deviceInfo, fcmToken</code></pre>
+  </div>
+
+  <div class="card">
+    <h3>Registration Flow (4 Steps)</h3>
+    <div class="flow">
+      <div class="flow-step">1. Account Info</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">2. Email OTP</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">3. Phone Number</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">4. Password</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">Auto-Login</div>
+    </div>
+    <br>
+    <p><strong>RegisterController</strong> &mdash; <span class="inline-code">lib/modules/register/controller/register_controller.dart</span></p>
+    <pre><code>Password Validation Rules:
+  - Minimum 8 characters
+  - At least 1 lowercase letter
+  - At least 1 uppercase letter
+  - At least 1 number
+  - At least 1 special character
+  - Passwords must match
+
+Account Types: Individual, SME, Business</code></pre>
+  </div>
+
+  <div class="card">
+    <h3>PIN Code System</h3>
+    <p><strong>PinCodeController</strong> &mdash; <span class="inline-code">lib/modules/pin_code/controller/pin_code_controller.dart</span></p>
+    <pre><code>PIN Types:
+  create      &rarr; Create new 6-digit PIN (requires 2x confirmation)
+  confirm     &rarr; Confirm transaction PIN
+  changePin   &rarr; Change existing PIN (2-step)
+  checkPin    &rarr; Verify PIN for specific action
+  lockedScreen &rarr; Unlock from locked screen
+
+Security:
+  - PIN encrypted with RSA public key before sending
+  - Max 6 wrong attempts before lockout
+  - 401/403 triggers force logout
+  - Cloud logging of failed attempts</code></pre>
+  </div>
+</div>
+
+<!-- ======================== DASHBOARD ======================== -->
+<div id="dashboard" class="section">
+  <h1 class="section-title">Dashboard Module</h1>
+  <p class="section-sub">Main hub with tab navigation, account cards, and recent activity</p>
+
+  <div class="card">
+    <h3>Dashboard Tabs</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Index</th><th>Tab</th><th>Screen</th></tr>
+      <tr><td>0</td><td>Home</td><td>HomeCurrencyAccount - swipeable account cards + recent activity</td></tr>
+      <tr><td>1</td><td>History</td><td>TransactionHistory - filtered, paginated transactions</td></tr>
+      <tr><td>2</td><td>Accounts</td><td>Accounts - all virtual accounts, sort, add new</td></tr>
+      <tr><td>3</td><td>Notifications</td><td>NotificationScreen - push &amp; in-app notifications</td></tr>
+      <tr><td>4</td><td>More</td><td>MoreWidget - settings, profile, support, legal</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>CurrencyAccountController</h3>
+    <p>File: <span class="inline-code">lib/modules/currency_account/controller/currency_account_controller.dart</span></p>
+    <pre><code>Key Features:
+  - Virtual account list (swipeable cards)
+  - Recent transaction activity
+  - KYC status tracking with step checklist
+  - Permission-based action buttons (Receive, Send, Exchange, Settlement)
+  - Account status checks (rejected/suspended/disabled)
+  - Terms version checking
+  - Tutorial coach marks on first load</code></pre>
+  </div>
+</div>
+
+<!-- ======================== PAYOUT ======================== -->
+<div id="payout" class="section">
+  <h1 class="section-title">Payout Module (Send Money)</h1>
+  <p class="section-sub">SWIFT &amp; local payment transfers with beneficiary management</p>
+
+  <div class="card">
+    <h3>Payout Flow</h3>
+    <div class="flow">
+      <div class="flow-step">Select Account</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">Choose Beneficiary</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">Enter Amount</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">Calculate Fees</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">Review</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">PIN Confirm</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">Receipt</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>PayoutController</h3>
+    <p>File: <span class="inline-code">lib/modules/payout/controller/payout_controller.dart</span></p>
+    <pre><code>Key Methods:
+  getSwiftCurrencies()     &rarr; Get available SWIFT currencies
+  getFees()                &rarr; Calculate transaction fees
+  calculateEstAmount()     &rarr; Calculate estimated receive amount
+  getSwiftFeesType()       &rarr; Get SWIFT fee options (OUR/SHA/BEN)
+  checkAdditionInfo()      &rarr; Get dynamic mandatory fields
+  createOrder()            &rarr; Create payout order
+  confirmPayout()          &rarr; Confirm payout order
+  confirmPayoutBySalesRep() &rarr; Sales rep confirmation
+  confirmPinCode()         &rarr; PIN verification before payout
+  onSlideToConfirm()       &rarr; Slide-to-confirm action
+
+Features:
+  - "Send All" toggle for full balance transfer
+  - Real-time fee calculation
+  - Exchange rate display
+  - Amount validation with min/max limits
+  - Dynamic mandatory field configuration</code></pre>
+  </div>
+</div>
+
+<!-- ======================== COLLECTION ======================== -->
+<div id="collection" class="section">
+  <h1 class="section-title">Collection Module (Receive Money)</h1>
+  <p class="section-sub">Payment gateway selection, fee calculation, and PromptPay QR generation</p>
+
+  <div class="card">
+    <h3>Collection Flow</h3>
+    <div class="flow">
+      <div class="flow-step">Select Account</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">Choose Country</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">Enter Amount</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">Select Gateway</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">Review Fees</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">PIN Confirm</div><span class="flow-arrow">&#10132;</span>
+      <div class="flow-step">Share Payment Link</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>CollectionController</h3>
+    <p>File: <span class="inline-code">lib/modules/collection/controller/collection_controller.dart</span></p>
+    <pre><code>Key Methods:
+  getBankList()           &rarr; Get payment services for country/currency
+  calculateFees()         &rarr; Calculate fees for amount
+  onChoosePayment()       &rarr; Select payment gateway
+  getQrPromptPay()        &rarr; Generate Thai PromptPay QR code
+  onSlideToConfirm()      &rarr; PIN confirmation before payment
+  getCollectionDetail()   &rarr; Fetch order status
+  shareTransaction()      &rarr; Share payment link
+  observePaymentDetails() &rarr; Listen for payment notifications
+
+State:
+  totalAmount, receivedAmount, totalFees, paymentList,
+  selectedPayment, collectionDetail, virtualAccount,
+  collectTimelines, collectCommission</code></pre>
+  </div>
+</div>
+
+<!-- ======================== EXCHANGE ======================== -->
+<div id="exchange" class="section">
+  <h1 class="section-title">Currency Exchange Module</h1>
+  <p class="section-sub">FX conversion between currency accounts</p>
+
+  <div class="card">
+    <h3>CurrencyExchangeController</h3>
+    <p>File: <span class="inline-code">lib/modules/currency_exchange/controller/currency_exchange_controller.dart</span></p>
+    <pre><code>Key Methods:
+  getVirtualAccounts() &rarr; Get available currencies to exchange to
+  updateCurrency()     &rarr; Change target currency
+  onSubmit()           &rarr; Validate amount &amp; currency
+  onRequest()          &rarr; Submit exchange request
+
+Validation:
+  - Amount > 0
+  - Amount &lt; account balance
+  - "Other" currency option with custom text input
+
+API:
+  /conversions/list/    &rarr; Get currencies
+  /conversions/calculate &rarr; Calculate exchange
+  /conversions/quotation &rarr; Get FX quotation</code></pre>
+  </div>
+</div>
+
+<!-- ======================== KYC ======================== -->
+<div id="kyc" class="section">
+  <h1 class="section-title">KYC Verification Module</h1>
+  <p class="section-sub">Know Your Customer document verification for personal &amp; SME accounts</p>
+
+  <div class="card">
+    <h3>VerificationController</h3>
+    <p>File: <span class="inline-code">lib/modules/kyc/controller/verification_controller.dart</span></p>
+    <pre><code>Document Types:
+  Personal: Passport, Government Issue ID
+  SME: Registration, Tax, Bank Statement (configurable)
+
+Key Methods:
+  uploadDocument()         &rarr; Upload document file with progress tracking
+  submitPersonalId()       &rarr; Submit ID for verification
+  submitSME()              &rarr; Submit SME documents
+  confirmDocumentUpdate()  &rarr; Confirm upload with server
+  getUploadedFiles()       &rarr; Fetch uploaded documents
+  deleteDocument()         &rarr; Delete uploaded file
+  downloadFile()           &rarr; Download document with progress
+  validatePersonalId()     &rarr; Check ID number, date &amp; file
+
+Features:
+  - Upload progress simulation
+  - Download progress dialog
+  - Real-time field validation
+  - Face detection integration (flutter_face_api + google_mlkit)</code></pre>
+  </div>
+</div>
+
+<!-- ======================== HISTORY ======================== -->
+<div id="history" class="section">
+  <h1 class="section-title">Transaction History Module</h1>
+  <p class="section-sub">Paginated, filterable transaction history</p>
+
+  <div class="card">
+    <h3>HistoryController</h3>
+    <p>File: <span class="inline-code">lib/modules/history/controller/transaction_history_controller.dart</span></p>
+    <pre><code>Scroll States:
+  loading  &rarr; Initial load
+  hasData  &rarr; Data loaded
+  noData   &rarr; Empty result
+  error    &rarr; Load error
+  loadMore &rarr; Loading next page
+  endPage  &rarr; End of list
+
+Key Methods:
+  fetchCurrency()   &rarr; Get available currencies for filter
+  getInitial()      &rarr; Load first page
+  loadMore()        &rarr; Load next page (pagination)
+  onRefresh()       &rarr; Pull-to-refresh
+  updateCurrency()  &rarr; Filter by currency
+  onChooseDate()    &rarr; Filter by month
+  activityOnTap()   &rarr; Navigate to transaction detail</code></pre>
+  </div>
+</div>
+
+<!-- ======================== BENEFICIARY ======================== -->
+<div id="beneficiary" class="section">
+  <h1 class="section-title">Beneficiary Management</h1>
+  <p class="section-sub">SWIFT validation, bank selection, and dynamic mandatory fields</p>
+
+  <div class="card">
+    <h3>PayoutBnfController</h3>
+    <p>File: <span class="inline-code">lib/modules/payout/controller/payout_beneficiary_controller.dart</span></p>
+    <pre><code>SWIFT Code Validation:
+  - Minimum 8, maximum 11 characters
+  - Characters 5-6 must be valid country code
+  - 8-char format: bank only
+  - 11-char format: with branch code
+  - Auto-padding with 'X' to 11 characters
+
+Payment Methods: SWIFT, Local
+Beneficiary Types: Person, Corporation
+Account Types: Third-party, Settlement
+
+Key Methods:
+  getBeneficiaryList()    &rarr; Fetch saved beneficiaries
+  onChoosePayment()       &rarr; Select SWIFT or local payment
+  startSwiftCheck()       &rarr; Real-time SWIFT code validation
+  checkHighRiskCountry()  &rarr; Verify high-risk country restrictions
+  getGateways()           &rarr; Get available banks for country
+  onChooseBank()          &rarr; Select specific bank
+  checkBnfAddress()       &rarr; Validate address form
+  checkAddBankForm()      &rarr; Validate bank form</code></pre>
+  </div>
+</div>
+
+<!-- ======================== NOTIFICATIONS ======================== -->
+<div id="notifications" class="section">
+  <h1 class="section-title">Notifications Module</h1>
+  <p class="section-sub">Push (Firebase) &amp; in-app notifications</p>
+
+  <div class="card">
+    <h3>Notification System</h3>
+    <pre><code>Firebase Cloud Messaging (FCM):
+  - Token registered on login via /dashboard/insertFCMToken
+  - Listens for token changes via AppService.checkFCMToken()
+  - Background handler in iOS FcmMessage extension
+  - Notification UI extension in iOS FcmNotification
+
+NotificationData Model:
+  userId, activityType, notificationBody {
+    id, transactionId, createdAt, currency,
+    amount, title, body
+  }
+
+Features:
+  - Paginated notification list
+  - Tap notification to view transaction detail
+  - Real-time payment observation via notifications
+  - Badge count updates</code></pre>
+  </div>
+</div>
+
+<!-- ======================== SECURITY ======================== -->
+<div id="security" class="section">
+  <h1 class="section-title">Security</h1>
+  <p class="section-sub">Multi-layered security with certificate pinning, encryption, and device protection</p>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>Certificate Pinning</h3>
+      <p>SHA256 fingerprint pinning via <span class="inline-code">http_certificate_pinning</span> package. Certificate file: <span class="inline-code">assets/lets-encrypt-r3.pem</span>. Android also uses network security config with pinning.</p>
+    </div>
+    <div class="card">
+      <h3>Jailbreak / Root Detection</h3>
+      <p>FreeRASP (Talsec) integration detects jailbroken/rooted devices, emulators, debug mode, and tampering attempts at app startup.</p>
+    </div>
+    <div class="card">
+      <h3>Encryption</h3>
+      <p>RSA public key encryption for passwords and PINs before transmission. Base64 encoding for credentials. File: <span class="inline-code">lib/utils/helper/encrypt_helper.dart</span></p>
+    </div>
+    <div class="card">
+      <h3>Biometric Authentication</h3>
+      <p><span class="inline-code">local_auth</span> package for fingerprint/Face ID. Toggleable in More &gt; Security &gt; On-Device Authentication.</p>
+    </div>
+    <div class="card">
+      <h3>Secure Storage</h3>
+      <p><span class="inline-code">flutter_secure_storage</span> for tokens, user data, and sensitive information. Encrypted at rest on device.</p>
+    </div>
+    <div class="card">
+      <h3>App Locking</h3>
+      <p><span class="inline-code">secure_application</span> (custom git) for app locking when backgrounded. Prevents screen capture/recording.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Error Monitoring</h3>
+    <pre><code>Firebase Crashlytics  &rarr; Crash reporting &amp; error tracking
+Sentry               &rarr; Performance monitoring &amp; error logging
+Cloud Event Logging   &rarr; Custom event logging (failed PIN attempts, etc.)</code></pre>
+  </div>
+</div>
+
+<!-- ======================== SERVICES ======================== -->
+<div id="services" class="section">
+  <h1 class="section-title">App Services</h1>
+  <p class="section-sub">Core application service managing auth state, storage, and connectivity</p>
+
+  <div class="card">
+    <h3>AppService (GetxService)</h3>
+    <p>File: <span class="inline-code">lib/utils/service/app_service.dart</span></p>
+    <pre><code>Singleton: AppService.to (Get.find())
+
+Reactive State:
+  isLoggedIn           &rarr; Login state
+  isUnLockedPin        &rarr; PIN unlocked status
+  accessToken          &rarr; Current access token
+  userData             &rarr; Current user (RxUser)
+  networkConnectionStatus &rarr; wifi / mobile / vpn / none
+  currentLocation      &rarr; User location (Placemark)
+  kycMainType          &rarr; KYC verification type
+  countryCode          &rarr; User country code
+
+Key Methods:
+  init()               &rarr; Initialize with existing token
+  login()              &rarr; Set logged-in state
+  logout()             &rarr; Secure logout + API call + token cleanup
+  checkFCMToken()      &rarr; Register &amp; listen FCM token changes
+  initConnectivity()   &rarr; Monitor network (WiFi, Mobile, VPN, None)
+  setUserData()        &rarr; Save user data securely
+  addSecureString()    &rarr; Encrypted secure storage write
+  readSecureString()   &rarr; Decrypt &amp; read from secure storage
+
+Storage Keys:
+  userInfo, token, refreshToken, firebaseToken,
+  devicesUUID, savedLanguage</code></pre>
+  </div>
+</div>
+
+<!-- ======================== UTILS ======================== -->
+<div id="utils" class="section">
+  <h1 class="section-title">Utilities</h1>
+  <p class="section-sub">Constants, colors, dimensions, extensions, and helpers</p>
+
+  <div class="card">
+    <h3>Constants</h3>
+    <p>File: <span class="inline-code">lib/utils/const.dart</span></p>
+    <pre><code>App Name:          "DSGPay"
+App Version:       "1.8.4"
+Max Phone Number:  15
+Max Allowed Size:  25 MB
+Support Email:     support@dsgpay.com
+
+Storage Keys:
+  userInfo, token, refreshToken, firebaseToken,
+  devicesUUID, savedLanguage</code></pre>
+  </div>
+
+  <div class="card">
+    <h3>Color Palette</h3>
+    <p>File: <span class="inline-code">lib/utils/colors.dart</span></p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px">
+      <div style="display:flex;align-items:center;gap:8px"><div style="width:24px;height:24px;border-radius:4px;background:#002968"></div><span class="inline-code">#002968</span> primary</div>
+      <div style="display:flex;align-items:center;gap:8px"><div style="width:24px;height:24px;border-radius:4px;background:#164287"></div><span class="inline-code">#164287</span> primaryShade</div>
+      <div style="display:flex;align-items:center;gap:8px"><div style="width:24px;height:24px;border-radius:4px;background:#0EC1D1"></div><span class="inline-code">#0EC1D1</span> primaryLight</div>
+      <div style="display:flex;align-items:center;gap:8px"><div style="width:24px;height:24px;border-radius:4px;background:#FFC70E"></div><span class="inline-code">#FFC70E</span> solidYellow</div>
+      <div style="display:flex;align-items:center;gap:8px"><div style="width:24px;height:24px;border-radius:4px;background:#052F6F"></div><span class="inline-code">#052F6F</span> navigationDark</div>
+      <div style="display:flex;align-items:center;gap:8px"><div style="width:24px;height:24px;border-radius:4px;background:#1A3763"></div><span class="inline-code">#1A3763</span> promptPayBg</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Dimensions</h3>
+    <p>File: <span class="inline-code">lib/utils/dimens.dart</span></p>
+    <pre><code>Padding:  paddingDefault=8, paddingSmall=10, paddingNormal=16, paddingLarge=20
+Text:     textSizeSmall=12, textSizeNormal=16, textSizeTitle=24, textSizeHeadline=40
+Radius:   borderRadiusNormal=10, borderRadiusLarge=25
+Icons:    defaultIcon=30, smallIcon=14
+Input:    inputFieldHeight=50
+
+Helpers:  gapSmaller(), gapDefault(), gapNormal(), gapLarge()</code></pre>
+  </div>
+
+  <div class="card">
+    <h3>Extension Methods</h3>
+    <p>File: <span class="inline-code">lib/utils/extension.dart</span></p>
+
+    <div class="accordion-header" onclick="toggleAccordion(this)">StringExtension <span class="arrow">&#9654;</span></div>
+    <div class="accordion-body">
+      <pre><code>isPayoutSwift()        &rarr; Check if SWIFT method
+wasEmpty()             &rarr; Null-safe empty check
+transformToFlag()      &rarr; Country code to emoji flag
+isValidEmail()         &rarr; Email validation
+isValidPhone()         &rarr; Phone validation
+isAtLeastEight()       &rarr; Min 8 characters
+isContainLowerCase()   &rarr; Has lowercase
+isContainUpperCase()   &rarr; Has uppercase
+isContainNumber()      &rarr; Has number
+isContainSpecial()     &rarr; Has special character
+checkSwiftCountryCode() &rarr; SWIFT code validation
+getActivityIcon()      &rarr; Transaction type icon
+transformToDecimal()   &rarr; Number formatting
+formatComma()          &rarr; Comma formatting
+canDownloadReceipt()   &rarr; Status check
+canCancelExchange()    &rarr; Status check</code></pre>
+    </div>
+
+    <div class="accordion-header" onclick="toggleAccordion(this)">DateFormatExt / DateTimeConvert <span class="arrow">&#9654;</span></div>
+    <div class="accordion-body">
+      <pre><code>getYYYYMMdd()      &rarr; "2024-01-15"
+getDDMMYYYY()      &rarr; "15/01/2024"
+toddMMMyyhmma()    &rarr; "15 Jan 24, 2:30 PM"
+getHours()         &rarr; "14:30"
+getyMMMEd()        &rarr; "Mon, Jan 15, 2024"
+formatDateTime()   &rarr; Locale-aware formatting</code></pre>
+    </div>
+
+    <div class="accordion-header" onclick="toggleAccordion(this)">Other Extensions <span class="arrow">&#9654;</span></div>
+    <div class="accordion-body">
+      <pre><code>IntExtension:
+  wasResponseSuccess() &rarr; HTTP 200 check
+
+NumberFormatter:
+  decimalThousandSeparator() &rarr; "1,234.56"
+  thousandSeparator()        &rarr; "1,234"
+
+AccountStatus:
+  isAccountAwaitingVerify()
+  isAccountApproved()
+  isAccountUpdateKyc()
+
+OpenExternalApp:
+  openGmail(), callPhone(), openBrowser()
+  copyToClipBoard(), shareExternal()
+  chooseDocument(), chooseVerificationDoc()
+
+ReformatText:
+  toReadable(), toCamelCase(), toSwiftFormat()
+
+StringInitials:
+  toInitials() &rarr; "John Doe" &rarr; "JD"</code></pre>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== WIDGETS ======================== -->
+<div id="widgets" class="section">
+  <h1 class="section-title">Widgets Library</h1>
+  <p class="section-sub">40+ reusable UI components in lib/utils/widgets/</p>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>Buttons (7)</h3>
+      <ul style="margin:8px 0 0 16px;font-size:13px;color:var(--muted)">
+        <li>RoundedButton - Primary action button</li>
+        <li>GradientElevatedButton - Gradient button</li>
+        <li>OutlineButton - Bordered button</li>
+        <li>ConstraintButton - Width-constrained</li>
+        <li>InkwellButton - Tap effect button</li>
+        <li>IconButton - Icon-only button</li>
+        <li>TextIconButton - Text with icon</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Text Fields (4)</h3>
+      <ul style="margin:8px 0 0 16px;font-size:13px;color:var(--muted)">
+        <li>RoundedInputField - Standard text input</li>
+        <li>RoundedPasswordField - Password with toggle</li>
+        <li>TextFieldContainer - Input container</li>
+        <li>TitleTextMedium - Title text styling</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Backgrounds (5)</h3>
+      <ul style="margin:8px 0 0 16px;font-size:13px;color:var(--muted)">
+        <li>BackgroundLoginContainer</li>
+        <li>BackgroundRegister</li>
+        <li>BackgroundReceipt</li>
+        <li>BgPatternPainter</li>
+        <li>CameraBg</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Dropdowns (4)</h3>
+      <ul style="margin:8px 0 0 16px;font-size:13px;color:var(--muted)">
+        <li>CustomDropDownButton</li>
+        <li>CountryDropdownButton</li>
+        <li>DynamicCountryDropdown</li>
+        <li>NetworkImageDropdown</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Navigation (3)</h3>
+      <ul style="margin:8px 0 0 16px;font-size:13px;color:var(--muted)">
+        <li>DashboardBottomNavigation</li>
+        <li>CustomNavigationBar</li>
+        <li>MenuItems</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Dialogs (3)</h3>
+      <ul style="margin:8px 0 0 16px;font-size:13px;color:var(--muted)">
+        <li>ShowDialog - Alert dialog utility</li>
+        <li>ReportProblemDialog - Issue reporting</li>
+        <li>FullscreenDialog</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Animations (3)</h3>
+      <ul style="margin:8px 0 0 16px;font-size:13px;color:var(--muted)">
+        <li>LoadingAnimation</li>
+        <li>Shimmer</li>
+        <li>ShimmerLoading</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Other Components</h3>
+      <ul style="margin:8px 0 0 16px;font-size:13px;color:var(--muted)">
+        <li>AppBarDefault - Standard app bar</li>
+        <li>AnimatedIndicator - Dot pagination</li>
+        <li>CircleProgress - Loading indicator</li>
+        <li>CountdownTimer - OTP timer</li>
+        <li>HeaderLayout - Transaction header</li>
+        <li>CardView - Styled card container</li>
+        <li>WebView - In-app browser</li>
+        <li>ImageSlider - Carousel</li>
+        <li>SvgIcon - SVG renderer</li>
+        <li>ShowToast - Toast notifications</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== DEPENDENCIES ======================== -->
+<div id="deps" class="section">
+  <h1 class="section-title">Dependencies</h1>
+  <p class="section-sub">Package dependencies from pubspec.yaml</p>
+
+  <div class="card">
+    <h3>State Management &amp; Routing</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Package</th><th>Version</th><th>Purpose</th></tr>
+      <tr><td>get</td><td>^4.6.5</td><td>GetX state management, routing, DI</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>API &amp; Network</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Package</th><th>Version</th><th>Purpose</th></tr>
+      <tr><td>dio</td><td>^5.0.1</td><td>HTTP client</td></tr>
+      <tr><td>pretty_dio_logger</td><td>^1.3.1</td><td>Request logging</td></tr>
+      <tr><td>http_certificate_pinning</td><td>^2.0.0</td><td>SSL certificate pinning</td></tr>
+      <tr><td>connectivity_plus</td><td>^6.1.4</td><td>Network state monitoring</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>Security &amp; Authentication</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Package</th><th>Version</th><th>Purpose</th></tr>
+      <tr><td>local_auth</td><td>^2.2.0</td><td>Biometric authentication</td></tr>
+      <tr><td>freerasp</td><td>^7.3.0</td><td>Jailbreak/root detection</td></tr>
+      <tr><td>encrypt</td><td>^5.0.1</td><td>Encryption utilities</td></tr>
+      <tr><td>rsa_encrypt</td><td>^2.0.0</td><td>RSA encryption</td></tr>
+      <tr><td>flutter_secure_storage</td><td>^9.2.4</td><td>Encrypted key-value storage</td></tr>
+      <tr><td>secure_application</td><td>git (custom)</td><td>App locking / screen protection</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>Firebase</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Package</th><th>Version</th><th>Purpose</th></tr>
+      <tr><td>firebase_core</td><td>^3.12.0</td><td>Firebase initialization</td></tr>
+      <tr><td>firebase_analytics</td><td>^11.5.1</td><td>App analytics</td></tr>
+      <tr><td>firebase_crashlytics</td><td>^4.3.9</td><td>Crash reporting</td></tr>
+      <tr><td>firebase_messaging</td><td>^15.2.9</td><td>Push notifications</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>UI/UX</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Package</th><th>Version</th><th>Purpose</th></tr>
+      <tr><td>flutter_svg</td><td>^2.0.2</td><td>SVG rendering</td></tr>
+      <tr><td>font_awesome_flutter</td><td>^10.5.0</td><td>Font Awesome icons</td></tr>
+      <tr><td>google_fonts</td><td>^6.2.0</td><td>Google Fonts</td></tr>
+      <tr><td>rive</td><td>^0.13.20</td><td>Rive animations</td></tr>
+      <tr><td>carousel_slider</td><td>^4.2.1</td><td>Image carousels</td></tr>
+      <tr><td>animate_do</td><td>^3.0.2</td><td>Animation helpers</td></tr>
+      <tr><td>tutorial_coach_mark</td><td>1.2.9</td><td>Feature walkthroughs</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>Device &amp; Permissions</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Package</th><th>Version</th><th>Purpose</th></tr>
+      <tr><td>permission_handler</td><td>^11.3.1</td><td>Runtime permissions</td></tr>
+      <tr><td>device_info_plus</td><td>^11.3.0</td><td>Device information</td></tr>
+      <tr><td>geolocator</td><td>13.0.4</td><td>GPS location</td></tr>
+      <tr><td>geocoding</td><td>^3.0.0</td><td>Address geocoding</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>Media &amp; ML</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Package</th><th>Version</th><th>Purpose</th></tr>
+      <tr><td>image_picker</td><td>^1.1.1</td><td>Image selection</td></tr>
+      <tr><td>camera</td><td>0.10.6</td><td>Camera access</td></tr>
+      <tr><td>image_cropper</td><td>^9.0.0</td><td>Image cropping</td></tr>
+      <tr><td>flutter_face_api</td><td>^6.4.875</td><td>Face recognition</td></tr>
+      <tr><td>google_mlkit_face_detection</td><td>^0.13.1</td><td>ML face detection</td></tr>
+      <tr><td>pdf</td><td>^3.11.2</td><td>PDF generation</td></tr>
+      <tr><td>qr_flutter</td><td>^4.1.0</td><td>QR code generation</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card">
+    <h3>Other Utilities</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Package</th><th>Version</th><th>Purpose</th></tr>
+      <tr><td>shared_preferences</td><td>^2.2.2</td><td>Key-value storage</td></tr>
+      <tr><td>intl</td><td>^0.19.0</td><td>Internationalization</td></tr>
+      <tr><td>flutter_dotenv</td><td>^5.2.1</td><td>.env file loader</td></tr>
+      <tr><td>sentry_flutter</td><td>^8.14.1</td><td>Error monitoring</td></tr>
+      <tr><td>app_links</td><td>^6.4.0</td><td>Deep linking</td></tr>
+      <tr><td>youtube_player_flutter</td><td>^9.1.1</td><td>YouTube player</td></tr>
+      <tr><td>path_provider</td><td>^2.0.3</td><td>File system paths</td></tr>
+      <tr><td>file_picker</td><td>^8.0.3</td><td>File selection</td></tr>
+    </table></div>
+  </div>
+</div>
+
+  </div><!-- /content -->
+</div><!-- /main -->
+
+<!-- jQuery Logic -->
+<script>
+$(function(){
+  // Navigation
+  $('.nav-link').on('click', function(e){
+    e.preventDefault();
+    var target = $(this).attr('href').substring(1);
+    $('.section').removeClass('active');
+    $('#'+target).addClass('active');
+    $('.nav-link').removeClass('active');
+    $(this).addClass('active');
+    window.scrollTo(0,0);
+    if($(window).width()<=768) $('#sidebar').removeClass('open');
+  });
+
+  // Mobile menu
+  $('#menu-btn').on('click', function(){ $('#sidebar').toggleClass('open'); });
+
+  // Tabs
+  $('.tab-btn').on('click', function(){
+    var tab = $(this).data('tab');
+    $(this).siblings().removeClass('active');
+    $(this).addClass('active');
+    $(this).closest('.card').find('.tab-content').removeClass('active');
+    $('#'+tab).addClass('active');
+  });
+
+  // Search
+  var searchTimer = null;
+  $('#search').on('input', function(){
+    var q = $(this).val().toLowerCase().trim();
+    clearTimeout(searchTimer);
+    // Remove old highlights & results
+    $('.search-highlight').each(function(){ $(this).replaceWith($(this).text()); });
+    $('#search-results').remove();
+
+    if(q.length < 2){
+      // Reset to first section
+      $('.section').removeClass('active search-active');
+      $('.section').first().addClass('active');
+      $('.nav-link').removeClass('active');
+      $('.nav-link').first().addClass('active');
+      return;
+    }
+
+    searchTimer = setTimeout(function(){
+      var results = [];
+      // Search through all sections
+      $('.section').each(function(){
+        var $sec = $(this);
+        var secId = $sec.attr('id');
+        var secTitle = $sec.find('.section-title').first().text();
+        var matchCards = [];
+
+        // Search inside each card
+        $sec.find('.card, .tree, pre, table').each(function(){
+          var cardText = $(this).text().toLowerCase();
+          if(cardText.indexOf(q) > -1){
+            var heading = $(this).find('h3').first().text() || $(this).closest('.card').find('h3').first().text() || '';
+            // Get a snippet around the match
+            var idx = cardText.indexOf(q);
+            var start = Math.max(0, idx - 40);
+            var end = Math.min(cardText.length, idx + q.length + 40);
+            var snippet = (start > 0 ? '...' : '') + cardText.substring(start, end).trim() + (end < cardText.length ? '...' : '');
+            matchCards.push({ heading: heading, snippet: snippet });
+          }
+        });
+
+        // Also check section title
+        if(secTitle.toLowerCase().indexOf(q) > -1 && matchCards.length === 0){
+          matchCards.push({ heading: secTitle, snippet: 'Section title matches' });
+        }
+
+        if(matchCards.length > 0){
+          results.push({ id: secId, title: secTitle, matches: matchCards });
+        }
+      });
+
+      // Build results dropdown
+      if(results.length > 0){
+        var html = '<div id="search-results">';
+        html += '<div class="sr-header">' + results.reduce(function(s,r){return s+r.matches.length;},0) + ' matches in ' + results.length + ' sections</div>';
+        results.forEach(function(r){
+          r.matches.slice(0, 3).forEach(function(m){
+            var safeSnippet = $('<span>').text(m.snippet).html();
+            var re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi');
+            safeSnippet = safeSnippet.replace(re, '<mark>$1</mark>');
+            html += '<a class="sr-item" data-section="' + r.id + '">';
+            html += '<div class="sr-section">' + r.title + '</div>';
+            if(m.heading) html += '<div class="sr-heading">' + $('<span>').text(m.heading).html() + '</div>';
+            html += '<div class="sr-snippet">' + safeSnippet + '</div>';
+            html += '</a>';
+          });
+          if(r.matches.length > 3){
+            html += '<a class="sr-item sr-more" data-section="' + r.id + '">+ ' + (r.matches.length - 3) + ' more in ' + r.title + '</a>';
+          }
+        });
+        html += '</div>';
+        $('#topbar').append(html);
+
+        // Click result to navigate
+        $('#search-results .sr-item').on('click', function(){
+          var secId = $(this).data('section');
+          $('.section').removeClass('active');
+          $('#' + secId).addClass('active');
+          $('.nav-link').removeClass('active');
+          $('.nav-link[href="#' + secId + '"]').addClass('active');
+          $('#search-results').remove();
+
+          // Highlight matches in the visible section
+          highlightInSection(secId, q);
+          window.scrollTo(0, 0);
+        });
+      } else {
+        var html = '<div id="search-results"><div class="sr-header">No results found for "' + $('<span>').text(q).html() + '"</div></div>';
+        $('#topbar').append(html);
+      }
+    }, 250);
+  });
+
+  // Close search results on outside click
+  $(document).on('click', function(e){
+    if(!$(e.target).closest('#topbar').length) $('#search-results').remove();
+  });
+
+  // Enter key navigates to first result
+  $('#search').on('keydown', function(e){
+    if(e.key === 'Enter'){
+      var $first = $('#search-results .sr-item').first();
+      if($first.length) $first.click();
+    }
+    if(e.key === 'Escape'){
+      $('#search-results').remove();
+      $(this).val('').trigger('input');
+    }
+  });
+
+  function highlightInSection(secId, q){
+    var $sec = $('#' + secId);
+    // highlight in card text nodes (not inside tags)
+    $sec.find('.card p, .card td, .card li, .card .path, .card .desc, .inline-code').each(function(){
+      var $el = $(this);
+      if($el.children().length > 0 && !$el.hasClass('inline-code')) return;
+      var text = $el.html();
+      var re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi');
+      if(re.test(text)){
+        $el.html(text.replace(re, '<span class="search-highlight">$1</span>'));
+      }
+    });
+    // Scroll to first highlight
+    setTimeout(function(){
+      var $hl = $sec.find('.search-highlight').first();
+      if($hl.length){
+        $('html,body').animate({ scrollTop: $hl.offset().top - 100 }, 300);
+      }
+    }, 100);
+  }
+});
+
+// File Tree toggle
+function toggleTree(el){
+  $(el).toggleClass('open');
+  $(el).next('.ft-children').slideToggle(150);
+}
+
+// Accordion
+function toggleAccordion(el){
+  $(el).toggleClass('open');
+  $(el).next('.accordion-body').slideToggle(200);
+}
+</script>
+</body>
+</html>
